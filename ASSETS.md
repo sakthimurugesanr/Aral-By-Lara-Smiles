@@ -26,3 +26,5 @@ The conversation banner uses the user-supplied `src/Assets/close-up-smile.jpg`, 
 ## Supplied comparison photographs and films
 
 The before/after slider uses the supplied `src/Assets/before.jpg` and `after.jpg`. They are resized to a common 781×540 frame and encoded as WebP; no clinical result or treatment type is inferred. The three films come from `src/Assets/videos`. `scripts/prepare-story-media.mjs` produces 640×1138, 24fps H.264 MP4s with fast-start metadata and physically removes all audio streams. WebP posters are generated from each film. Source rights and permissions remain with the supplied material. Originals stay untouched and untracked.
+
+The hero uses the supplied `src/Assets/bg-image.jpg`, cropped to a 1800×1150 WebP at `public/images/hero-background-fade.webp`, alongside the existing dental hero. The crop focuses on the dental examination and excludes unrelated embroidered text. Original file is preserved; source rights remain with the supplied photograph.

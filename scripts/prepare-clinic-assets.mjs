@@ -14,3 +14,5 @@ const hero = await sharp('src/Assets/geralt-dentist-8729627_1920.jpg').rotate().
 console.log(`Prepared 12 service images (${Math.round(total/1024)} KB total) and dental hero (${Math.round(hero.size/1024)} KB). Original files preserved.`);
 
 await sharp('src/Assets/close-up-smile.jpg').rotate().resize({width:1100,withoutEnlargement:true}).webp({quality:82}).toFile('public/images/close-up-smile.webp');
+
+const backgroundSource=sharp('src/Assets/bg-image.jpg');const backgroundMeta=await backgroundSource.metadata();const backgroundHeight=Math.round(backgroundMeta.width*1150/1800);const backgroundTop=Math.min(Math.round(backgroundMeta.height*.337),backgroundMeta.height-backgroundHeight);await backgroundSource.extract({left:0,top:backgroundTop,width:backgroundMeta.width,height:backgroundHeight}).resize({width:1800,height:1150}).webp({quality:82}).toFile('public/images/hero-background-fade.webp');

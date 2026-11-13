@@ -91,6 +91,12 @@ The homepage tooth-care section uses lazily loaded GSAP ScrollTrigger with a scr
 
 All three tooth-care stages are accessible buttons. On fitted pinned layouts they smoothly move to the matching scroll position; reduced-motion and short-screen layouts animate the illustration directly (instantly for reduced motion).
 
-The before/after slider supports dragging, touch, native range keyboard controls and Before/Compare/After presets. Both compressed WebP photographs load lazily. The three video cards initially render only lazy-loaded posters. Video elements and MP4 sources are mounted on Play; controls are native, muted and inline. Offscreen/hidden videos pause, and starting one pauses the others. No video downloads occur before interaction. Audio tracks are removed from exported files.
+The before/after slider supports dragging, touch, native range keyboard controls and Before/Compare/After presets. Both compressed WebP photographs load lazily. The three video cards initially render only lazy-loaded posters. Video elements and MP4 sources are mounted on explicit Play or mouse hover (fine-pointer devices without reduced motion); controls are native, muted and inline. Offscreen/hidden videos pause, and starting one pauses the others. No video downloads occur before pointer interaction or explicit Play. Hover previews pause on pointer leave, while touch devices retain native tap-to-play controls. Audio tracks are removed from exported files.
 
 To reprocess local media after replacing originals, run `node scripts/prepare-story-media.mjs` (requires the development ffmpeg-static and ffprobe-static packages). The generated JSON records dimensions, duration and file sizes.
+
+## Compact layouts and hero fades
+
+Headings use Manrope, with Nunito for body text. The comparison section sits directly before Clear Aligners. Treatment, clinician, clinic, review and video cards use tighter spacing; films become a horizontally scrollable row on phones. The Our Story narrative uses a responsive text/photo grid, and FAQs use two independent columns of native disclosure cards on desktop. Footer divider borders are removed.
+
+The hero starts with the optimized supplied bg-image.jpg crop, then crossfades to the previous dental image every seven seconds with a 1.5-second fade. The second photo loads after initial rendering. A pause button is available; rotation stops offscreen, when the tab is hidden, or for reduced-motion preferences.
