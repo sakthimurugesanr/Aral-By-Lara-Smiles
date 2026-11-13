@@ -22,3 +22,7 @@ The user supplied `src/Assets` and requested these files be used by service name
 The incisor, canine, premolar and molar drawings in src/components/tooth-journey.tsx are also original SVG artwork dedicated under CC0 1.0. They depict conceptual concerns and restorations for an educational scroll animation; they are not patient images or treatment guarantees.
 
 The conversation banner uses the user-supplied `src/Assets/close-up-smile.jpg`, compressed to `public/images/close-up-smile.webp`. Its source licence remains with the supplied asset.
+
+## Supplied comparison photographs and films
+
+The before/after slider uses the supplied `src/Assets/before.jpg` and `after.jpg`. They are resized to a common 781×540 frame and encoded as WebP; no clinical result or treatment type is inferred. The three films come from `src/Assets/videos`. `scripts/prepare-story-media.mjs` produces 640×1138, 24fps H.264 MP4s with fast-start metadata and physically removes all audio streams. WebP posters are generated from each film. Source rights and permissions remain with the supplied material. Originals stay untouched and untracked.

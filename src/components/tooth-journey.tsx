@@ -28,7 +28,8 @@ function ToothIllustration({index}:{index:number}){
 
 export function ToothJourney(){
  const root=useRef<HTMLElement>(null);const panel=useRef<HTMLDivElement>(null);const currentStage=useRef(0);const [stage,setStage]=useState(0);
- const setManual=(healthy:boolean)=>{root.current?.style.setProperty('--care-progress',healthy?'1':'0');const next=healthy?2:0;currentStage.current=next;setStage(next)};
+ const stageAction=useRef<((next:number)=>void)|null>(null);
+ const selectStage=(next:number)=>{if(stageAction.current){stageAction.current(next);return;}root.current?.style.setProperty('--care-progress',String([0,.4,1][next]));currentStage.current=next;setStage(next)};
  useEffect(()=>{
   const sectionElement=root.current;const panelElement=panel.current;if(!sectionElement||!panelElement)return;
   const element=sectionElement;const pinnedPanel=panelElement;
@@ -40,12 +41,16 @@ export function ToothJourney(){
     const [{gsap},{ScrollTrigger}]=await Promise.all([import('gsap'),import('gsap/ScrollTrigger')]);if(disposed)return;
     gsap.registerPlugin(ScrollTrigger);
     const media=gsap.matchMedia();
-    media.add({all:'all',desktop:'(min-width: 1024px) and (min-height: 700px)',reduce:'(prefers-reduced-motion: reduce)'},context=>{
+    media.add({all:'all',portrait:'(orientation: portrait)',short:'(max-height: 699px)',desktop:'(min-width: 1024px) and (min-height: 700px)',reduce:'(prefers-reduced-motion: reduce)'},context=>{
      const conditions=context.conditions as {desktop:boolean;reduce:boolean};
      const headerHeight=document.querySelector('header')?.getBoundingClientRect().height||100;
      const bottomSpace=conditions.desktop?18:78;
      const canPin=pinnedPanel.offsetHeight+headerHeight+bottomSpace+20<=window.innerHeight;
-     if(conditions.reduce||!canPin){element.dataset.scrollMode='manual';element.style.setProperty('--care-progress','0');updateStage(0);return;}
+     if(conditions.reduce||!canPin){
+      element.dataset.scrollMode='manual';element.style.setProperty('--care-progress','0');updateStage(0);
+      stageAction.current=(next)=>{gsap.to(element,{'--care-progress':[0,.4,1][next],duration:conditions.reduce?0:.65,overwrite:true,ease:'power2.inOut'});currentStage.current=next;setStage(next)};
+      return ()=>{stageAction.current=null;gsap.killTweensOf(element);element.style.removeProperty('--care-progress')};
+     }
      element.dataset.scrollMode='pinned';
      const cards=element.querySelectorAll('.journey-tooth');const glints=element.querySelectorAll('.tooth-glint');
      gsap.set(element,{'--care-progress':0});gsap.set(glints,{autoAlpha:0});
@@ -58,7 +63,8 @@ export function ToothJourney(){
       .to(glints,{autoAlpha:1,duration:.25,stagger:.025},1.9)
       .addLabel('care',2.2)
       .to({hold:0},{hold:1,duration:1.9});
-     return ()=>{element.style.removeProperty('--care-progress');};
+     stageAction.current=(next)=>{const trigger=timeline.scrollTrigger;if(trigger)window.scrollTo({top:trigger.start+[.05,.32,.72][next]*(trigger.end-trigger.start),behavior:'smooth'})};
+     return ()=>{stageAction.current=null;element.style.removeProperty('--care-progress');};
     },element);
     cleanup=()=>media.revert();
     requestAnimationFrame(()=>{if(!disposed)ScrollTrigger.refresh()});
@@ -68,9 +74,9 @@ export function ToothJourney(){
   return()=>{disposed=true;observer.disconnect();cleanup?.()};
  },[]);
  return <section id="tooth-care-journey" className="tooth-journey" ref={root} data-scroll-scene data-stage={stage} aria-labelledby="tooth-journey-title"><div className="tooth-journey-panel" ref={panel}>
-  <div className="tooth-journey-heading"><div><p className="eyebrow">A closer look</p><h2 id="tooth-journey-title">Small signs. <em>Thoughtful care.</em></h2></div><div className="tooth-journey-instructions"><p>Scroll to explore. Pause on the care illustration, then continue. Scroll back to reverse.</p><a href="#clear-aligner-care">Skip illustration</a></div></div>
+  <div className="tooth-journey-heading"><div><p className="eyebrow">A closer look</p><h2 id="tooth-journey-title">Small signs. <em>Thoughtful care.</em></h2></div><div className="tooth-journey-instructions"><p>Scroll to explore, or tap a stage below. Scroll back to reverse the illustration.</p><a href="#clear-aligner-care">Skip illustration</a></div></div>
   <div className="tooth-journey-art">{teeth.map((tooth,index)=><figure className="journey-tooth" key={tooth.name}><ToothIllustration index={index}/><figcaption><strong>{tooth.name}</strong><span>{stage===2?'Care illustration':tooth.concern}</span></figcaption></figure>)}</div>
-  <div className="tooth-journey-footer"><div className="tooth-journey-stages" aria-label="Illustration stages">{stages.map((item,index)=><span key={item.label} className={stage===index?'active':''} aria-current={stage===index?'step':undefined}>{item.label}</span>)}</div><p className="tooth-stage-caption" aria-live="polite">{stages[stage].text}</p><div className="journey-manual-controls"><button type="button" onClick={()=>setManual(false)} aria-pressed={stage===0}>See concerns</button><button type="button" onClick={()=>setManual(true)} aria-pressed={stage===2}>See care illustration</button></div><p className="tooth-journey-note">Educational illustration, not natural healing or a guaranteed result. Cavities may need a filling, root canal treatment or other care after assessment. <Link href="/book-appointment">Talk to a dentist</Link>.</p></div>
+  <div className="tooth-journey-footer"><div className="tooth-journey-stages" role="group" aria-label="Choose an illustration stage">{stages.map((item,index)=><button type="button" key={item.label} className={stage===index?'active':''} aria-pressed={stage===index} onClick={()=>selectStage(index)}>{item.label}</button>)}</div><p className="tooth-stage-caption" aria-live="polite">{stages[stage].text}</p><p className="tooth-journey-note">Educational illustration, not natural healing or a guaranteed result. Cavities may need a filling, root canal treatment or other care after assessment. <Link href="/book-appointment">Talk to a dentist</Link>.</p></div>
  </div></section>;
 }
 

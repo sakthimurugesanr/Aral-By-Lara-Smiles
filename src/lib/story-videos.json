@@ -1,0 +1,38 @@
+[
+  {
+    "slug": "gentle-care",
+    "title": "Gentle care for little smiles",
+    "description": "A glimpse of children’s dental care.",
+    "src": "/videos/gentle-care.mp4",
+    "poster": "/videos/gentle-care-poster.webp",
+    "width": 640,
+    "height": 1138,
+    "duration": 8,
+    "bytes": 1025203,
+    "originalBytes": 1460694
+  },
+  {
+    "slug": "shared-smiles",
+    "title": "More than a smile",
+    "description": "Moments shared by the ARAL team.",
+    "src": "/videos/shared-smiles.mp4",
+    "poster": "/videos/shared-smiles-poster.webp",
+    "width": 640,
+    "height": 1138,
+    "duration": 39,
+    "bytes": 3649788,
+    "originalBytes": 7424650
+  },
+  {
+    "slug": "tooth-care",
+    "title": "A closer look at tooth extraction",
+    "description": "Dental procedure footage. Play when you’re ready.",
+    "src": "/videos/tooth-care.mp4",
+    "poster": "/videos/tooth-care-poster.webp",
+    "width": 640,
+    "height": 1138,
+    "duration": 33,
+    "bytes": 3581483,
+    "originalBytes": 6505757
+  }
+]

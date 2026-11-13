@@ -86,3 +86,11 @@ The treatment search supports titles, categories and common terms including kids
 ## Reversible tooth-care scene
 
 The homepage tooth-care section uses lazily loaded GSAP ScrollTrigger with a scrubbed, labelled timeline. Viewports with sufficient height pin the fitted panel (1200px of scroll on desktop, 950px on mobile). The transformation finishes around halfway, leaving a visible final-state hold before release. Very short viewports use manual controls. Scrolling back reverses the illustration. Reduced-motion visitors receive two explicit state buttons instead of scroll animation. The scan line and progress bar are intentionally absent; the three labelled stages highlight the current phase. MatchMedia cleanup removes pinning and animations when breakpoints change or the component unmounts. The four original SVGs are educational illustrations, not clinical results. Clinical context: https://www.nhs.uk/conditions/tooth-decay/ .
+
+## Touch controls and story media
+
+All three tooth-care stages are accessible buttons. On fitted pinned layouts they smoothly move to the matching scroll position; reduced-motion and short-screen layouts animate the illustration directly (instantly for reduced motion).
+
+The before/after slider supports dragging, touch, native range keyboard controls and Before/Compare/After presets. Both compressed WebP photographs load lazily. The three video cards initially render only lazy-loaded posters. Video elements and MP4 sources are mounted on Play; controls are native, muted and inline. Offscreen/hidden videos pause, and starting one pauses the others. No video downloads occur before interaction. Audio tracks are removed from exported files.
+
+To reprocess local media after replacing originals, run `node scripts/prepare-story-media.mjs` (requires the development ffmpeg-static and ffprobe-static packages). The generated JSON records dimensions, duration and file sizes.

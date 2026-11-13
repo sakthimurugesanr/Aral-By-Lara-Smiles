@@ -21,7 +21,7 @@
 .care-scan{position:absolute;z-index:2;left:0;right:0;top:0;height:45px;pointer-events:none;opacity:0;background:linear-gradient(0deg,transparent,#b0d8c73b,transparent);border-bottom:1px solid #8cbca569;will-change:transform}
 .tooth-journey-footer{padding-top:0}
 .tooth-journey-stages{display:flex;align-items:center;justify-content:space-between;gap:15px;font-size:11px;color:#8a9d93}
-.tooth-journey-stages span{padding:5px 11px;border:1px solid transparent;border-radius:20px;transition:color .3s,background .3s,border-color .3s;line-height:1.5}
+.tooth-journey-stages button{padding:5px 11px;border:1px solid transparent;border-radius:20px;transition:color .3s,background .3s,border-color .3s;line-height:1.5}
 .tooth-journey-stages .active{background:#ffffffb8;border-color:#d3e4d9;color:#517661;font-weight:650}
 .care-progress-track{height:2px;background:#dce7e2;border-radius:4px;overflow:hidden;margin:12px 0}
 .care-progress-fill{display:block;width:100%;height:100%;background:#8caf9b;transform:scaleX(0);transform-origin:left}
@@ -35,8 +35,8 @@
 .tooth-journey[data-scroll-mode=manual] .tooth-glint{opacity:var(--care-progress)}
 @media(min-width:1500px){.tooth-journey-panel{padding:34px 50px 28px;min-height:580px}.care-tooth-svg{height:205px}}
 @media(max-width:1100px){.tooth-journey-panel{padding:27px 28px 23px}.tooth-journey-instructions{flex-basis:230px;max-width:230px}.tooth-journey-heading{gap:22px}.tooth-journey-art{gap:12px}.journey-tooth{padding-inline:10px}.care-tooth-svg{height:165px}.tooth-journey-heading h2{font-size:31px}}
-@media(max-width:900px){.tooth-journey-heading{flex-direction:column;gap:13px}.tooth-journey-instructions{max-width:100%;flex-basis:auto;padding:0;display:flex;gap:20px;align-items:center}.tooth-journey-instructions p{max-width:520px}.tooth-journey-instructions a{white-space:nowrap}.care-tooth-svg{height:150px}.journey-tooth figcaption strong{font-size:12px}.journey-tooth figcaption span{font-size:9px}.tooth-journey-stages{font-size:10px}.tooth-journey-stages span{padding:5px 8px}}
-@media(max-width:760px){.tooth-journey-panel{padding:29px 19px 24px;min-height:0;gap:23px}.tooth-journey-heading{gap:14px}.tooth-journey-heading .eyebrow{font-size:11px;margin-bottom:9px}.tooth-journey-heading h2{font-size:29px;max-width:330px}.tooth-journey-instructions{display:block}.tooth-journey-instructions p{font-size:12px}.tooth-journey-instructions a{font-size:10px;margin-top:4px}.tooth-journey-art{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.journey-tooth{padding:6px 8px 13px;border-radius:16px}.care-tooth-svg{height:157px}.journey-tooth figcaption strong{font-size:13px}.journey-tooth figcaption span{font-size:10px}.tooth-journey-stages{gap:6px;align-items:stretch}.tooth-journey-stages span{text-align:center;font-size:10px;padding:6px;border-radius:10px;max-width:33.333%;display:flex;align-items:center;justify-content:center}.tooth-stage-caption{font-size:12px}.tooth-journey-note{font-size:10px;line-height:1.8}.care-scan{display:none}}
+@media(max-width:900px){.tooth-journey-heading{flex-direction:column;gap:13px}.tooth-journey-instructions{max-width:100%;flex-basis:auto;padding:0;display:flex;gap:20px;align-items:center}.tooth-journey-instructions p{max-width:520px}.tooth-journey-instructions a{white-space:nowrap}.care-tooth-svg{height:150px}.journey-tooth figcaption strong{font-size:12px}.journey-tooth figcaption span{font-size:9px}.tooth-journey-stages{font-size:10px}.tooth-journey-stages button{padding:5px 8px}}
+@media(max-width:760px){.tooth-journey-panel{padding:29px 19px 24px;min-height:0;gap:23px}.tooth-journey-heading{gap:14px}.tooth-journey-heading .eyebrow{font-size:11px;margin-bottom:9px}.tooth-journey-heading h2{font-size:29px;max-width:330px}.tooth-journey-instructions{display:block}.tooth-journey-instructions p{font-size:12px}.tooth-journey-instructions a{font-size:10px;margin-top:4px}.tooth-journey-art{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.journey-tooth{padding:6px 8px 13px;border-radius:16px}.care-tooth-svg{height:157px}.journey-tooth figcaption strong{font-size:13px}.journey-tooth figcaption span{font-size:10px}.tooth-journey-stages{gap:6px;align-items:stretch}.tooth-journey-stages button{text-align:center;font-size:10px;padding:6px;border-radius:10px;max-width:33.333%;display:flex;align-items:center;justify-content:center}.tooth-stage-caption{font-size:12px}.tooth-journey-note{font-size:10px;line-height:1.8}.care-scan{display:none}}
 @media(prefers-reduced-motion:reduce){.journey-manual-controls{display:flex}.care-scan{display:none}.tooth-glint{opacity:var(--care-progress)}}
 
 
@@ -46,7 +46,7 @@
 .tooth-journey-heading .eyebrow,.tooth-journey-instructions p{color:#815e70}.tooth-journey-instructions a{color:#874463}
 .journey-tooth{background:#fffafc;border-color:#eedce5}
 .tooth-journey-stages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:13px;color:#845d70;font-size:12px;font-weight:650}
-.tooth-journey-stages span{display:flex;justify-content:center;align-items:center;text-align:center;padding:10px 12px;border:1px solid #e7cbd8;background:#fff8fb;border-radius:12px;max-width:none}
+.tooth-journey-stages button{display:flex;justify-content:center;align-items:center;text-align:center;padding:10px 12px;border:1px solid #e7cbd8;background:#fff8fb;border-radius:12px;max-width:none}
 .tooth-journey-stages .active{background:#944661;color:#fff;border-color:#944661;box-shadow:0 3px 12px #94466118}
 .tooth-stage-caption{color:#765267}.tooth-journey-note{color:#806975}.tooth-journey-note a{color:#843e5b}
 .tooth-journey[data-stage='2'] .journey-tooth figcaption span{color:#587666}.journey-tooth figcaption strong{color:#72475e}
@@ -55,6 +55,9 @@
 .tooth-journey-heading{gap:7px}.tooth-journey-heading .eyebrow{margin-bottom:6px;font-size:10px}.tooth-journey-heading h2{font-size:23px;line-height:1.25;max-width:100%}
 .tooth-journey-instructions{display:flex;align-items:center;gap:10px}.tooth-journey-instructions p{font-size:10px;line-height:1.5}.tooth-journey-instructions a{font-size:9px;margin:0;white-space:nowrap}
 .tooth-journey-art{gap:9px}.care-tooth-svg{height:102px}.journey-tooth{padding:2px 5px 8px;border-radius:13px}.journey-tooth figcaption{gap:0}.journey-tooth figcaption strong{font-size:11px}.journey-tooth figcaption span{font-size:9px}
-.tooth-journey-stages{gap:6px;font-size:10px;margin-bottom:8px}.tooth-journey-stages span{font-size:10px;padding:8px 5px;border-radius:9px;max-width:none}
+.tooth-journey-stages{gap:6px;font-size:10px;margin-bottom:8px}.tooth-journey-stages button{font-size:10px;padding:8px 5px;border-radius:9px;max-width:none}
 .tooth-stage-caption{font-size:10px;line-height:1.5}.tooth-journey-note{font-size:9px;line-height:1.6;margin-top:7px}
 }
+
+.tooth-journey-stages button{font:inherit;cursor:pointer;min-height:44px;transition:background .3s,color .3s,border-color .3s,box-shadow .3s}.tooth-journey-stages button:focus-visible{outline:3px solid #b67b97;outline-offset:3px}.tooth-journey-stages button:hover{border-color:#b87c98}.tooth-stage-caption{min-height:2.9em}.tooth-journey[data-scroll-mode=manual] .tooth-glint{opacity:var(--care-progress)}
+@media(max-width:760px){.tooth-journey-stages button{font-size:10px;line-height:1.5;padding:7px 5px}.tooth-stage-caption{min-height:3em}.tooth-journey-heading h2{font-size:24px}.tooth-journey-instructions p{font-size:11px}}
