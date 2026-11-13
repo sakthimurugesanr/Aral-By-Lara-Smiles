@@ -74,3 +74,11 @@ The homepage services loop horizontally at a gentle 22 pixels per second; all tw
 The infinite rails use native scroll positions, so service links remain clickable and keyboard scrolling works normally. Motion pauses while off screen, when the tab is hidden, on hover/focus, on interaction or when reduced motion is requested.
 
 Original files in `src/Assets` remain local and are excluded from Git because of their size. Optimised WebP copies are included in the repository and published site; no original uploads are needed to run the website. Reprocessing source photos requires the local Assets directory.
+
+## Booking drawer and UI components
+
+The right-side booking tab opens a shadcn-style Radix Sheet with focus trapping, Escape dismissal and focus restoration. MUI TextField, Select, Checkbox and helper text are connected to the existing React Hook Form/Zod schema. The booking page and drawer reuse `AppointmentForm`; the MUI form bundle loads on demand when the drawer is opened. Fields and helper text have per-instance IDs. The drawer and form provide direct phone actions. No appointment is confirmed automatically.
+
+Local shadcn-style component sources live in `src/components/ui` and follow the MIT-licensed Radix composition from shadcn/ui. MUI dropdown menus stay within the drawer to preserve focus handling. Clinic selection can open the same form with a branch preselected.
+
+The treatment search supports titles, categories and common terms including kids, RCT, invisible aligners and dental caps. Search results use a stable grid; clearing the query restores the twelve-service loop. The clinics directory presents selectable locations, a contextual map search, direct phone links and branch-specific booking. Homepage review previews are compact; full review wording remains on the reviews page.

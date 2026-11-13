@@ -5,7 +5,7 @@ import { InfiniteRail } from './infinite-rail';
 
 function ReviewCard({ review }: { review: PatientReview }) {
   const initials = review.name.replace(/\([^)]*\)/g,'').trim().split(/\s+/).map(word=>word[0]).slice(0,2).join('').toUpperCase();
-  return <figure className="review-card google-review-card"><figcaption className="google-review-header"><span className="google-review-avatar" aria-hidden="true">{initials}</span><span className="google-review-author"><strong>{review.name}</strong><span>Google review</span></span><span className="google-letter" aria-label="Google">G</span></figcaption><blockquote>{review.text}</blockquote><div className="google-review-footer">{review.excerpt?'Excerpt from the supplied review':'Shared on Google'}</div></figure>;
+  return <figure className="review-card google-review-card"><figcaption className="google-review-header"><span className="google-review-avatar" aria-hidden="true">{initials}</span><span className="google-review-author"><strong>{review.name}</strong><span>Google review</span></span><span className="google-letter" aria-label="Google">G</span></figcaption><blockquote>{review.text}</blockquote><div className="google-review-footer"><span>{review.excerpt?'Review excerpt':'Shared on Google'}</span><Link href="/reviews">Read review</Link></div></figure>;
 }
 
 export function PatientReviews({ full = false }: { full?: boolean }) {
