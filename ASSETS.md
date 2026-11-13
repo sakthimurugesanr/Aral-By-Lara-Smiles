@@ -18,3 +18,5 @@ Unused original source JPGs are retained for editing. The website serves compres
 ## User-supplied clinic assets
 
 The user supplied `src/Assets` and requested these files be used by service name. Their originals are preserved. `src/lib/service-images.ts` records all twelve filename-to-service mappings. `scripts/prepare-clinic-assets.mjs` creates 960×600 WebP copies under `public/images/services/` and an optimised hero from `geralt-dentist-8729627_1920.jpg`. Supplied photographs retain their source licences; the CC0 dedication above applies only to our original SVG drawings. The previous SVG illustrations have been replaced with these supplied photos in service cards, process pages and smile journeys.
+
+The incisor, canine, premolar and molar drawings in src/components/tooth-journey.tsx are also original SVG artwork dedicated under CC0 1.0. They depict conceptual concerns and restorations for an educational scroll animation; they are not patient images or treatment guarantees.

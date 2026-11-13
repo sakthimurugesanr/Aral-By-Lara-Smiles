@@ -16,7 +16,7 @@ export function SectionMotion() {
   previousPath.current = pathname;
   if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const observer=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting){entry.target.animate([{opacity:.7,transform:'translateY(20px)'},{opacity:1,transform:'translateY(0)'}],{duration:1000,easing:'cubic-bezier(.22,1,.36,1)'});observer.unobserve(entry.target);}}},{threshold:.07});
-  document.querySelectorAll('main>section:not(.hero), main>.care-strip').forEach(section=>observer.observe(section));
+  document.querySelectorAll('main>section:not(.hero):not([data-scroll-scene]), main>.care-strip').forEach(section=>observer.observe(section));
   return ()=>observer.disconnect();
  },[pathname]);
  return null;

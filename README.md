@@ -82,3 +82,7 @@ The right-side booking tab opens a shadcn-style Radix Sheet with focus trapping,
 Local shadcn-style component sources live in `src/components/ui` and follow the MIT-licensed Radix composition from shadcn/ui. MUI dropdown menus stay within the drawer to preserve focus handling. Clinic selection can open the same form with a branch preselected.
 
 The treatment search supports titles, categories and common terms including kids, RCT, invisible aligners and dental caps. Search results use a stable grid; clearing the query restores the twelve-service loop. The clinics directory presents selectable locations, a contextual map search, direct phone links and branch-specific booking. Homepage review previews are compact; full review wording remains on the reviews page.
+
+## Reversible tooth-care scene
+
+The homepage tooth-care section uses lazily loaded GSAP ScrollTrigger with a scrubbed, labelled timeline. Larger viewports pin the panel for 1050px; smaller screens keep the scene in normal document flow. Scrolling back reverses the illustration. Reduced-motion visitors receive two explicit state buttons instead of scroll animation. MatchMedia cleanup removes pinning and animations when breakpoints change or the component unmounts. The four original SVGs are educational illustrations, not clinical results. Clinical context: https://www.nhs.uk/conditions/tooth-decay/ .
