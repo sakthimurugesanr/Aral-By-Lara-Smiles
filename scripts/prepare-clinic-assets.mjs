@@ -12,3 +12,5 @@ for(const [, destination, source] of entries) {
 }
 const hero = await sharp('src/Assets/geralt-dentist-8729627_1920.jpg').rotate().resize({width:1800,withoutEnlargement:true}).webp({quality:83}).toFile('public/images/dental-hero.webp');
 console.log(`Prepared 12 service images (${Math.round(total/1024)} KB total) and dental hero (${Math.round(hero.size/1024)} KB). Original files preserved.`);
+
+await sharp('src/Assets/close-up-smile.jpg').rotate().resize({width:1100,withoutEnlargement:true}).webp({quality:82}).toFile('public/images/close-up-smile.webp');

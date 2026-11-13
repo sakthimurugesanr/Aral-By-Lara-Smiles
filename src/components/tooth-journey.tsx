@@ -33,7 +33,7 @@ export function ToothJourney(){
   const sectionElement=root.current;const panelElement=panel.current;if(!sectionElement||!panelElement)return;
   const element=sectionElement;const pinnedPanel=panelElement;
   let disposed=false;let cleanup:undefined|(()=>void);let started=false;
-  const updateStage=(progress:number)=>{const next=progress<.3?0:progress<.77?1:2;if(next!==currentStage.current){currentStage.current=next;setStage(next)}};
+  const updateStage=(progress:number)=>{const next=progress<.18?0:progress<.5?1:2;if(next!==currentStage.current){currentStage.current=next;setStage(next)}};
   async function setup(){
    if(started)return;started=true;
    try{
@@ -42,12 +42,22 @@ export function ToothJourney(){
     const media=gsap.matchMedia();
     media.add({all:'all',desktop:'(min-width: 1024px) and (min-height: 700px)',reduce:'(prefers-reduced-motion: reduce)'},context=>{
      const conditions=context.conditions as {desktop:boolean;reduce:boolean};
-     if(conditions.reduce){element.dataset.scrollMode='manual';element.style.setProperty('--care-progress','0');updateStage(0);return;}
-     element.dataset.scrollMode=conditions.desktop?'pinned':'flow';
-     const cards=element.querySelectorAll('.journey-tooth');const beam=element.querySelector('.care-scan');const glints=element.querySelectorAll('.tooth-glint');
+     const headerHeight=document.querySelector('header')?.getBoundingClientRect().height||100;
+     const bottomSpace=conditions.desktop?18:78;
+     const canPin=pinnedPanel.offsetHeight+headerHeight+bottomSpace+20<=window.innerHeight;
+     if(conditions.reduce||!canPin){element.dataset.scrollMode='manual';element.style.setProperty('--care-progress','0');updateStage(0);return;}
+     element.dataset.scrollMode='pinned';
+     const cards=element.querySelectorAll('.journey-tooth');const glints=element.querySelectorAll('.tooth-glint');
      gsap.set(element,{'--care-progress':0});gsap.set(glints,{autoAlpha:0});
-     const timeline=gsap.timeline({defaults:{ease:'none'},onUpdate(){updateStage(this.progress())},scrollTrigger:{id:'aral-tooth-care',trigger:element,pin:conditions.desktop?pinnedPanel:false,pinSpacing:true,start:conditions.desktop?()=>`top ${(document.querySelector('header')?.getBoundingClientRect().height||100)+14}px`:'top 70%',end:conditions.desktop?'+=1050':'bottom 35%',scrub:1,anticipatePin:1,invalidateOnRefresh:true,snap:conditions.desktop?{snapTo:'labels',duration:{min:.18,max:.55},delay:.18,ease:'power1.inOut'}:undefined}});
-     timeline.addLabel('notice',0).fromTo(cards,{y:8},{y:0,duration:.65,stagger:.035,ease:'power1.out'},0).addLabel('assessment',.8).fromTo(beam,{y:-10,autoAlpha:0},{y:190,autoAlpha:.65,duration:.8},.4).to(beam,{autoAlpha:0,duration:.25},1.15).to(element,{'--care-progress':1,duration:1.4},1.15).to(pinnedPanel,{backgroundColor:'#edf5ef',duration:1.6},1).to(cards,{y:-4,duration:.7,stagger:.025,ease:'sine.out'},1.4).to(glints,{autoAlpha:1,duration:.5,stagger:.03},2.1).to(element.querySelector('.care-progress-fill'),{scaleX:1,duration:2.7},0).addLabel('care',2.7);
+     const timeline=gsap.timeline({defaults:{ease:'none'},onUpdate(){updateStage(this.progress())},scrollTrigger:{id:'aral-tooth-care',trigger:element,pin:pinnedPanel,pinSpacing:true,start:()=>`top ${headerHeight+12}px`,end:conditions.desktop?'+=1200':'+=950',scrub:conditions.desktop?.55:.3,anticipatePin:1,invalidateOnRefresh:true}});
+     timeline.addLabel('notice',0)
+      .fromTo(cards,{y:5},{y:0,duration:.5,stagger:.025},0)
+      .addLabel('assessment',.65)
+      .to(element,{'--care-progress':1,duration:1.2},.85)
+      .to(pinnedPanel,{backgroundColor:'#f8e7ee',duration:1.2},.85)
+      .to(glints,{autoAlpha:1,duration:.25,stagger:.025},1.9)
+      .addLabel('care',2.2)
+      .to({hold:0},{hold:1,duration:1.9});
      return ()=>{element.style.removeProperty('--care-progress');};
     },element);
     cleanup=()=>media.revert();
@@ -58,9 +68,9 @@ export function ToothJourney(){
   return()=>{disposed=true;observer.disconnect();cleanup?.()};
  },[]);
  return <section id="tooth-care-journey" className="tooth-journey" ref={root} data-scroll-scene data-stage={stage} aria-labelledby="tooth-journey-title"><div className="tooth-journey-panel" ref={panel}>
-  <div className="tooth-journey-heading"><div><p className="eyebrow">A closer look</p><h2 id="tooth-journey-title">Small signs. <em>Thoughtful care.</em></h2></div><div className="tooth-journey-instructions"><p>Scroll to explore a change from a dental concern to a care illustration. Scroll back to reverse it.</p><a href="#clear-aligner-care">Skip illustration</a></div></div>
-  <div className="tooth-journey-art"><div className="care-scan" aria-hidden="true"/>{teeth.map((tooth,index)=><figure className="journey-tooth" key={tooth.name}><ToothIllustration index={index}/><figcaption><strong>{tooth.name}</strong><span>{stage===2?'Care illustration':tooth.concern}</span></figcaption></figure>)}</div>
-  <div className="tooth-journey-footer"><div className="tooth-journey-stages" aria-label="Illustration stages">{stages.map((item,index)=><span key={item.label} className={stage===index?'active':''} aria-current={stage===index?'step':undefined}>{item.label}</span>)}</div><div className="care-progress-track" aria-hidden="true"><span className="care-progress-fill"/></div><p className="tooth-stage-caption" aria-live="polite">{stages[stage].text}</p><div className="journey-manual-controls"><button type="button" onClick={()=>setManual(false)} aria-pressed={stage===0}>See concerns</button><button type="button" onClick={()=>setManual(true)} aria-pressed={stage===2}>See care illustration</button></div><p className="tooth-journey-note">Educational illustration, not natural healing or a guaranteed result. Cavities may need a filling, root canal treatment or other care after assessment. <Link href="/book-appointment">Talk to a dentist</Link>.</p></div>
+  <div className="tooth-journey-heading"><div><p className="eyebrow">A closer look</p><h2 id="tooth-journey-title">Small signs. <em>Thoughtful care.</em></h2></div><div className="tooth-journey-instructions"><p>Scroll to explore. Pause on the care illustration, then continue. Scroll back to reverse.</p><a href="#clear-aligner-care">Skip illustration</a></div></div>
+  <div className="tooth-journey-art">{teeth.map((tooth,index)=><figure className="journey-tooth" key={tooth.name}><ToothIllustration index={index}/><figcaption><strong>{tooth.name}</strong><span>{stage===2?'Care illustration':tooth.concern}</span></figcaption></figure>)}</div>
+  <div className="tooth-journey-footer"><div className="tooth-journey-stages" aria-label="Illustration stages">{stages.map((item,index)=><span key={item.label} className={stage===index?'active':''} aria-current={stage===index?'step':undefined}>{item.label}</span>)}</div><p className="tooth-stage-caption" aria-live="polite">{stages[stage].text}</p><div className="journey-manual-controls"><button type="button" onClick={()=>setManual(false)} aria-pressed={stage===0}>See concerns</button><button type="button" onClick={()=>setManual(true)} aria-pressed={stage===2}>See care illustration</button></div><p className="tooth-journey-note">Educational illustration, not natural healing or a guaranteed result. Cavities may need a filling, root canal treatment or other care after assessment. <Link href="/book-appointment">Talk to a dentist</Link>.</p></div>
  </div></section>;
 }
 

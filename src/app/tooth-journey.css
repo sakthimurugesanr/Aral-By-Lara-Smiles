@@ -40,3 +40,21 @@
 @media(prefers-reduced-motion:reduce){.journey-manual-controls{display:flex}.care-scan{display:none}.tooth-glint{opacity:var(--care-progress)}}
 
 
+/* Refinements for the reversible care scene. */
+.tooth-journey-panel{background:#fff0f5;border-color:#efd6e1;gap:18px}
+.tooth-journey-heading h2{color:#663a50}.tooth-journey-heading h2 em{color:#a45c7d}
+.tooth-journey-heading .eyebrow,.tooth-journey-instructions p{color:#815e70}.tooth-journey-instructions a{color:#874463}
+.journey-tooth{background:#fffafc;border-color:#eedce5}
+.tooth-journey-stages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:13px;color:#845d70;font-size:12px;font-weight:650}
+.tooth-journey-stages span{display:flex;justify-content:center;align-items:center;text-align:center;padding:10px 12px;border:1px solid #e7cbd8;background:#fff8fb;border-radius:12px;max-width:none}
+.tooth-journey-stages .active{background:#944661;color:#fff;border-color:#944661;box-shadow:0 3px 12px #94466118}
+.tooth-stage-caption{color:#765267}.tooth-journey-note{color:#806975}.tooth-journey-note a{color:#843e5b}
+.tooth-journey[data-stage='2'] .journey-tooth figcaption span{color:#587666}.journey-tooth figcaption strong{color:#72475e}
+@media(max-width:760px){
+.tooth-journey-panel{padding:19px 16px 17px;gap:13px;border-radius:23px;min-height:0}
+.tooth-journey-heading{gap:7px}.tooth-journey-heading .eyebrow{margin-bottom:6px;font-size:10px}.tooth-journey-heading h2{font-size:23px;line-height:1.25;max-width:100%}
+.tooth-journey-instructions{display:flex;align-items:center;gap:10px}.tooth-journey-instructions p{font-size:10px;line-height:1.5}.tooth-journey-instructions a{font-size:9px;margin:0;white-space:nowrap}
+.tooth-journey-art{gap:9px}.care-tooth-svg{height:102px}.journey-tooth{padding:2px 5px 8px;border-radius:13px}.journey-tooth figcaption{gap:0}.journey-tooth figcaption strong{font-size:11px}.journey-tooth figcaption span{font-size:9px}
+.tooth-journey-stages{gap:6px;font-size:10px;margin-bottom:8px}.tooth-journey-stages span{font-size:10px;padding:8px 5px;border-radius:9px;max-width:none}
+.tooth-stage-caption{font-size:10px;line-height:1.5}.tooth-journey-note{font-size:9px;line-height:1.6;margin-top:7px}
+}
