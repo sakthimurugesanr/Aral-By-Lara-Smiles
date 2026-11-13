@@ -1,10 +1,33 @@
 'use client';
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode, type PointerEvent as ReactPointerEvent } from 'react';
 
-export function InfiniteRail({ children, label, className = '' }: { children: ReactNode; label: string; className?: string }) {
+export function InfiniteRail({ children, label, className = '', manualDrag = false }: { children: ReactNode; label: string; className?: string; manualDrag?: boolean }) {
  const root = useRef<HTMLDivElement>(null);
  const viewport = useRef<HTMLDivElement>(null);
  const [paused, setPaused] = useState(false);
+ const drag=useRef<{id:number;x:number;y:number;left:number;active:boolean}|null>(null);
+ const suppressClick=useRef(false);const clickReset=useRef<ReturnType<typeof setTimeout>|null>(null);
+ useEffect(()=>()=>{if(clickReset.current)clearTimeout(clickReset.current)},[]);
+ const beginDrag=(event:ReactPointerEvent<HTMLDivElement>)=>{
+  if(!manualDrag||event.pointerType==='touch'||event.button!==0)return;
+  if(clickReset.current)clearTimeout(clickReset.current);suppressClick.current=false;
+  drag.current={id:event.pointerId,x:event.clientX,y:event.clientY,left:event.currentTarget.scrollLeft,active:false};
+ };
+ const moveDrag=(event:ReactPointerEvent<HTMLDivElement>)=>{
+  const state=drag.current;if(!state||state.id!==event.pointerId)return;
+  const dx=event.clientX-state.x;const dy=event.clientY-state.y;
+  if(!state.active&&Math.abs(dx)>6&&Math.abs(dx)>Math.abs(dy)){state.active=true;suppressClick.current=true;event.currentTarget.setPointerCapture(event.pointerId);event.currentTarget.dataset.dragging='true';}
+  if(!state.active)return;event.preventDefault();
+  const width=(event.currentTarget.firstElementChild as HTMLElement|null)?.scrollWidth||0;const loop=width/2;
+  const next=state.left-dx;event.currentTarget.scrollLeft=loop>0?((next%loop)+loop)%loop:next;
+ };
+ const endDrag=(event:ReactPointerEvent<HTMLDivElement>)=>{
+  const state=drag.current;if(!state||state.id!==event.pointerId)return;
+  drag.current=null;delete event.currentTarget.dataset.dragging;
+  if(event.currentTarget.hasPointerCapture(event.pointerId))event.currentTarget.releasePointerCapture(event.pointerId);
+  if(event.type==='pointercancel')suppressClick.current=false;
+  else if(state.active)clickReset.current=setTimeout(()=>{suppressClick.current=false;clickReset.current=null},0);
+ };
  useEffect(()=>{
   const node=root.current;const windowEl=viewport.current;if(!node||!windowEl)return;
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
@@ -12,7 +35,7 @@ export function InfiniteRail({ children, label, className = '' }: { children: Re
   const measure=()=>{const track=windowEl.firstElementChild as HTMLElement|null;loopWidth=track?track.scrollWidth/2:0;};
   measure();
   const speed=className.includes('services')?22:15;
-  const canRun=()=>!disposed&&visible&&!paused&&!hovered&&!document.hidden&&!reduced.matches&&!node.contains(document.activeElement);
+  const canRun=()=>!disposed&&visible&&!paused&&!hovered&&!document.hidden&&!reduced.matches&&(!node.contains(document.activeElement)||!!document.activeElement?.classList.contains('rail-resume'));
   const stop=()=>{cancelAnimationFrame(frame);frame=0;last=0;node.dataset.motionState='paused';};
   const tick=(time:number)=>{
    frame=0;if(!canRun()){stop();return;}
@@ -27,9 +50,10 @@ export function InfiniteRail({ children, label, className = '' }: { children: Re
   const resize=new ResizeObserver(measure);resize.observe(windowEl);
   node.addEventListener('pointerenter',enter);node.addEventListener('pointerleave',leave);node.addEventListener('focusin',focus);node.addEventListener('focusout',blur);document.addEventListener('visibilitychange',update);reduced.addEventListener('change',update);
   return()=>{disposed=true;stop();observer.disconnect();resize.disconnect();node.removeEventListener('pointerenter',enter);node.removeEventListener('pointerleave',leave);node.removeEventListener('focusin',focus);node.removeEventListener('focusout',blur);document.removeEventListener('visibilitychange',update);reduced.removeEventListener('change',update);};
- },[paused,className]);
- return <div ref={root} className={`infinite-rail ${className} ${paused?'is-paused':''}`} onPointerDown={event=>{if(!(event.target as HTMLElement).closest('.rail-pause'))setPaused(true)}}>
-  <button type="button" className="rail-pause" onClick={()=>setPaused(!paused)} aria-pressed={paused} aria-label={`${paused?'Resume':'Pause'} ${label.toLowerCase()} scrolling`}>{paused?'Resume':'Pause'} {label.toLowerCase()} scrolling</button>
-  <div ref={viewport} className="infinite-window" tabIndex={0} role="region" aria-label={`${label}. Scroll horizontally to explore. Hover or focus to pause automatic movement.`} onKeyDown={event=>{if(event.target===event.currentTarget&&event.key===' '){event.preventDefault();setPaused(!paused)}}}>{children}</div>
+ },[paused,className,manualDrag]);
+ return <div ref={root} className={`infinite-rail ${className} ${paused?'is-paused':''} ${manualDrag?'has-manual-drag':''}`} onPointerDown={event=>{if(!(event.target as HTMLElement).closest('.rail-pause,.rail-resume'))setPaused(true)}}>
+  {!manualDrag&&<button type="button" className="rail-pause" onClick={()=>setPaused(!paused)} aria-pressed={paused} aria-label={`${paused?'Resume':'Pause'} ${label.toLowerCase()} scrolling`}>{paused?'Resume':'Pause'} {label.toLowerCase()} scrolling</button>}
+  <div ref={viewport} className="infinite-window" tabIndex={0} role="region" aria-label={`${label}. ${manualDrag?'Drag, swipe or use arrow keys':'Scroll horizontally'} to explore. Hover or focus to pause automatic movement.`} onPointerDown={beginDrag} onPointerMove={moveDrag} onPointerUp={endDrag} onPointerCancel={endDrag} onLostPointerCapture={event=>{if(drag.current?.id===event.pointerId){drag.current=null;delete event.currentTarget.dataset.dragging}}} onDragStart={event=>{if(manualDrag)event.preventDefault()}} onClickCapture={event=>{if(suppressClick.current){event.preventDefault();event.stopPropagation();suppressClick.current=false}}} onKeyDown={event=>{if(event.target===event.currentTarget&&event.key===' '){event.preventDefault();setPaused(!paused)}else if(manualDrag&&event.target===event.currentTarget&&['ArrowLeft','ArrowRight','Home','End'].includes(event.key)){event.preventDefault();setPaused(true);const element=event.currentTarget;const behavior=matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth';if(event.key==='Home'||event.key==='End'){const width=(element.firstElementChild as HTMLElement|null)?.scrollWidth||0;element.scrollTo({left:event.key==='Home'?0:Math.max(0,width/2-element.clientWidth),behavior})}else element.scrollBy({left:(event.key==='ArrowRight'?1:-1)*Math.min(element.clientWidth*.85,340),behavior})}}}>{children}</div>
+  {manualDrag&&<div className="rail-manual-help"><span>Drag or swipe to explore treatments</span><button type="button" className="rail-resume" aria-pressed={paused} onClick={()=>setPaused(!paused)}>{paused?'Resume auto-scroll':'Pause auto-scroll'}</button></div>}
  </div>;
 }

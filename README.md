@@ -77,7 +77,7 @@ Original files in `src/Assets` remain local and are excluded from Git because of
 
 ## Booking drawer and UI components
 
-The right-side booking tab opens a shadcn-style Radix Sheet with focus trapping, Escape dismissal and focus restoration. MUI TextField, Select, Checkbox and helper text are connected to the existing React Hook Form/Zod schema. The booking page and drawer reuse `AppointmentForm`; the MUI form bundle loads on demand when the drawer is opened. Fields and helper text have per-instance IDs. The drawer and form provide direct phone actions. No appointment is confirmed automatically.
+The desktop/tablet right-side booking tab opens a shadcn-style Radix Sheet with focus trapping, Escape dismissal and focus restoration. MUI TextField, Select, Checkbox and helper text are connected to the existing React Hook Form/Zod schema. The booking page and drawer reuse `AppointmentForm`; the MUI form bundle loads on demand when the drawer is opened. Fields and helper text have per-instance IDs. The drawer and form provide direct phone actions. No appointment is confirmed automatically.
 
 Local shadcn-style component sources live in `src/components/ui` and follow the MIT-licensed Radix composition from shadcn/ui. MUI dropdown menus stay within the drawer to preserve focus handling. Clinic selection can open the same form with a branch preselected.
 
@@ -114,3 +114,9 @@ The upstream tooth pin has refresh priority so downstream triggers use its final
 Section entrances animate the inner content with a gentle 700ms mobile / 850ms desktop fade and 12–16px rise. Native IntersectionObserver and Web Animations keep the page visible before JavaScript and cancel active animations on navigation or reduced-motion changes. Dedicated GSAP scroll scenes retain their own animation logic. Inner Reveal blocks use opacity only to avoid compounded movement.
 
 The privacy page heading and body share the same left edge. The comparison section is light blue. Team image panels are 285px on desktop and 215px on mobile (195px on the narrowest screens). The aligner illustration is an original, responsive three-tooth SVG with a smiling centre tooth.
+
+## Manual service sliding and contact controls
+
+The treatment rail supports mouse/pen dragging, native touch swiping and keyboard Arrow/Home/End controls. Manual interaction pauses automatic movement; a visible control can resume it. Crossing the mouse drag threshold captures the pointer and suppresses the resulting click, while ordinary treatment clicks still navigate normally. Mouse dragging wraps across the duplicated service groups. The reviews rail keeps its existing behaviour.
+
+Mobile hides the header booking CTA and right-edge booking/contact tabs; bottom contact actions stay available. Desktop and tablet show a separate circular telephone link above WhatsApp. The Welcome photo has no logo/tag overlay and is the only image with square corners. It uses a responsive left-to-right entrance, with a static reduced-motion presentation. Its previous vertical image transform is removed.

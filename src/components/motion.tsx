@@ -22,7 +22,8 @@ export function SectionMotion() {
    observer=new IntersectionObserver(entries=>{for(const entry of entries){if(!entry.isIntersecting)continue;
     const content=entry.target.querySelector(':scope > .container')||entry.target;
     if(typeof content.animate==='function'){
-     const animation=content.animate([{opacity:.86,transform:`translateY(${innerWidth<=760?12:16}px)`},{opacity:1,transform:'translateY(0)'}],{duration:innerWidth<=760?700:850,easing:'cubic-bezier(.22,1,.36,1)',fill:'none'});
+     const distance=entry.target.id==='care'?0:innerWidth<=760?12:16;
+     const animation=content.animate([{opacity:.86,transform:`translateY(${distance}px)`},{opacity:1,transform:'translateY(0)'}],{duration:innerWidth<=760?700:850,easing:'cubic-bezier(.22,1,.36,1)',fill:'none'});
      animations.add(animation);animation.onfinish=()=>animations.delete(animation);animation.oncancel=()=>animations.delete(animation);
     }
     observer?.unobserve(entry.target);
@@ -33,6 +34,20 @@ export function SectionMotion() {
   return ()=>{observer?.disconnect();animations.forEach(animation=>animation.cancel());animations.clear();preference.removeEventListener('change',configure)};
  },[pathname]);
  return null;
+}
+export function ScrollImageEntrance({children,className=''}:{children:ReactNode;className?:string}){
+ const root=useRef<HTMLDivElement>(null);
+ useEffect(()=>{
+  const element=root.current;if(!element)return;const preference=matchMedia('(prefers-reduced-motion: reduce)');
+  let observer:IntersectionObserver|undefined;let animation:Animation|undefined;
+  const configure=()=>{observer?.disconnect();animation?.cancel();if(preference.matches)return;
+   observer=new IntersectionObserver(entries=>{if(!entries.some(entry=>entry.isIntersecting))return;
+    observer?.disconnect();if(typeof element.animate==='function')animation=element.animate([{opacity:.84,transform:`translateX(${innerWidth<=760?-24:-44}px)`},{opacity:1,transform:'translateX(0)'}],{duration:950,easing:'cubic-bezier(.22,1,.36,1)',fill:'none'});
+   },{threshold:.12,rootMargin:'0px 0px -25px 0px'});observer.observe(element);
+  };
+  configure();preference.addEventListener('change',configure);return()=>{observer?.disconnect();animation?.cancel();preference.removeEventListener('change',configure)};
+ },[]);
+ return <div ref={root} className={`scroll-image-entrance ${className}`}>{children}</div>;
 }
 export function Parallax({ children, className = '' }: { children: ReactNode; className?: string }) {
  const ref = useRef<HTMLDivElement>(null);
