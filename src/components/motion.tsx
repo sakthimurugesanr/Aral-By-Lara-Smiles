@@ -5,7 +5,7 @@ import { LazyMotion, domAnimation, m, useReducedMotion } from 'framer-motion';
 import type { ReactNode } from 'react';
 export function Reveal({ children, className = '' }: { children: ReactNode; className?: string }) {
  const reduced = useReducedMotion();
- return <LazyMotion features={domAnimation}><m.div className={className} initial={false} whileInView={reduced ? undefined : { y: [18, 0], opacity: [0.75, 1] }} viewport={{ once: true, amount: 0.12 }} transition={{ duration: 0.95, ease: [0.22, 1, 0.36, 1] }}>{children}</m.div></LazyMotion>;
+ return <LazyMotion features={domAnimation}><m.div className={className} initial={false} whileInView={reduced ? undefined : { opacity: [0.88, 1] }} viewport={{ once: true, amount: 0.08 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}>{children}</m.div></LazyMotion>;
 }
 
 export function SectionMotion() {
@@ -14,10 +14,23 @@ export function SectionMotion() {
  useEffect(()=>{
   if(previousPath.current !== pathname && !window.location.hash) window.scrollTo({top:0,behavior:'instant'});
   previousPath.current = pathname;
-  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const observer=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting){entry.target.animate([{opacity:.7,transform:'translateY(20px)'},{opacity:1,transform:'translateY(0)'}],{duration:1000,easing:'cubic-bezier(.22,1,.36,1)'});observer.unobserve(entry.target);}}},{threshold:.07});
-  document.querySelectorAll('main>section:not(.hero):not([data-scroll-scene]), main>.care-strip').forEach(section=>observer.observe(section));
-  return ()=>observer.disconnect();
+  const preference=matchMedia('(prefers-reduced-motion: reduce)');
+  const animations=new Set<Animation>();let observer:IntersectionObserver|undefined;
+  const configure=()=>{
+   observer?.disconnect();animations.forEach(animation=>animation.cancel());animations.clear();
+   if(preference.matches)return;
+   observer=new IntersectionObserver(entries=>{for(const entry of entries){if(!entry.isIntersecting)continue;
+    const content=entry.target.querySelector(':scope > .container')||entry.target;
+    if(typeof content.animate==='function'){
+     const animation=content.animate([{opacity:.86,transform:`translateY(${innerWidth<=760?12:16}px)`},{opacity:1,transform:'translateY(0)'}],{duration:innerWidth<=760?700:850,easing:'cubic-bezier(.22,1,.36,1)',fill:'none'});
+     animations.add(animation);animation.onfinish=()=>animations.delete(animation);animation.oncancel=()=>animations.delete(animation);
+    }
+    observer?.unobserve(entry.target);
+   }},{threshold:0,rootMargin:'0px 0px -36px 0px'});
+   document.querySelectorAll('main>section:not(.hero):not([data-scroll-scene]), main>.care-strip').forEach(section=>observer!.observe(section));
+  };
+  configure();preference.addEventListener('change',configure);
+  return ()=>{observer?.disconnect();animations.forEach(animation=>animation.cancel());animations.clear();preference.removeEventListener('change',configure)};
  },[pathname]);
  return null;
 }

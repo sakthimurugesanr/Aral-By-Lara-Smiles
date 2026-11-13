@@ -30,3 +30,5 @@ The before/after slider uses the supplied `src/Assets/before.jpg` and `after.jpg
 The hero uses the supplied `src/Assets/bg-image.jpg`, cropped to a 1800×1150 WebP at `public/images/hero-background-fade.webp`, alongside the existing dental hero. The crop focuses on the dental examination and excludes unrelated embroidered text. Original file is preserved; source rights remain with the supplied photograph.
 
 The Welcome image is the supplied `src/Assets/infrasstructure.jpg`, optimized to `public/images/infrastructure.webp`. The additional hero photograph is `src/Assets/bg-image-2.jpg`, identical to the attached clipboard photograph, optimized to `public/images/hero-care.webp`. These photographs retain the source rights of the supplied material.
+
+The three-tooth aligner illustration, including its smiling centre tooth, is original SVG artwork in `src/components/treatment-art.tsx` and is included in that file’s CC0 dedication. It uses no raster images or external requests.

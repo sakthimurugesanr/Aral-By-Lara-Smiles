@@ -108,3 +108,9 @@ The Welcome section now follows the services rail and uses the supplied infrastr
 The four care principles form an alternating left/right desktop path, with bounded horizontal and vertical parallax. A measured SVG curve connects the real dot positions; GSAP draws its normalized stroke continuously and lights the dots in order. Scrolling back reverses the drawing and card movement. Mobile uses a left-hand path beside a single column of cards. Reduced-motion mode shows a complete static path. The SVG is decorative; all four principles remain a semantic list. No images or additional dependencies are required. Setup is deferred until the section approaches the viewport, and matchMedia/ResizeObserver cleanup handles unmounts and breakpoint changes.
 
 The upstream tooth pin has refresh priority so downstream triggers use its final spacing. Opening an anchor below that pin preserves the requested destination after lazy initialization unless the visitor has begun scrolling manually.
+
+## Section transitions and final alignment
+
+Section entrances animate the inner content with a gentle 700ms mobile / 850ms desktop fade and 12–16px rise. Native IntersectionObserver and Web Animations keep the page visible before JavaScript and cancel active animations on navigation or reduced-motion changes. Dedicated GSAP scroll scenes retain their own animation logic. Inner Reveal blocks use opacity only to avoid compounded movement.
+
+The privacy page heading and body share the same left edge. The comparison section is light blue. Team image panels are 285px on desktop and 215px on mobile (195px on the narrowest screens). The aligner illustration is an original, responsive three-tooth SVG with a smiling centre tooth.
