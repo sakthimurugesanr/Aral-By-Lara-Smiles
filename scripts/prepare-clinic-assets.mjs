@@ -16,3 +16,6 @@ console.log(`Prepared 12 service images (${Math.round(total/1024)} KB total) and
 await sharp('src/Assets/close-up-smile.jpg').rotate().resize({width:1100,withoutEnlargement:true}).webp({quality:82}).toFile('public/images/close-up-smile.webp');
 
 const backgroundSource=sharp('src/Assets/bg-image.jpg');const backgroundMeta=await backgroundSource.metadata();const backgroundHeight=Math.round(backgroundMeta.width*1150/1800);const backgroundTop=Math.min(Math.round(backgroundMeta.height*.337),backgroundMeta.height-backgroundHeight);await backgroundSource.extract({left:0,top:backgroundTop,width:backgroundMeta.width,height:backgroundHeight}).resize({width:1800,height:1150}).webp({quality:82}).toFile('public/images/hero-background-fade.webp');
+
+await sharp('src/Assets/infrasstructure.jpg').rotate().resize({width:1100,withoutEnlargement:true}).webp({quality:82}).toFile('public/images/infrastructure.webp');
+await sharp('src/Assets/bg-image-2.jpg').rotate().resize({width:1800,withoutEnlargement:true}).webp({quality:82}).toFile('public/images/hero-care.webp');
