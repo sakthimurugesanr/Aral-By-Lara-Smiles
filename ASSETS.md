@@ -4,7 +4,7 @@ Photos are illustrative stock images, not clinic patients, premises or treatment
 
 | File | Source | Use |
 | --- | --- | --- |
-| `smile-banner.webp` | Lesly Juarez, [Unsplash photograph](https://unsplash.com/photos/long-black-haired-woman-smiling-close-up-photography-1AhGNGKuhR0), image `photo-1489278353717-f64c6ee8a4d2` | Hero and smile journey header |
+| `smile-banner.webp` | Lesly Juarez, [Unsplash photograph](https://unsplash.com/photos/long-black-haired-woman-smiling-close-up-photography-1AhGNGKuhR0), image `photo-1489278353717-f64c6ee8a4d2` | Smile journey header |
 | `hero-woman.webp` | Unsplash image `photo-1517841905240-472988babdf9`, downloaded from images.unsplash.com | Smile story and consultation sections |
 | `clinic.webp` | Unsplash image `photo-1629909613654-28e377c37b09` | Illustrative dental room |
 | `care.webp` | Unsplash image `photo-1606811971618-4486d14f3f99` | Illustrative dental setting |
@@ -14,3 +14,7 @@ The photographs use the [Unsplash License](https://unsplash.com/license), which 
 The service illustrations and tooth line art in `src/components/treatment-art.tsx` are original, code-native SVG drawings created for this project. Those drawings are dedicated to the public domain under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). They are conceptual educational graphics, not anatomical diagrams or treatment outcomes. There is no external raster dependency for any of the twelve service images.
 
 Unused original source JPGs are retained for editing. The website serves compressed WebP versions.
+
+## User-supplied clinic assets
+
+The user supplied `src/Assets` and requested these files be used by service name. Their originals are preserved. `src/lib/service-images.ts` records all twelve filename-to-service mappings. `scripts/prepare-clinic-assets.mjs` creates 960×600 WebP copies under `public/images/services/` and an optimised hero from `geralt-dentist-8729627_1920.jpg`. Supplied photographs retain their source licences; the CC0 dedication above applies only to our original SVG drawings. The previous SVG illustrations have been replaced with these supplied photos in service cards, process pages and smile journeys.

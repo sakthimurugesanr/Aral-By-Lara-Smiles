@@ -9,3 +9,5 @@ font-jakarta.txt
 !.env.example
 *.tsbuildinfo
 *.log
+# Preserve user originals locally; publish the optimised copies under public/images.
+src/Assets/
