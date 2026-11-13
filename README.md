@@ -102,3 +102,9 @@ Headings use Manrope, with Nunito for body text. The comparison section sits dir
 The hero cycles through eight supplied headlines with blur/fade transitions, synchronized to a three-photo background sequence every seven seconds. Backgrounds crossfade over 1.5 seconds. Secondary photos load after initial rendering. A shared pause button controls both text and imagery; rotation stops offscreen, when the tab is hidden, or for reduced-motion preferences. The headline reserves vertical space to keep actions stable between quotes.
 
 The Welcome section now follows the services rail and uses the supplied infrastructure photograph. Service card photos use a taller 1.65 aspect ratio; homepage team image panels are 235px on desktop and 165px on mobile. Desktop film frames are 430px high, while the compact mobile film row remains unchanged. FAQ background is light blue.
+
+## Connected ARAL approach
+
+The four care principles form an alternating left/right desktop path, with bounded horizontal and vertical parallax. A measured SVG curve connects the real dot positions; GSAP draws its normalized stroke continuously and lights the dots in order. Scrolling back reverses the drawing and card movement. Mobile uses a left-hand path beside a single column of cards. Reduced-motion mode shows a complete static path. The SVG is decorative; all four principles remain a semantic list. No images or additional dependencies are required. Setup is deferred until the section approaches the viewport, and matchMedia/ResizeObserver cleanup handles unmounts and breakpoint changes.
+
+The upstream tooth pin has refresh priority so downstream triggers use its final spacing. Opening an anchor below that pin preserves the requested destination after lazy initialization unless the visitor has begun scrolling manually.

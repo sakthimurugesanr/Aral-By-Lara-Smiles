@@ -34,6 +34,9 @@ export function ToothJourney(){
   const sectionElement=root.current;const panelElement=panel.current;if(!sectionElement||!panelElement)return;
   const element=sectionElement;const pinnedPanel=panelElement;
   let disposed=false;let cleanup:undefined|(()=>void);let started=false;
+  let pendingHash=window.location.hash;let manualScroll=false;
+  const cancelAnchor=()=>{manualScroll=true};const onHash=()=>{pendingHash=window.location.hash;manualScroll=false};
+  window.addEventListener('wheel',cancelAnchor,{passive:true});window.addEventListener('touchstart',cancelAnchor,{passive:true});window.addEventListener('keydown',cancelAnchor);window.addEventListener('hashchange',onHash);
   const updateStage=(progress:number)=>{const next=progress<.18?0:progress<.5?1:2;if(next!==currentStage.current){currentStage.current=next;setStage(next)}};
   async function setup(){
    if(started)return;started=true;
@@ -54,7 +57,7 @@ export function ToothJourney(){
      element.dataset.scrollMode='pinned';
      const cards=element.querySelectorAll('.journey-tooth');const glints=element.querySelectorAll('.tooth-glint');
      gsap.set(element,{'--care-progress':0});gsap.set(glints,{autoAlpha:0});
-     const timeline=gsap.timeline({defaults:{ease:'none'},onUpdate(){updateStage(this.progress())},scrollTrigger:{id:'aral-tooth-care',trigger:element,pin:pinnedPanel,pinSpacing:true,start:()=>`top ${headerHeight+12}px`,end:conditions.desktop?'+=1200':'+=950',scrub:conditions.desktop?.55:.3,anticipatePin:1,invalidateOnRefresh:true}});
+     const timeline=gsap.timeline({defaults:{ease:'none'},onUpdate(){updateStage(this.progress())},scrollTrigger:{id:'aral-tooth-care',refreshPriority:10,trigger:element,pin:pinnedPanel,pinSpacing:true,start:()=>`top ${headerHeight+12}px`,end:conditions.desktop?'+=1200':'+=950',scrub:conditions.desktop?.55:.3,anticipatePin:1,invalidateOnRefresh:true}});
      timeline.addLabel('notice',0)
       .fromTo(cards,{y:5},{y:0,duration:.5,stagger:.025},0)
       .addLabel('assessment',.65)
@@ -67,11 +70,13 @@ export function ToothJourney(){
      return ()=>{stageAction.current=null;element.style.removeProperty('--care-progress');};
     },element);
     cleanup=()=>media.revert();
-    requestAnimationFrame(()=>{if(!disposed)ScrollTrigger.refresh()});
+    requestAnimationFrame(()=>{if(disposed)return;ScrollTrigger.refresh();
+     if(!manualScroll&&pendingHash){try{const anchor=document.getElementById(decodeURIComponent(pendingHash.slice(1)));if(anchor&&(element.compareDocumentPosition(anchor)&Node.DOCUMENT_POSITION_FOLLOWING)){anchor.scrollIntoView({block:'start',behavior:'instant'});pendingHash=''}}catch{}}
+    });
    }catch{if(!disposed)element.dataset.scrollMode='manual';}
   }
   const observer=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting)){observer.disconnect();void setup()}},{rootMargin:'700px'});observer.observe(element);
-  return()=>{disposed=true;observer.disconnect();cleanup?.()};
+  return()=>{disposed=true;observer.disconnect();cleanup?.();window.removeEventListener('wheel',cancelAnchor);window.removeEventListener('touchstart',cancelAnchor);window.removeEventListener('keydown',cancelAnchor);window.removeEventListener('hashchange',onHash)};
  },[]);
  return <section id="tooth-care-journey" className="tooth-journey" ref={root} data-scroll-scene data-stage={stage} aria-labelledby="tooth-journey-title"><div className="tooth-journey-panel" ref={panel}>
   <div className="tooth-journey-heading"><div><p className="eyebrow">A closer look</p><h2 id="tooth-journey-title">Small signs. <em>Thoughtful care.</em></h2></div><div className="tooth-journey-instructions"><p>Scroll to explore, or tap a stage below. Scroll back to reverse the illustration.</p><a href="#clear-aligner-care">Skip illustration</a></div></div>
