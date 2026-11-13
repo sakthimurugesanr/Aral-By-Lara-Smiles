@@ -1,5 +1,9 @@
 import type { Metadata } from 'next';
-import { MessageSquareHeart } from 'lucide-react';
-import { PageIntro,Button } from '@/components/ui';
-export const metadata:Metadata={title:'Patient Reviews',description:'Patient experiences at ARAL by LARA SMILES. Approved reviews will be shared here with accurate attribution.',alternates:{canonical:'/reviews'}};
-export default function Reviews(){return <><PageIntro eyebrow="In their own words" title={<>The little things <em>that matter.</em></>} text="Honest experiences help people feel more comfortable taking their first step."/><section className="section"><div className="container empty-state"><div className="empty-icon"><MessageSquareHeart size={32} strokeWidth={1.2}/></div><h2>Patient voices, coming soon.</h2><p>We’re gathering accurate, clinic-approved reviews for this page. We’ll share the words exactly as approved, with permission and attribution.</p><p>A verified Google Business Profile link will be added after confirmation by the clinic. We do not display invented reviews, ratings or treatment claims.</p><Button href="/contact">Ask us about your first visit</Button></div></section></>}
+import { PageIntro } from '@/components/ui';
+import { PatientReviews } from '@/components/reviews';
+
+export const metadata: Metadata = { title: 'Patient Reviews', description: 'Read patient experiences shared with ARAL by LARA SMILES, including feedback on dental care, clear explanations and personal attention.', alternates: { canonical: '/reviews' } };
+
+export default function Reviews() {
+  return <><PageIntro eyebrow="Patient experiences" title={<>The little things <em>that matter.</em></>} text="Hear from patients about their experience with the Lara Smiles team." /><PatientReviews full /></>;
+}

@@ -26,13 +26,13 @@ Open http://localhost:3000. Production: `npm run build`, then `npm run start`. T
 | Decorative accents | Champagne `#C5A46D` |
 | Body text | Plum charcoal `#412E37` |
 
-Georgia gives headings an editorial character without an additional font download. Plus Jakarta Sans is self-hosted as a variable WOFF2 with font-display swap. Section labels use sentence case without decorative dots or tracked capitals. Gold is decorative, never small text on white. Most hover transitions run for 250–300 ms. Section reveals use a one-time 650 ms easing. Desktop parallax has a maximum 36 px offset, uses passive scroll events and requestAnimationFrame, and stops processing when off screen. Reduced-motion preferences disable parallax, transitions and smooth scrolling. Mobile parallax is disabled.
+Comfortaa is used for headings and Nunito for body text, using the requested Google Fonts stylesheet with preconnect hints and font-display swap. Main sections have 32 px rounded borders on desktop and 24 px on mobile. Section labels use sentence case without decorative dots or tracked capitals. Gold is decorative, never small text on white. Most hover transitions run for 250–300 ms. Section reveals use a one-time 650 ms easing. Desktop parallax has a maximum 36 px offset, uses passive scroll events and requestAnimationFrame, and stops processing when off screen. Reduced-motion preferences disable parallax, transitions and smooth scrolling. Mobile parallax is disabled.
 
 ## Editable content
 
 `src/lib/content.ts` contains the branch, treatment, FAQ and doctor data. `src/app/globals.css` contains the design tokens, component styling and responsive breakpoints. The homepage is in `src/app/page.tsx`. Reusable components live in `src/components`.
 
-No doctor credentials, ratings, testimonials, patient outcomes, equipment availability or clinic photographs have been fabricated. Review and gallery pages intentionally show polished empty states. Comparison sliders and review carousels should be enabled only when genuine approved content is supplied. The clinic must confirm whether Invisalign, iTero scanning and other listed services are available at each branch.
+No doctor credentials, ratings, patient outcomes, equipment availability or clinic photographs have been fabricated. Nine Google reviews supplied by the clinic are stored in `src/lib/reviews.ts`; original wording is retained and incomplete reviews are presented as marked excerpts. The gallery page retains an empty state until consented images are supplied. Comparison sliders and review carousels should be enabled only when genuine approved content is supplied. The clinic must confirm whether Invisalign, iTero scanning and other listed services are available at each branch.
 
 ## Google Sheets integration
 
@@ -61,6 +61,6 @@ Confirm all branch details, opening hours, exact Google Maps pins, clinic legal 
 
 ## Assets and educational references
 
-Illustrative photographs from Unsplash: `photo-1544005313-94ddf0286df2`, `photo-1629909613654-28e377c37b09`, `photo-1606811971618-4486d14f3f99`. Stock images do not depict the clinic, team or results. Plus Jakarta Sans is distributed under the SIL Open Font License; see `public/fonts/Jakarta-OFL.txt`. The supplied ARAL logo is used unchanged in the header, footer and welcome section. Icons: Lucide (ISC).
+Illustrative photographs from Unsplash: `photo-1544005313-94ddf0286df2`, `photo-1629909613654-28e377c37b09`, `photo-1606811971618-4486d14f3f99`. Stock images do not depict the clinic, team or results. Comfortaa and Nunito are loaded using the Google Fonts stylesheet supplied by the user. The supplied ARAL logo is used unchanged in the header, footer and welcome section. Icons: Lucide (ISC).
 
 General treatment copy was checked against https://www.nhs.uk/live-well/healthy-teeth-and-gums/dental-treatments/ and https://bos.org.uk/clear-aligners/. Clinical content requires review by the treating clinic and is not individual advice.

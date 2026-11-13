@@ -8,6 +8,7 @@ import { Reveal, Parallax } from '@/components/motion';
 import { TreatmentGrid } from '@/components/treatments';
 import { FAQAccordion } from '@/components/faq';
 import { BranchGrid } from '@/components/branches';
+import { PatientReviews } from '@/components/reviews';
 import { site, doctors } from '@/lib/content';
 export const metadata: Metadata = { alternates: { canonical: '/' } };
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
  <section className="story-section"><div className="container story-grid"><div className="story-photo"><Image src="/images/care.webp" alt="Illustrative image of a dental consultation" fill sizes="(max-width: 760px) 100vw, 45vw" /></div><Reveal className="story-copy"><p className="eyebrow">Real people. Personal journeys.</p><h2>Behind every smile,<br /><em>there’s a story.</em></h2><p>Every smile journey is personal. Our gallery will share genuine, clinic-approved stories and transformations, with patient consent.</p><div className="story-links"><Link className="text-link" href="/smile-gallery">Explore smile stories</Link><Link className="text-link" href="/reviews">Patient reviews</Link></div></Reveal></div></section>
  <section className="section branches-section"><div className="container"><Reveal className="section-top"><SectionHeading eyebrow="In your neighbourhood" title={<>A little closer <em>to you.</em></>} text="Find your Lara Smiles clinic in Tiruppur. A warm hello is just around the corner." /><Link className="text-link" href="/branches">Find your clinic</Link></Reveal><BranchGrid /></div></section>
  <section className="appointment-banner"><div className="container"><Reveal><p className="eyebrow">Let’s start with a conversation</p><h2>Your next smile chapter<br /><em>starts with hello.</em></h2><p>Have a question? Thinking about treatment?<br />We’re here to help you take the first step.</p><div className="banner-actions"><Button href="/book-appointment">Book an appointment</Button><a href={site.whatsapp} className="underlined-link" target="_blank" rel="noopener noreferrer"><MessageCircle size={18} />Let’s chat on WhatsApp</a></div></Reveal></div></section>
+ <PatientReviews />
  <FAQAccordion />
  {site.approved && <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({'@context':'https://schema.org','@type':'Dentist',name:site.name,url:site.url,telephone:site.phone,address:{'@type':'PostalAddress',streetAddress:'Meena Pharmacy, Rakkiyapalayam Pirivu, RVE Nagar, Valliammai Nagar',addressLocality:'Tiruppur',addressRegion:'Tamil Nadu',postalCode:'641604',addressCountry:'IN'}})}} />}
  </>;
