@@ -18,15 +18,15 @@ Open http://localhost:3000. Production: `npm run build`, then `npm run start`. T
 
 | Role | Colour |
 | --- | --- |
-| Navigation, headings and primary actions | Deep navy `#123047` |
-| Links, emphasis and small icons | Muted teal `#257D79` |
-| Main canvas | Warm ivory `#F8F6F0` |
-| Cards | Paper `#FFFEFA` |
-| Supporting panels | Soft sage `#E9EFEA` |
+| Navigation, headings and primary actions | Deep plum `#442435` |
+| Links, emphasis and small icons | Rose `#9C4167` |
+| Main canvas | Warm white `#FFF9FB` |
+| Cards | White `#FFFFFF` |
+| Supporting panels | Blush pink `#F9EAF0` |
 | Decorative accents | Champagne `#C5A46D` |
-| Body text | Charcoal `#263A3C` |
+| Body text | Plum charcoal `#412E37` |
 
-Georgia gives headings an editorial character without an additional font download. Manrope is self-hosted as a 24 KB variable WOFF2 with font-display swap. Gold is decorative, never small text on white. Most hover transitions run for 250–300 ms. Section reveals use a one-time 650 ms easing. Desktop parallax has a maximum 36 px offset, uses passive scroll events and requestAnimationFrame, and stops processing when off screen. Reduced-motion preferences disable parallax, transitions and smooth scrolling. Mobile parallax is disabled.
+Georgia gives headings an editorial character without an additional font download. Plus Jakarta Sans is self-hosted as a variable WOFF2 with font-display swap. Section labels use sentence case without decorative dots or tracked capitals. Gold is decorative, never small text on white. Most hover transitions run for 250–300 ms. Section reveals use a one-time 650 ms easing. Desktop parallax has a maximum 36 px offset, uses passive scroll events and requestAnimationFrame, and stops processing when off screen. Reduced-motion preferences disable parallax, transitions and smooth scrolling. Mobile parallax is disabled.
 
 ## Editable content
 
@@ -61,6 +61,6 @@ Confirm all branch details, opening hours, exact Google Maps pins, clinic legal 
 
 ## Assets and educational references
 
-Illustrative photographs from Unsplash: `photo-1544005313-94ddf0286df2`, `photo-1629909613654-28e377c37b09`, `photo-1606811971618-4486d14f3f99`. Stock images do not depict the clinic, team or results. Manrope is distributed under the SIL Open Font License; see `public/fonts/OFL.txt`. Icons: Lucide (ISC).
+Illustrative photographs from Unsplash: `photo-1544005313-94ddf0286df2`, `photo-1629909613654-28e377c37b09`, `photo-1606811971618-4486d14f3f99`. Stock images do not depict the clinic, team or results. Plus Jakarta Sans is distributed under the SIL Open Font License; see `public/fonts/Jakarta-OFL.txt`. The supplied ARAL logo is used unchanged in the header, footer and welcome section. Icons: Lucide (ISC).
 
 General treatment copy was checked against https://www.nhs.uk/live-well/healthy-teeth-and-gums/dental-treatments/ and https://bos.org.uk/clear-aligners/. Clinical content requires review by the treating clinic and is not individual advice.

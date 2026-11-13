@@ -3,6 +3,7 @@ node_modules/
 out/
 .next-preview/
 font-source.txt
+font-jakarta.txt
 *.tar.gz
 .env*
 !.env.example
