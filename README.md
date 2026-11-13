@@ -64,3 +64,9 @@ Confirm all branch details, opening hours, exact Google Maps pins, clinic legal 
 Illustrative photographs from Unsplash: `photo-1544005313-94ddf0286df2`, `photo-1629909613654-28e377c37b09`, `photo-1606811971618-4486d14f3f99`. Stock images do not depict the clinic, team or results. Comfortaa and Nunito are loaded using the Google Fonts stylesheet supplied by the user. The supplied ARAL logo is used unchanged in the header, footer and welcome section. Icons: Lucide (ISC).
 
 General treatment copy was checked against https://www.nhs.uk/live-well/healthy-teeth-and-gums/dental-treatments/ and https://bos.org.uk/clear-aligners/. Clinical content requires review by the treating clinic and is not individual advice.
+
+## Enhanced visual system
+
+Sky blue `#EAF4FB` and mint `#EDF5EF` complement the rose brand. The footer and top bar share plum `#6D3450` with light, readable text. All 12 services have original lightweight SVG illustrations and individual treatment process pages, configured in `src/lib/treatment-details.ts`. The smile journey directory filters real care pathways rather than showing fabricated before/after results. Image sources and licensing are recorded in `ASSETS.md`.
+
+The homepage reviews move horizontally over a 220-second loop (240 seconds on mobile). Hover, keyboard focus, the pause button, reduced-motion settings, off-screen visibility and a background tab pause or disable automatic motion. Duplicated cards are hidden from accessibility APIs. Every section has a once-only 1-second entrance; desktop smile photographs have bounded parallax, disabled on mobile and for reduced motion. The hero note uses a restrained glass effect.

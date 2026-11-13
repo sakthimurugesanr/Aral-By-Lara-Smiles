@@ -1,0 +1,16 @@
+# Image and illustration sources
+
+Photos are illustrative stock images, not clinic patients, premises or treatment results.
+
+| File | Source | Use |
+| --- | --- | --- |
+| `smile-banner.webp` | Lesly Juarez, [Unsplash photograph](https://unsplash.com/photos/long-black-haired-woman-smiling-close-up-photography-1AhGNGKuhR0), image `photo-1489278353717-f64c6ee8a4d2` | Hero and smile journey header |
+| `hero-woman.webp` | Unsplash image `photo-1517841905240-472988babdf9`, downloaded from images.unsplash.com | Smile story and consultation sections |
+| `clinic.webp` | Unsplash image `photo-1629909613654-28e377c37b09` | Illustrative dental room |
+| `care.webp` | Unsplash image `photo-1606811971618-4486d14f3f99` | Illustrative dental setting |
+
+The photographs use the [Unsplash License](https://unsplash.com/license), which permits free commercial website use subject to its terms; they are not public-domain images. Source/license checked 13 November 2026. The clinic logo is the exact image supplied by the user and remains their asset.
+
+The service illustrations and tooth line art in `src/components/treatment-art.tsx` are original, code-native SVG drawings created for this project. Those drawings are dedicated to the public domain under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). They are conceptual educational graphics, not anatomical diagrams or treatment outcomes. There is no external raster dependency for any of the twelve service images.
+
+Unused original source JPGs are retained for editing. The website serves compressed WebP versions.
