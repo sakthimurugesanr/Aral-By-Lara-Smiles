@@ -1,0 +1,5 @@
+'use client';
+import { useState } from 'react';
+import { Images } from 'lucide-react';
+import { Button } from './ui';
+export function SmileGallery(){const [category,setCategory]=useState('All stories');return <><div className="filter-tabs gallery-tabs" role="group" aria-label="Filter smile stories">{['All stories','Clear aligners','Cosmetic care','Restorative care'].map(c=><button key={c} aria-pressed={category===c} className={category===c?'active':''} onClick={()=>setCategory(c)}>{c}</button>)}</div><div className="empty-state"><div className="empty-icon"><Images size={31} strokeWidth={1.2}/></div><h2>{category==='All stories'?'Real smiles. Stories to come.':`${category} stories are on their way.`}</h2><p>We’re preparing a gallery of genuine patient journeys. Images and before-and-after comparisons will appear only after clinic approval and patient consent.</p><p>In the meantime, talk to us about your goals and the options that may suit your smile.</p><Button href="/book-appointment">Start your own conversation</Button></div></>}

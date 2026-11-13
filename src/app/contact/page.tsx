@@ -1,0 +1,8 @@
+import type { Metadata } from 'next';
+import { Phone,MessageCircle,CalendarDays,ArrowUpRight } from 'lucide-react';
+import Link from 'next/link';
+import { PageIntro } from '@/components/ui';
+import { BranchGrid } from '@/components/branches';
+import { site } from '@/lib/content';
+export const metadata:Metadata={title:'Contact Us',description:'Call or WhatsApp ARAL by LARA SMILES in Tiruppur. Find branch numbers, directions and appointment enquiries.',alternates:{canonical:'/contact'}};
+export default function Contact(){return <><PageIntro eyebrow="LET’S START WITH HELLO" title={<>We’re here <em>for your questions.</em></>} text="First visit, treatment question or a little reassurance. Choose the way you’d like to reach us."/><section className="section"><div className="container"><div className="contact-grid"><article className="contact-card"><Phone size={27} strokeWidth={1.3}/><h2>A friendly voice.</h2><p>Call the ARAL team about a consultation or branch availability.</p><a className="text-link" href="tel:+917306565995">+91 73065 65995<ArrowUpRight size={16}/></a></article><article className="contact-card"><MessageCircle size={27} strokeWidth={1.3}/><h2>A quick hello.</h2><p>Send a WhatsApp message and our team can guide you from there.</p><a className="text-link" href={site.whatsapp} target="_blank" rel="noopener noreferrer">Chat on WhatsApp<ArrowUpRight size={16}/></a></article><article className="contact-card"><CalendarDays size={27} strokeWidth={1.3}/><h2>A time for you.</h2><p>Tell us your preferred clinic, date and time. We’ll be in touch.</p><Link className="text-link" href="/book-appointment">Request a visit<ArrowUpRight size={16}/></Link></article></div><BranchGrid/></div></section></>}

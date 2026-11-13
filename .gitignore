@@ -1,0 +1,10 @@
+node_modules/
+.next/
+out/
+.next-preview/
+font-source.txt
+*.tar.gz
+.env*
+!.env.example
+*.tsbuildinfo
+*.log
