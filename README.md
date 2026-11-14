@@ -144,3 +144,11 @@ The homepage and Our Story page share a server-rendered milestones section. A pl
 The homepage and Our Story page share the branch doctor section. `src/lib/doctors.ts` maps Dr. Abhishikth Suresh and Dr. Sendoor to Gandhi Nagar and Dr. Roshini to ARAL–Rakkiyapalayam, based on supplied public mentions. The other six locations display names not confirmed. Each named card links to branch details and a branch-preselected appointment enquiry. No unsupported qualifications or specialist titles are inferred.
 
 Portraits were unavailable and the user requested adding them later. Set each doctor’s `portrait` to a clinic-supplied public image path when ready; the image loads lazily with responsive sizes. Until then, explicit portrait placeholders show initials, without generic stock photographs or fabricated doctor images.
+
+## Optimised success stories and social films
+
+`node scripts/prepare-community-media.mjs` processes the supplied `src/Assets/past-success`, `src/Assets/social-media` and `ceo-lara-smiles.jpg` assets. Four social clips are H.264 480px/24fps MP4s with audio physically removed, metadata stripped and fast-start enabled. Their combined size fell from 25.81 MiB to 10.55 MiB (59%). The 14 gallery photographs total about 350 KiB as WebP, with no enlargement of the originals.
+
+The homepage and Our Story share a gentle infinite success-photo rail supporting drag, touch, keyboard controls, pause/resume, reduced motion and offscreen suspension. The primary image group has descriptive alt text; duplicate images are hidden from accessibility APIs. Photo framing preserves the full supplied image. Explicit dimensions and lazy decoding reduce layout shifts and defer image work. Reduced-motion manual scrolling uses the complete original group.
+
+The homepage adds four social films. Video sources are not mounted until Play is selected; only lazy posters appear initially. Existing Moments of Care hover playback is retained through a shared player, while its section headings now render on the server. All players pause offscreen or in a hidden tab, and starting a film pauses other players. The CEO portrait appears on his team card and in the Our Story network profile. Other named doctors retain portrait placeholders. Original assets remain local and ignored by Git. No Lighthouse score or measured field performance is claimed.

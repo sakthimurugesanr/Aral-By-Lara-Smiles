@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "community-film-1",
+    "title": "At the clinic",
+    "description": "A film supplied by Lara Smiles. Play to watch without sound.",
+    "src": "/videos/social/community-film-1.mp4",
+    "poster": "/videos/social/community-film-1-poster.webp",
+    "width": 480,
+    "height": 854,
+    "duration": 58,
+    "bytes": 3044555,
+    "originalBytes": 7020343
+  },
+  {
+    "slug": "community-film-2",
+    "title": "Sharing a smile",
+    "description": "A film supplied by Lara Smiles. Play to watch without sound.",
+    "src": "/videos/social/community-film-2.mp4",
+    "poster": "/videos/social/community-film-2-poster.webp",
+    "width": 480,
+    "height": 854,
+    "duration": 88,
+    "bytes": 4054296,
+    "originalBytes": 10131320
+  },
+  {
+    "slug": "community-film-3",
+    "title": "An aligner moment",
+    "description": "A film supplied by Lara Smiles. Play to watch without sound.",
+    "src": "/videos/social/community-film-3.mp4",
+    "poster": "/videos/social/community-film-3-poster.webp",
+    "width": 480,
+    "height": 854,
+    "duration": 15,
+    "bytes": 877158,
+    "originalBytes": 2221498
+  },
+  {
+    "slug": "community-film-4",
+    "title": "A conversation about care",
+    "description": "A film supplied by Lara Smiles. Play to watch without sound.",
+    "src": "/videos/social/community-film-4.mp4",
+    "poster": "/videos/social/community-film-4-poster.webp",
+    "width": 480,
+    "height": 854,
+    "duration": 63,
+    "bytes": 3083666,
+    "originalBytes": 7693645
+  }
+]

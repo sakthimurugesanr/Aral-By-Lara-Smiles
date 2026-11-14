@@ -36,3 +36,7 @@ The three-tooth aligner illustration, including its smiling centre tooth, is ori
 ## Lara Smiles logo update
 
 `public/images/lara-smiles-logo.png` is the exact, unmodified 150 × 150 PNG supplied by the user for the header, footer and site icon. The CSS frame hides excess outer black space while preserving all visible lettering. No generated artwork or third-party logo is used.
+
+## Supplied community media and CEO portrait
+
+Fourteen photographs from `src/Assets/past-success` are reproduced as WebP files in `public/images/success-stories`, preserving original proportions without upscaling. They show clinic-shared community and team moments, not independently verified clinical results or awards. Four films from `src/Assets/social-media` are compressed, silent MP4s in `public/videos/social`, with WebP posters. The user-supplied `ceo-lara-smiles.jpg` is exported to `public/images/team/abhishikth-suresh.webp` for the named CEO profile. No third-party stock portraits or generated clinical results are substituted.
