@@ -1,11 +1,10 @@
 'use client';
 import { useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
-import { LazyMotion, domAnimation, m, useReducedMotion } from 'framer-motion';
 import type { ReactNode } from 'react';
 export function Reveal({ children, className = '' }: { children: ReactNode; className?: string }) {
- const reduced = useReducedMotion();
- return <LazyMotion features={domAnimation}><m.div className={className} initial={false} whileInView={reduced ? undefined : { opacity: [0.88, 1] }} viewport={{ once: true, amount: 0.08 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}>{children}</m.div></LazyMotion>;
+ // SectionMotion owns entrance effects so nested content is not animated twice.
+ return <div className={className}>{children}</div>;
 }
 
 export function SectionMotion() {
@@ -53,14 +52,14 @@ export function Parallax({ children, className = '' }: { children: ReactNode; cl
  const ref = useRef<HTMLDivElement>(null);
  useEffect(() => {
   const media = matchMedia('(min-width: 960px) and (prefers-reduced-motion: no-preference)');
-  if (!media.matches) return;
-  let frame = 0; let visible = true;
+  let frame = 0; let visible = false;
   const update = () => { frame = 0; if (ref.current && visible) { const rect = ref.current.getBoundingClientRect(); const offset = Math.max(-36, Math.min(36, (innerHeight / 2 - rect.top - rect.height / 2) * 0.06)); ref.current.style.setProperty('--parallax', `${offset}px`); } };
-  const scroll = () => { if (!frame && visible) frame = requestAnimationFrame(update); };
+  const scroll = () => { if (!frame && visible && media.matches && !document.hidden) frame = requestAnimationFrame(update); };
+  const reset = () => { cancelAnimationFrame(frame);frame=0;if(!media.matches)ref.current?.style.removeProperty('--parallax');else scroll(); };
   const observer = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; if (visible) scroll(); });
   if (ref.current) observer.observe(ref.current);
-  addEventListener('scroll', scroll, { passive: true }); update();
-  return () => { removeEventListener('scroll', scroll); cancelAnimationFrame(frame); observer.disconnect(); };
+  addEventListener('scroll', scroll, { passive: true });media.addEventListener('change',reset);document.addEventListener('visibilitychange',reset);
+  return () => { removeEventListener('scroll', scroll);media.removeEventListener('change',reset);document.removeEventListener('visibilitychange',reset);cancelAnimationFrame(frame);observer.disconnect();ref.current?.style.removeProperty('--parallax'); };
  }, []);
  return <div ref={ref} className={`parallax ${className}`}>{children}</div>;
 }

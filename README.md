@@ -189,3 +189,11 @@ Success stories now use 14 larger, lazy-loaded photographs with a GSAP ScrollTri
 
 The Welcome section uses a compact grid, the story and conversation photos have responsive gradient fades, and Moments of care has previous/next controls. Desktop and mobile browser checks covered gallery navigation, continuation, opposing rails, photo fades and page overflow. The technology area currently retains the Invisalign video and Precisalign image rows after the scanning card was removed.
 
+
+## Runtime and performance maintenance
+
+Fixed a client-navigation crash caused by GSAP pin wrappers: the success gallery now reverts its context in a layout-effect cleanup before React deletes the section. Browser regression verification activated the mobile gallery, navigated to Treatments and confirmed the route rendered with no leftover pin wrappers or new console errors. Treatment search and branch filtering also passed.
+
+Removed nested Framer Motion entrances; the existing native section animation handles the transition once. Parallax now responds to motion/breakpoint changes and suspends hidden-tab updates. Horizontal wheel browsing pauses rail autoplay, rail widths update when their tracks resize, hover-video playback handles delayed play promises and visibility changes, and gallery resize work is debounced with mobile browser chrome changes ignored when the panel still fits. Gallery controls measure the actual track gap.
+
+Production JavaScript across all generated chunks decreased from 1,486,290 to 1,414,724 bytes (71,566 bytes, 4.8%). This is an uncompressed build-artifact comparison, not a measured loading-time or Lighthouse claim. Production build and TypeScript passed. The static export audit checked 6,264 local link/media references across 52 HTML pages with no missing targets. The static preview continues to use its existing enquiry handoff; the server build retains /api/appointments.

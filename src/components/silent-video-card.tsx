@@ -9,15 +9,16 @@ export function SilentVideoCard({ video, hoverPreview = false, duplicate = false
  const [failed, setFailed] = useState(false);
  const player = useRef<HTMLVideoElement>(null);
  const wantsPlayback = useRef(false);
- const startPlayback = () => { wantsPlayback.current = true; setLoaded(true); if (player.current) { player.current.muted = true; void player.current.play().catch(() => {}); } };
+ const play = (element:HTMLVideoElement) => { element.muted=true;void element.play().then(()=>{if(!wantsPlayback.current||document.hidden)element.pause()}).catch(()=>{}); };
+ const startPlayback = () => { wantsPlayback.current = true; setLoaded(true); if (player.current) play(player.current); };
  useEffect(() => {
   const element = player.current;
   if (!loaded || !element) return;
   element.muted = true;
-  if (wantsPlayback.current) void element.play().catch(() => {});
-  const observer = new IntersectionObserver(([entry]) => { if (!entry.isIntersecting) element.pause(); }, { threshold: .15 });
+  if (wantsPlayback.current) play(element);
+  const observer = new IntersectionObserver(([entry]) => { if (!entry.isIntersecting) {wantsPlayback.current=false;element.pause();} }, { threshold: .15 });
   observer.observe(element);
-  const onVisibility = () => { if (document.hidden) element.pause(); };
+  const onVisibility = () => { if (document.hidden) {wantsPlayback.current=false;element.pause();} };
   document.addEventListener('visibilitychange', onVisibility);
   return () => { observer.disconnect(); document.removeEventListener('visibilitychange', onVisibility); element.pause(); };
  }, [loaded]);

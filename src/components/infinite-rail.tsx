@@ -70,9 +70,11 @@ export function InfiniteRail({ children, label, className = '', manualDrag = fal
   const enter=()=>{hovered=true;update()};const leave=()=>{hovered=false;update()};
   const focus=()=>update();const blur=()=>queueMicrotask(update);
   const observer=new IntersectionObserver(([entry])=>{visible=entry.isIntersecting;update()});observer.observe(node);
-  const resize=new ResizeObserver(measure);resize.observe(windowEl);
+  const resize=new ResizeObserver(measure);resize.observe(windowEl);if(windowEl.firstElementChild)resize.observe(windowEl.firstElementChild);
+  const wheel=(event:WheelEvent)=>{if(Math.abs(event.deltaX)>Math.abs(event.deltaY))setPaused(true)};
+  windowEl.addEventListener('wheel',wheel,{passive:true});
   node.addEventListener('pointerenter',enter);node.addEventListener('pointerleave',leave);node.addEventListener('focusin',focus);node.addEventListener('focusout',blur);document.addEventListener('visibilitychange',update);reduced.addEventListener('change',update);
-  return()=>{disposed=true;stop();observer.disconnect();resize.disconnect();node.removeEventListener('pointerenter',enter);node.removeEventListener('pointerleave',leave);node.removeEventListener('focusin',focus);node.removeEventListener('focusout',blur);document.removeEventListener('visibilitychange',update);reduced.removeEventListener('change',update);};
+  return()=>{disposed=true;stop();observer.disconnect();resize.disconnect();windowEl.removeEventListener('wheel',wheel);node.removeEventListener('pointerenter',enter);node.removeEventListener('pointerleave',leave);node.removeEventListener('focusin',focus);node.removeEventListener('focusout',blur);document.removeEventListener('visibilitychange',update);reduced.removeEventListener('change',update);};
  },[paused,className,manualDrag,direction]);
  return <div ref={root} data-direction={direction} className={`infinite-rail ${className} ${paused?'is-paused':''} ${manualDrag?'has-manual-drag':''}`} onPointerDown={event=>{if(!(event.target as HTMLElement).closest('.rail-pause,.rail-resume,.rail-nav-button'))setPaused(true)}}>
   {navigation&&<div className="rail-navigation"><button type="button" className="rail-nav-button" onClick={()=>navigate(-1)} aria-label={'Previous '+label.toLowerCase()}><ChevronLeft size={19}/></button><button type="button" className="rail-nav-button" onClick={()=>navigate(1)} aria-label={'Next '+label.toLowerCase()}><ChevronRight size={19}/></button></div>}

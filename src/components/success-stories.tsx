@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import { useEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import stories from '@/lib/success-stories.json';
 
 export function SuccessStories() {
@@ -13,7 +13,9 @@ export function SuccessStories() {
  const move=(direction:number)=>{
   const element=viewport.current;if(!element)return;
   const first=element.querySelector<HTMLElement>('.success-scroll-photo');
-  const step=(first?.getBoundingClientRect().width||element.clientWidth*.85)+18;
+  const track=element.firstElementChild;
+  const gap=track?parseFloat(getComputedStyle(track).columnGap)||0:0;
+  const step=(first?.getBoundingClientRect().width||element.clientWidth*.85)+gap;
   const target=Math.max(0,Math.min(distance(),element.scrollLeft+direction*step));
   const behavior=matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth';
   if(trigger.current&&distance()>0){const t=trigger.current;window.scrollTo({top:t.start+(target/distance())*(t.end-t.start),behavior});}
@@ -25,7 +27,8 @@ export function SuccessStories() {
   if(t&&max>0){const ratio=Math.max(0,Math.min(1,viewport.current.scrollLeft/max));tween.current?.progress(ratio);const target=t.start+ratio*(t.end-t.start);if(Math.abs(scrollY-target)>2)window.scrollTo({top:target,behavior:'instant'});}
   if(idle.current)clearTimeout(idle.current);idle.current=setTimeout(()=>{manual.current=false},160);
  };
- useEffect(()=>{
+ // Revert GSAP's pin wrapper before React removes this section during navigation.
+ useLayoutEffect(()=>{
   const section=root.current,element=viewport.current;if(!section||!element)return;
   let disposed=false,started=false,cleanup:(()=>void)|undefined;
   async function setup(){
@@ -34,7 +37,9 @@ export function SuccessStories() {
     const [{gsap},{ScrollTrigger}]=await Promise.all([import('gsap'),import('gsap/ScrollTrigger')]);if(disposed)return;
     gsap.registerPlugin(ScrollTrigger);
     const reduced=matchMedia('(prefers-reduced-motion: reduce)');
-    let context:ReturnType<typeof gsap.context>|undefined,frame=0;
+    let context:ReturnType<typeof gsap.context>|undefined;
+    let resizeTimer:ReturnType<typeof setTimeout>|undefined;
+    let measuredWidth=0,measuredHeight=0,measuredPanel=0,measuredFits=false;
     const configure=()=>{
      context?.revert();trigger.current=null;tween.current=null;
      section!.dataset.galleryMode='manual';
@@ -47,10 +52,18 @@ export function SuccessStories() {
      },section!);
      ScrollTrigger.refresh();
     };
-    const queue=()=>{cancelAnimationFrame(frame);frame=requestAnimationFrame(()=>{if(!disposed)configure()})};
-    configure();window.addEventListener('resize',queue);reduced.addEventListener('change',queue);
+    const measureAndConfigure=(force=false)=>{
+     if(disposed)return;
+     // Mobile browser chrome changes height while scrolling; do not rebuild the pin for every pixel.
+     const fits=section!.offsetHeight<=innerHeight-(document.querySelector('.header')?.getBoundingClientRect().height||82)-24;
+     if(!force&&measuredFits===fits&&measuredWidth===innerWidth&&Math.abs(measuredHeight-innerHeight)<80&&measuredPanel===section!.offsetHeight)return;
+     measuredFits=fits;measuredWidth=innerWidth;measuredHeight=innerHeight;measuredPanel=section!.offsetHeight;configure();
+    };
+    const queue=()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>measureAndConfigure(),150)};
+    const motionChange=()=>measureAndConfigure(true);
+    measureAndConfigure();window.addEventListener('resize',queue);reduced.addEventListener('change',motionChange);
     void document.fonts.ready.then(()=>{if(!disposed)queue()});
-    cleanup=()=>{cancelAnimationFrame(frame);window.removeEventListener('resize',queue);reduced.removeEventListener('change',queue);context?.revert();trigger.current=null;tween.current=null};
+    cleanup=()=>{clearTimeout(resizeTimer);window.removeEventListener('resize',queue);reduced.removeEventListener('change',motionChange);context?.revert();trigger.current=null;tween.current=null};
    }catch{if(!disposed)section!.dataset.galleryMode='manual';}
   }
   const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){observer.disconnect();void setup()}},{rootMargin:'700px'});observer.observe(section);
