@@ -14,7 +14,7 @@ import { Button, SectionHeading } from '@/components/ui';
 import { Reveal, Parallax } from '@/components/motion';
 import { TreatmentGrid } from '@/components/treatments';
 import { FAQAccordion } from '@/components/faq';
-import { BranchGrid } from '@/components/branches';
+import { NeighbourhoodClinics } from '@/components/neighbourhood-clinics';
 import { PatientReviews } from '@/components/reviews';
 import { ToothLineArt } from '@/components/treatment-art';
 import { site } from '@/lib/content';
@@ -32,7 +32,7 @@ export default function Home() {
         <DoctorTeam />
         <SuccessStories />
         <section id="smile-story" className="story-section"><div className="container story-grid"><Parallax className="story-photo"><Image src="/images/services/smile-designing.webp" alt="Illustrative photograph of a dental consultation, not a patient treatment result" fill sizes="(max-width: 760px) 100vw, 45vw" /></Parallax><Reveal className="story-copy"><p className="eyebrow">Real people. Personal journeys.</p><h2>Your smile story.<br /><em>Written with you.</em></h2><p>A question. A conversation. A plan that feels right. Explore real patient feedback and learn how different treatments could fit into your own smile journey.</p><div className="story-links"><Link className="text-link" href="/smile-gallery">Find your smile journey</Link><Link className="text-link" href="/reviews">Patient reviews</Link></div></Reveal></div></section>
-        <section className="section branches-section"><div className="container"><Reveal className="section-top"><SectionHeading eyebrow="In your neighbourhood" title={<>A little closer <em>to you.</em></>} text="Explore the Lara Smiles network across Tamil Nadu and Karnataka. Find your branch and its treatments." /><Link className="text-link" href="/branches">Find your clinic</Link></Reveal><BranchGrid /></div></section>
+        <section id="neighbourhood" className="section branches-section neighbourhood-section"><div className="container"><Reveal className="section-top"><SectionHeading eyebrow="In your neighbourhood" title={<>A little closer <em>to you.</em></>} text="Explore the Lara Smiles network across Tamil Nadu and Karnataka. Find your branch and its treatments." /><Link className="text-link" href="/branches">Find your clinic</Link></Reveal><NeighbourhoodClinics /></div></section>
         <section id="start-conversation" className="appointment-banner"><div className="container consultation-grid"><Reveal><p className="eyebrow">Let’s start with a conversation</p><h2>Your next smile chapter<br /><em>starts with hello.</em></h2><p>Have a question? Thinking about treatment?<br />We’re here to help you take the first step.</p><div className="banner-actions"><Button href="/book-appointment">Book an appointment</Button><a href={site.whatsapp} className="underlined-link" target="_blank" rel="noopener noreferrer"><MessageCircle size={18} />Let’s chat on WhatsApp</a></div></Reveal><Parallax className="consultation-photo"><Image src="/images/close-up-smile.webp" alt="Close-up smile photograph supplied by the clinic" fill sizes="(max-width: 760px) 90vw, 45vw" /></Parallax></div></section>
         <ClinicVideos />
         <PatientReviews />
@@ -40,3 +40,5 @@ export default function Home() {
         {site.approved && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'Dentist', name: site.name, url: site.url, telephone: site.phone, address: { '@type': 'PostalAddress', streetAddress: 'Meena Pharmacy, Rakkiyapalayam Pirivu, RVE Nagar, Valliammai Nagar', addressLocality: 'Tiruppur', addressRegion: 'Tamil Nadu', postalCode: '641604', addressCountry: 'IN' } }) }} />}
     </>;
 }
+
+
