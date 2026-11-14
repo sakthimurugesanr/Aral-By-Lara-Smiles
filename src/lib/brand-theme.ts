@@ -28,6 +28,8 @@ export const brandTheme = {
   gold: '#896A3D',
   focus: '#CC529E',
   danger: '#A33E54',
+  whatsapp: '#128C4A',
+  whatsappHover: '#0B753C',
  },
  shape: { section: 28, card: 18, control: 12 },
  fonts: { heading: "'Manrope', Arial, sans-serif", body: "'Nunito', Arial, sans-serif" },

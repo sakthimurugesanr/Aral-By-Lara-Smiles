@@ -27,7 +27,7 @@ export function SectionMotion() {
     }
     observer?.unobserve(entry.target);
    }},{threshold:0,rootMargin:'0px 0px -36px 0px'});
-   document.querySelectorAll('main>section:not(.hero):not([data-scroll-scene]), main>.care-strip').forEach(section=>observer!.observe(section));
+   document.querySelectorAll('main>section:not(.hero):not([data-scroll-scene]), main>.care-strip, main [data-section-motion]').forEach(section=>observer!.observe(section));
   };
   configure();preference.addEventListener('change',configure);
   return ()=>{observer?.disconnect();animations.forEach(animation=>animation.cancel());animations.clear();preference.removeEventListener('change',configure)};
