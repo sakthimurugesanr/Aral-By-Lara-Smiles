@@ -40,3 +40,7 @@ The three-tooth aligner illustration, including its smiling centre tooth, is ori
 ## Supplied community media and CEO portrait
 
 Fourteen photographs from `src/Assets/past-success` are reproduced as WebP files in `public/images/success-stories`, preserving original proportions without upscaling. They show clinic-shared community and team moments, not independently verified clinical results or awards. Four films from `src/Assets/social-media` are compressed, silent MP4s in `public/videos/social`, with WebP posters. The user-supplied `ceo-lara-smiles.jpg` is exported to `public/images/team/abhishikth-suresh.webp` for the named CEO profile. No third-party stock portraits or generated clinical results are substituted.
+
+## Team and awards gallery
+
+All 10 images in `src/Assets/team` are reproduced as optimized WebP files under `public/images/team-awards`, using the user’s explicit request to include them on Our Story. Full-image contain framing preserves faces, plaques and certificates. Captions describe the visible event or team scene; no award title, date, named recipient or chain-wide clinical credential is inferred. Source images remain local and unchanged.

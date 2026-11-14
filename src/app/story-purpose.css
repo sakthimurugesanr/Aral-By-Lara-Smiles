@@ -1,0 +1,23 @@
+.mission-vision-section{background:#fffafc;padding:36px 0;scroll-margin-top:110px}
+.mission-vision-heading{margin-bottom:23px;text-align:left}
+.mission-vision-heading h2{font-size:clamp(28px,2.8vw,37px);line-height:1.25}
+.mission-vision-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.mission-vision-grid article{padding:30px;border-radius:22px;min-width:0;display:flex;flex-direction:column;align-items:start}
+.mission-panel{background:#edf5ef;border:1px solid #dce9df}
+.vision-panel{background:#eaf4fb;border:1px solid #dbe8f0}
+.mission-vision-label{font-size:11px;font-weight:750;line-height:1.7;color:#705263;letter-spacing:.06em;text-transform:uppercase}
+.mission-vision-grid h3{font-size:clamp(23px,2.3vw,30px);line-height:1.35;color:#654256;margin:17px 0}
+.mission-vision-grid p{max-width:480px;font-size:13px;line-height:1.9;color:#685c65;margin:0 0 22px}
+.mission-vision-principle{display:block;margin-top:auto;padding:10px 13px;border-radius:10px;background:#ffffffa8;font-size:11px;line-height:1.75;color:#705263;font-weight:650}
+.team-awards-section{background:#f9f0f5;padding:36px 0;scroll-margin-top:110px}
+.team-awards-track,.team-awards-group{display:flex;width:max-content}
+.team-awards-group{gap:18px;padding-right:18px}
+.team-awards-photo{flex:none;width:330px;background:#fff;border:1px solid #e8dce3;border-radius:19px;overflow:hidden;margin:0;padding:9px 9px 0}
+.team-awards-image{height:305px;overflow:hidden;background:#faf8f9;border-radius:12px}
+.team-awards-image img{display:block;width:100%;height:100%;object-fit:contain}
+.team-awards-photo figcaption{font-size:12px;font-weight:650;line-height:1.7;color:#715264;padding:13px 8px 15px}
+.team-awards-rail .infinite-window{overflow-x:auto;scrollbar-width:none;cursor:grab}
+.team-awards-rail .infinite-window::-webkit-scrollbar{display:none}
+.team-awards-rail [data-dragging=true]{cursor:grabbing}
+@media(max-width:760px){.mission-vision-section,.team-awards-section{padding:29px 0;scroll-margin-top:95px}.mission-vision-heading{margin-bottom:20px}.mission-vision-heading h2{font-size:29px}.mission-vision-grid{grid-template-columns:1fr;gap:15px}.mission-vision-grid article{padding:24px;border-radius:18px}.mission-vision-grid h3{font-size:26px;margin:14px 0}.mission-vision-grid p{font-size:13px;margin-bottom:19px}.team-awards-photo{width:270px}.team-awards-image{height:270px}.team-awards-group{gap:13px;padding-right:13px}.team-awards-photo figcaption{font-size:12px}.team-awards-rail .rail-manual-help{flex-wrap:wrap;gap:8px}.team-awards-rail .rail-manual-help>span{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.team-awards-group[aria-hidden=true]{display:none}}

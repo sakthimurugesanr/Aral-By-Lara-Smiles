@@ -1,0 +1,102 @@
+[
+  {
+    "slug": "team-1",
+    "title": "Together, beyond the clinic",
+    "alt": "Group photograph at a professional event shared by Lara Smiles",
+    "src": "/images/team-awards/team-1.webp",
+    "width": 680,
+    "height": 382,
+    "bytes": 63638,
+    "originalBytes": 63652
+  },
+  {
+    "slug": "team-2",
+    "title": "A shared commitment",
+    "alt": "Lara Smiles team members at the clinic",
+    "src": "/images/team-awards/team-2.webp",
+    "width": 680,
+    "height": 510,
+    "bytes": 56778,
+    "originalBytes": 64498
+  },
+  {
+    "slug": "team-3",
+    "title": "People behind the smiles",
+    "alt": "Clinic team holding presentation materials",
+    "src": "/images/team-awards/team-3.webp",
+    "width": 243,
+    "height": 174,
+    "bytes": 11780,
+    "originalBytes": 22218
+  },
+  {
+    "slug": "team-4",
+    "title": "Moments of recognition",
+    "alt": "A team photograph with an award plaque",
+    "src": "/images/team-awards/team-4.webp",
+    "width": 800,
+    "height": 734,
+    "bytes": 101278,
+    "originalBytes": 267016
+  },
+  {
+    "slug": "award-plaque",
+    "title": "Recognition, remembered",
+    "alt": "An award plaque in a photograph supplied by the clinic",
+    "src": "/images/team-awards/award-plaque.webp",
+    "width": 800,
+    "height": 730,
+    "bytes": 49798,
+    "originalBytes": 150430
+  },
+  {
+    "slug": "team-7",
+    "title": "A moment to celebrate",
+    "alt": "An award presentation photograph supplied by Lara Smiles",
+    "src": "/images/team-awards/team-7.webp",
+    "width": 800,
+    "height": 730,
+    "bytes": 79776,
+    "originalBytes": 204051
+  },
+  {
+    "slug": "team-5",
+    "title": "Connecting with our profession",
+    "alt": "Professional event photograph shared by the clinic",
+    "src": "/images/team-awards/team-5.webp",
+    "width": 638,
+    "height": 850,
+    "bytes": 66920,
+    "originalBytes": 605168
+  },
+  {
+    "slug": "team-6",
+    "title": "Learning, together",
+    "alt": "A certificate presentation at a professional event",
+    "src": "/images/team-awards/team-6.webp",
+    "width": 638,
+    "height": 850,
+    "bytes": 48146,
+    "originalBytes": 483688
+  },
+  {
+    "slug": "team-9",
+    "title": "Shared professional moments",
+    "alt": "A second clinic-supplied certificate presentation photograph",
+    "src": "/images/team-awards/team-9.webp",
+    "width": 382,
+    "height": 510,
+    "bytes": 26552,
+    "originalBytes": 30462
+  },
+  {
+    "slug": "team-larawal",
+    "title": "Growing as a team",
+    "alt": "A group photograph at a professional gathering",
+    "src": "/images/team-awards/team-larawal.webp",
+    "width": 243,
+    "height": 406,
+    "bytes": 29538,
+    "originalBytes": 51219
+  }
+]
