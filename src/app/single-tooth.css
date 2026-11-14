@@ -1,0 +1,6 @@
+.aligner-visual .single-tooth-visual{position:relative;inset:auto;width:100%;max-width:540px;height:auto;transform:none;background:none;text-align:center}
+.single-tooth-visual svg{display:block;width:100%;height:auto;max-width:100%;overflow:visible}
+.single-tooth-visual .single-tooth-outline{stroke-dasharray:none;stroke-dashoffset:0}
+.aligner-section .single-tooth-visual p{margin:0;font-size:12px;line-height:1.9;color:var(--theme-muted)}
+.aligner-section .single-tooth-visual strong{display:block;font-size:17px;line-height:1.8;color:var(--theme-primary)}
+@media(max-width:760px){.aligner-visual .single-tooth-visual{max-width:380px;width:100%}.aligner-section .single-tooth-visual p{font-size:11px}.aligner-section .single-tooth-visual strong{font-size:15px}}

@@ -113,7 +113,7 @@ The upstream tooth pin has refresh priority so downstream triggers use its final
 
 Section entrances animate the inner content with a gentle 700ms mobile / 850ms desktop fade and 12–16px rise. Native IntersectionObserver and Web Animations keep the page visible before JavaScript and cancel active animations on navigation or reduced-motion changes. Dedicated GSAP scroll scenes retain their own animation logic. Inner Reveal blocks use opacity only to avoid compounded movement.
 
-The privacy page heading and body share the same left edge. The comparison section is light blue. Team image panels are 285px on desktop and 215px on mobile (195px on the narrowest screens). The aligner illustration is an original, responsive three-tooth SVG with a smiling centre tooth.
+The privacy page heading and body share the same left edge. The comparison section is light blue. Team image panels are 285px on desktop and 215px on mobile (195px on the narrowest screens). The aligner illustration is an original, responsive single-tooth outline tilted 75 degrees to the left.
 
 ## Manual service sliding and contact controls
 
@@ -176,3 +176,16 @@ Browser QA covered the desktop hero and booking drawer, mobile Our Story and tre
 The three technology rows use text on the left and hero-style faded media on the right. The supplied Invisalign educational video is compressed to a silent 640px MP4 and plays automatically only when visible. It has no native player chrome; a keyboard-focus-only pause control remains available. Reduced-motion visitors see its poster. A code-native digital-scanning illustration and a supplied clear-aligner photo illustrate the other rows without claiming actual branch equipment or a verified partnership. On mobile, the media sits above the text with a bottom fade.
 
 Run `node scripts/prepare-technology-media.mjs` to regenerate the prepared media from the local Assets copy, or pass an input path as its first argument. Footer contacts now list all eight locations and all 11 supplied branch phone numbers, with native tel links. The clear-aligner feature uses a light blush gradient and dark text, controlled by the existing shared theme. Browser checks confirmed muted playback without controls, offscreen pause, mobile card layout and contact links without horizontal overflow.
+
+## Single angled tooth outline
+
+The Clear Aligners visual uses one unfilled SVG tooth contour, tilted around its centre using the current illustration angle. A padded 560 × 360 viewBox keeps the full outline visible across breakpoints. The shared primary color controls the stroke, and vector-effect keeps its width consistent as it scales. No image download, face details or animation is added.
+
+## Opposing rails and scroll-driven stories
+
+The homepage has two treatment rails moving in opposite directions, with manual touch/drag and pause controls. Its 24 unique supplied reviews are split into three alternating rails over a pink, blue and green gradient. New review cards link to their supplied Google profiles; incomplete pasted reviews use excerpts. Duplicate entries, blank reviews and owner replies are omitted.
+
+Success stories now use 14 larger, lazy-loaded photographs with a GSAP ScrollTrigger horizontal journey. Pinning is enabled only when the complete panel fits the viewport; reduced motion and shorter screens retain a native horizontal gallery. Previous, next, swipe/drag and continue-page controls remain available. GSAP loads near the section and cleans up on unmount and resize.
+
+The Welcome section uses a compact grid, the story and conversation photos have responsive gradient fades, and Moments of care has previous/next controls. Desktop and mobile browser checks covered gallery navigation, continuation, opposing rails, photo fades and page overflow. The technology area currently retains the Invisalign video and Precisalign image rows after the scanning card was removed.
+

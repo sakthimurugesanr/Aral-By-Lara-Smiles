@@ -38,3 +38,19 @@
 @media(max-width:1000px){.clinical-technology-copy{width:60%;padding:26px}.clinical-technology-copy h3{font-size:23px}.footer-branch-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){.clinical-technology-card.technology-media-row{display:flex;flex-direction:column;min-height:0}.clinical-card-media{position:relative;inset:auto;width:100%;height:200px;order:-1;flex:none}.clinical-card-media::after{background:linear-gradient(0deg,var(--theme-surface),transparent 65%)}.clinical-technology-copy{width:100%;padding:20px 22px 24px;margin-top:-12px}.clinical-technology-copy h3{font-size:22px}.clinical-technology-copy>p{font-size:13px}.clinical-media-caption{bottom:auto;top:12px}.footer .footer-top{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 20px}.footer .footer-top>div:first-child{grid-column:1/-1}.footer .footer-contact>a:first-of-type{font-size:17px}.footer-branch-grid{gap:22px 18px}.footer .footer-branch-name{font-size:12px}.footer .footer-branch-phones a{font-size:12px}.footer .footer-branch-location{font-size:10px}.footer-branch-directory{margin-top:30px}}
 @media(prefers-reduced-motion:reduce){.ambient-video>video{transition:none}}
+
+/* Welcome to ARAL — mirrors "Let's start with a conversation" layout */
+.welcome-section{background:var(--theme-surface)}
+.welcome-consultation-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:55px;align-items:center;padding-block:20px}
+.welcome-consultation-grid>div:first-child{display:flex;flex-direction:column;gap:18px;padding-block:20px}
+.welcome-consultation-grid h2{font-size:clamp(31px,3.5vw,49px)}
+.welcome-consultation-grid p:not(.eyebrow){font-size:13px;line-height:1.9;color:var(--theme-muted);max-width:430px;margin:0}
+.welcome-values{display:flex;flex-direction:column;gap:9px}
+.welcome-values span{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:500;color:var(--theme-ink)}
+.welcome-photo{height:430px;position:relative;overflow:hidden;border-radius:24px}
+.welcome-photo img{object-fit:cover;object-position:50% 38%;transform:scale(1.1) translateY(var(--parallax,0px))}
+.welcome-photo::after{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--theme-surface) 0%,color-mix(in srgb,var(--theme-surface) 55%,transparent) 22%,transparent 55%);pointer-events:none}
+@media(max-width:1100px){.welcome-consultation-grid{gap:35px}.welcome-photo{height:400px}}
+@media(max-width:900px){.welcome-consultation-grid{gap:25px}.welcome-photo{height:380px}}
+@media(max-width:760px){.welcome-consultation-grid{grid-template-columns:1fr;gap:28px;padding-block:0}.welcome-consultation-grid>div:first-child{padding-block:0}.welcome-photo{height:280px;border-radius:16px}.welcome-photo::after{background:linear-gradient(0deg,var(--theme-surface) 0%,transparent 55%)}.welcome-photo img{transform:none}}
+@media(prefers-reduced-motion:reduce){.welcome-photo img{transform:none}}

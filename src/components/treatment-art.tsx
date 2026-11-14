@@ -10,10 +10,13 @@ export function TreatmentArt({ slug, className = '' }: Props) {
 }
 
 export function ToothLineArt() {
- const outline='M90 48C65 28 28 33 25 68C20 98 42 126 48 161C54 197 60 223 72 223C84 223 80 170 90 151C100 170 96 223 108 223C120 223 126 197 132 161C138 126 160 98 155 68C152 33 115 28 90 48Z';
- return <div className="tooth-line-visual tooth-trio-visual"><svg viewBox="0 0 640 360" fill="none" role="img" aria-label="Three tooth illustrations, with a smiling tooth in the centre"><defs><linearGradient id="smiling-tooth-enamel" x1="50" y1="40" x2="130" y2="220" gradientUnits="userSpaceOnUse"><stop stopColor="var(--theme-surface)"/><stop offset="1" stopColor="var(--theme-rose)"/></linearGradient></defs><ellipse cx="320" cy="320" rx="238" ry="9" fill="color-mix(in srgb, var(--theme-rose) 8%, transparent)"/>
-  <g data-aligner-tooth className="trio-tooth-side" transform="translate(32 81) scale(.9)" strokeLinecap="round" strokeLinejoin="round"><path className="trio-tooth-outline" d={outline} fill="color-mix(in srgb, var(--theme-surface) 38%, transparent)" stroke="var(--theme-rose-strong)" strokeWidth="2"/><path d="M29 80Q90 108 151 80L148 105Q90 131 32 105Z" fill="color-mix(in srgb, var(--theme-sky) 42%, transparent)" stroke="var(--theme-sky-border)" strokeWidth="1.5"/><path d="M49 66Q61 55 74 62" stroke="var(--theme-rose-strong)" strokeWidth="1.8"/></g>
-  <g data-aligner-tooth data-smiling="true" className="trio-tooth-centre" transform="translate(217 32) scale(1.14)" strokeLinecap="round" strokeLinejoin="round"><path className="trio-tooth-outline" d={outline} fill="url(#smiling-tooth-enamel)" stroke="var(--theme-primary)" strokeWidth="2"/><path d="M48 64Q61 52 77 61" stroke="var(--theme-rose-strong)" strokeWidth="2"/><circle cx="65" cy="94" r="3" fill="var(--theme-primary)"/><circle cx="115" cy="94" r="3" fill="var(--theme-primary)"/><path d="M67 114Q90 138 113 114" stroke="var(--theme-primary)" strokeWidth="2.6"/></g>
-  <g data-aligner-tooth className="trio-tooth-side" transform="translate(446 81) scale(.9)" strokeLinecap="round" strokeLinejoin="round"><path className="trio-tooth-outline" d={outline} fill="color-mix(in srgb, var(--theme-surface) 38%, transparent)" stroke="var(--theme-rose-strong)" strokeWidth="2"/><path d="M49 66Q61 55 74 62M54 108Q90 121 126 108" stroke="var(--theme-rose-strong)" strokeWidth="1.8"/></g>
- </svg><p>A healthy foundation.<br/><strong>A smile that’s yours.</strong></p></div>;
+ const outline = 'M90 48C65 28 28 33 25 68C20 98 42 126 48 161C54 197 60 223 72 223C84 223 80 170 90 151C100 170 96 223 108 223C120 223 126 197 132 161C138 126 160 98 155 68C152 33 115 28 90 48Z';
+ return <div className="tooth-line-visual single-tooth-visual">
+  <svg viewBox="0 0 560 360" fill="none" role="img" aria-label="Single dental tooth outline with slight left tilt">
+   <g data-aligner-tooth data-angle="-12" transform="translate(280 180) rotate(-12) scale(1.6) translate(-90 -128)">
+    <path className="single-tooth-outline" d={outline} fill="none" stroke="var(--theme-primary)" strokeWidth="2.5" vectorEffect="non-scaling-stroke" strokeLinecap="round" strokeLinejoin="round"/>
+   </g>
+  </svg>
+  <p>A healthy foundation.<strong>A smile that’s yours.</strong></p>
+ </div>;
 }

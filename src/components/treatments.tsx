@@ -20,7 +20,7 @@ const aliases: Record<string, string> = {
 };
 
 export function TreatmentCard({ treatment, duplicate = false }: { treatment: Treatment; duplicate?: boolean }) {
- return <Link href={'/treatments/' + treatment.slug} className="treatment-card treatment-text-card" tabIndex={duplicate ? -1 : undefined}>
+ return <Link prefetch={false} href={'/treatments/' + treatment.slug} className="treatment-card treatment-text-card" tabIndex={duplicate ? -1 : undefined}>
   <div className="treatment-card-content"><span className="tiny-label">{treatment.category}</span><h3>{treatment.name}</h3><p>{treatment.description}</p></div>
   <span className="card-learn">See the treatment process</span>
  </Link>;
@@ -69,6 +69,6 @@ export function TreatmentGrid({ full = false }: { full?: boolean }) {
     <div className="treatment-grid">{group.items.map(t => <TreatmentCard key={t.slug} treatment={t}/>)}</div>
    </section>)}</div>
    : query.trim() ? <div className="treatment-grid">{items.map(t => <TreatmentCard key={t.slug} treatment={t}/>)}</div>
-   : <InfiniteRail label="Dental services" className="services-rail" manualDrag><div className="services-track"><div className="service-group">{items.map(t => <TreatmentCard key={t.slug} treatment={t}/>)}</div><div className="service-group" aria-hidden="true">{items.map(t => <TreatmentCard key={t.slug} treatment={t} duplicate/>)}</div></div></InfiniteRail>}
+   : <div className="service-rows">{[0,1].map(row => <InfiniteRail key={row} label={row===0?'Dental services upper row':'Dental services lower row'} className="services-rail" manualDrag direction={row===0?'left':'right'}><div className="services-track">{[false,true].map(duplicate=><div className="service-group" key={String(duplicate)} aria-hidden={duplicate||undefined}>{items.filter((_,index)=>index%2===row).map(t=><TreatmentCard key={t.slug} treatment={t} duplicate={duplicate}/>)}</div>)}</div></InfiniteRail>)}</div>}
  </div>;
 }

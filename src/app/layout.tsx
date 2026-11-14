@@ -25,6 +25,8 @@ import './story-purpose.css';
 import './treatment-films.css';
 import './brand-theme.css';
 import './clinical-media.css';
+import './single-tooth.css';
+import './experience-updates.css';
 export const metadata: Metadata = {
  icons: { icon: '/images/lara-smiles-logo.png', apple: '/images/lara-smiles-logo.png' },
  metadataBase: new URL(site.url), title: { default:'ARAL by LARA SMILES | Thoughtful Dental Care in Tiruppur', template:'%s | ARAL by LARA SMILES' }, description:'Discover personalised dental care, clear aligners, restorative and cosmetic dentistry at ARAL by LARA SMILES in Tiruppur. Enquire about your first visit.',

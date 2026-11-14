@@ -22,7 +22,7 @@ footer.footer :is(.approval-note,.footer-bottom,.footer-network-contact) :is(p,s
 .text-link,.underlined-link{color:var(--theme-primary)}
 .text-link:hover,.underlined-link:hover{color:var(--theme-primary-hover)}
 .hero-background{background:var(--theme-page)}
-.hero-dental-overlay{background:linear-gradient(90deg,color-mix(in srgb,var(--theme-page) 99%,transparent),color-mix(in srgb,var(--theme-page) 94%,transparent) 37%,color-mix(in srgb,var(--theme-page) 55%,transparent) 68%,color-mix(in srgb,var(--theme-page) 9%,transparent))}
+.hero-dental-overlay{background:linear-gradient(90deg,color-mix(in srgb,var(--theme-page) 92%,transparent),color-mix(in srgb,var(--theme-page) 75%,transparent) 37%,color-mix(in srgb,var(--theme-page) 28%,transparent) 68%,color-mix(in srgb,var(--theme-page) 2%,transparent))}
 .page-intro{background:linear-gradient(120deg,var(--theme-rose),var(--theme-page))}
 .welcome-section,.team-section,.branch-doctor-section,.story-section,.reviews-section,.process-section,.story-page,.mission-vision-section{background:var(--theme-surface)}
 .treatment-section,.clinical-technology-section,.brand-milestones-section,.success-stories-section,.team-awards-section{background:var(--theme-rose);border-color:var(--theme-border)}
@@ -47,7 +47,7 @@ footer.footer :is(.approval-note,.footer-bottom,.footer-network-contact) :is(p,s
 .sheet-content,.appointment-form,.contact-card{background:var(--theme-surface);color:var(--theme-ink)}
 .sheet-overlay{background:color-mix(in srgb,var(--theme-deep) 38%,transparent)}
 .field-error,.form-error{color:var(--theme-danger)}
-@media(max-width:760px){:root{--section-radius:min(var(--theme-radius-section),24px)}.hero-dental-overlay{background:linear-gradient(90deg,color-mix(in srgb,var(--theme-page) 98%,transparent),color-mix(in srgb,var(--theme-page) 91%,transparent) 48%,color-mix(in srgb,var(--theme-page) 77%,transparent))}}
+@media(max-width:760px){:root{--section-radius:min(var(--theme-radius-section),24px)}.hero-dental-overlay{background:linear-gradient(90deg,color-mix(in srgb,var(--theme-page) 90%,transparent),color-mix(in srgb,var(--theme-page) 72%,transparent) 48%,color-mix(in srgb,var(--theme-page) 45%,transparent))}}
 .shadcn-input,.treatment-branch-filter select,.form-grid input,.form-grid select,.form-grid textarea{border-color:var(--theme-control-border)}
 .tooth-trio-visual p{color:var(--theme-on-dark-muted)}.tooth-trio-visual strong{color:var(--theme-on-dark)}
 .floating-whatsapp{background:var(--theme-primary);border-color:var(--theme-primary);color:var(--theme-white)}.floating-whatsapp:hover{background:var(--theme-primary-hover);color:var(--theme-white)}

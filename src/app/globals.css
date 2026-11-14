@@ -12,3 +12,7 @@
 @media(max-width:360px){.container{width:calc(100% - 32px)}.topbar a{font-size:7px}.hero h1{font-size:57px}.headline-spark{right:-43px;font-size:34px;top:73px}.hero-actions{gap:15px}.hero-actions .button{font-size:9px;padding:15px 13px;gap:12px}.hero-actions .underlined-link{font-size:9px}.hero-visual{height:430px}.treatment-grid{grid-template-columns:1fr}.treatment-card{min-height:240px;padding:25px}.branch-grid{grid-template-columns:1fr}.branch-card>p{min-height:0}.branch-actions{flex-direction:row;gap:25px}.form-grid{grid-template-columns:1fr}.full-field{grid-column:auto}.doctor-placeholder{height:175px}.doctor-card h3{font-size:17px}}
 @media(max-width:760px){.headline-spark{display:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.parallax img{transform:none!important}.treatment-card:hover,.button:hover,.floating-whatsapp:hover{transform:none}}
+
+.mobile-menu-backdrop{position:fixed;inset:0;z-index:40;background:color-mix(in srgb,var(--theme-deep) 45%,transparent);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);animation:backdrop-fade-in .22s ease both}
+@keyframes backdrop-fade-in{from{opacity:0;backdrop-filter:blur(0px)}to{opacity:1;backdrop-filter:blur(6px)}}
+@media(prefers-reduced-motion:reduce){.mobile-menu-backdrop{animation:none}}
