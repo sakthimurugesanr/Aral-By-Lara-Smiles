@@ -1,6 +1,15 @@
-import videos from '@/lib/story-videos.json';
+import existingVideos from '@/lib/story-videos.json';
+import treatmentVideos from '@/lib/treatment-videos.json';
 import { SilentVideoCard } from './silent-video-card';
+import { InfiniteRail } from './infinite-rail';
+
+const videos = [...existingVideos, ...treatmentVideos];
 
 export function ClinicVideos() {
- return <section className="section clinic-videos-section" id="moments-of-care" aria-labelledby="clinic-videos-title"><div className="container"><div className="clinic-videos-heading"><div><p className="eyebrow">Moments of care</p><h2 id="clinic-videos-title">A little closer.<br/><em>A little more familiar.</em></h2></div><p>Three short films shared by ARAL. Hover to preview, or tap to play. Always without sound.</p></div><p className="video-mobile-hint">Swipe to explore · Tap to play</p><div className="clinic-video-grid" role="region" aria-label="Three silent clinic films" tabIndex={0}>{videos.map(video => <SilentVideoCard key={video.slug} video={video} hoverPreview/>)}</div></div></section>;
+ return <section className="section clinic-videos-section treatment-films-section" id="moments-of-care" aria-labelledby="clinic-videos-title"><div className="container">
+  <div className="clinic-videos-heading"><div><p className="eyebrow">Moments of care</p><h2 id="clinic-videos-title">A little closer.<br/><em>A little more familiar.</em></h2></div><p>Clinic-shared films, including dental treatment footage. Hover to preview on desktop, or tap to play on mobile. Always without sound.</p></div>
+  <InfiniteRail label="Clinic and treatment films" className="treatment-film-rail" manualDrag helpText="Drag or swipe to explore · Hover or tap to play">
+   <div className="treatment-film-track">{[false, true].map(duplicate => <div className="treatment-film-group" key={String(duplicate)} aria-hidden={duplicate || undefined}>{videos.map(video => <SilentVideoCard key={video.slug} video={video} hoverPreview duplicate={duplicate}/>)}</div>)}</div>
+  </InfiniteRail>
+ </div></section>;
 }

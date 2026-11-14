@@ -158,3 +158,9 @@ The homepage adds four social films. Video sources are not mounted until Play is
 The Our Story page includes a separate team and awards infinite gallery using all 10 images from `src/Assets/team`. Run `node scripts/prepare-team-media.mjs` to recreate its WebP assets and manifest. Lazy images retain their aspect ratio with contain framing, and the shared rail supports keyboard navigation, manual drag, touch, pause/resume and reduced-motion preferences. Captions describe the supplied photographs without inventing award titles, dates or clinical certification.
 
 The Mission & Vision section is newly drafted editorial copy based on the site’s existing listening, clarity, prevention and personal-care themes. It is not represented as a quoted official brand statement. Two responsive panels use the existing mint and sky palette and server rendering. Both new sections inherit the page’s existing motion and reduced-motion behavior without additional libraries.
+
+## Unified Moments of Care carousel
+
+The separate social journal section is hidden from the homepage; its source assets remain available for later reuse. Moments of Care now combines the three existing clinic films with all five videos from the user-specified `src/Assets/tratment` folder. Run `node scripts/prepare-treatment-videos.mjs` to regenerate silent H.264 fast-start exports and lazy posters.
+
+The shared infinite rail supports hover-to-play on fine-pointer desktop devices, tap-to-play on mobile, manual dragging, touch swipes, keyboard navigation and pause/resume. Reduced-motion mode disables automatic movement and hover previews. Native video controls are excluded from drag capture, so seeking remains usable. Repeated visual copies have no focusable controls and are hidden from accessibility APIs, while the original group exposes all players. Videos pause offscreen or when the tab is hidden; only one plays at a time. MP4 sources are mounted only after hover or explicit Play.

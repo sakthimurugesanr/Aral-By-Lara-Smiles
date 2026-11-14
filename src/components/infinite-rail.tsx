@@ -16,6 +16,7 @@ export function InfiniteRail({ children, label, className = '', manualDrag = fal
  useEffect(()=>()=>{if(clickReset.current)clearTimeout(clickReset.current)},[]);
  const beginDrag=(event:ReactPointerEvent<HTMLDivElement>)=>{
   if(!manualDrag||event.pointerType==='touch'||event.button!==0)return;
+  if((event.target as HTMLElement).closest('video,input,select,textarea'))return;
   if(clickReset.current)clearTimeout(clickReset.current);suppressClick.current=false;
   drag.current={id:event.pointerId,x:event.clientX,y:event.clientY,left:event.currentTarget.scrollLeft,active:false};
  };

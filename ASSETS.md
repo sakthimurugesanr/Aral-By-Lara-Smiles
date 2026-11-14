@@ -44,3 +44,7 @@ Fourteen photographs from `src/Assets/past-success` are reproduced as WebP files
 ## Team and awards gallery
 
 All 10 images in `src/Assets/team` are reproduced as optimized WebP files under `public/images/team-awards`, using the user’s explicit request to include them on Our Story. Full-image contain framing preserves faces, plaques and certificates. Captions describe the visible event or team scene; no award title, date, named recipient or chain-wide clinical credential is inferred. Source images remain local and unchanged.
+
+## Additional treatment films
+
+Five files from the supplied `src/Assets/tratment` directory are exported to `public/videos/treatments` as compressed 480px/24fps H.264 MP4s with audio tracks and metadata removed. WebP posters load lazily. They appear in Moments of Care alongside the existing clinic films, with a visible note that the section includes treatment footage. Generic descriptive titles do not assert a specific diagnosis, outcome or patient identity.

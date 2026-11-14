@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "treatment-film-1",
+    "title": "A closer look at care",
+    "description": "Clinic-shared treatment footage. Watch when you feel comfortable.",
+    "src": "/videos/treatments/treatment-film-1.mp4",
+    "poster": "/videos/treatments/treatment-film-1-poster.webp",
+    "width": 480,
+    "height": 854,
+    "duration": 51,
+    "bytes": 3884079,
+    "originalBytes": 9181899
+  },
+  {
+    "slug": "treatment-film-2",
+    "title": "In the treatment room",
+    "description": "Clinic-shared treatment footage. Watch when you feel comfortable.",
+    "src": "/videos/treatments/treatment-film-2.mp4",
+    "poster": "/videos/treatments/treatment-film-2-poster.webp",
+    "width": 480,
+    "height": 854,
+    "duration": 35,
+    "bytes": 1952854,
+    "originalBytes": 5445953
+  },
+  {
+    "slug": "treatment-film-3",
+    "title": "A visit, thoughtfully planned",
+    "description": "Clinic-shared treatment footage. Watch when you feel comfortable.",
+    "src": "/videos/treatments/treatment-film-3.mp4",
+    "poster": "/videos/treatments/treatment-film-3-poster.webp",
+    "width": 480,
+    "height": 854,
+    "duration": 83,
+    "bytes": 5450159,
+    "originalBytes": 13793007
+  },
+  {
+    "slug": "treatment-film-4",
+    "title": "Care in practice",
+    "description": "Clinic-shared treatment footage. Watch when you feel comfortable.",
+    "src": "/videos/treatments/treatment-film-4.mp4",
+    "poster": "/videos/treatments/treatment-film-4-poster.webp",
+    "width": 480,
+    "height": 854,
+    "duration": 64,
+    "bytes": 2491026,
+    "originalBytes": 6276117
+  },
+  {
+    "slug": "treatment-film-5",
+    "title": "Everyday dental care",
+    "description": "Clinic-shared treatment footage. Watch when you feel comfortable.",
+    "src": "/videos/treatments/treatment-film-5.mp4",
+    "poster": "/videos/treatments/treatment-film-5-poster.webp",
+    "width": 480,
+    "height": 854,
+    "duration": 49,
+    "bytes": 3496086,
+    "originalBytes": 8520857
+  }
+]
