@@ -134,3 +134,7 @@ The treatment catalog uses the 11 supplied clinical categories from `src/lib/tre
 ## Clinical credentials and technology
 
 The homepage includes a concise four-card section after clear aligner care, covering reported Invisalign systems, iTero scanning, the reported Precisalign partnership and practitioner licensing. Copy comes from supplied material, with explicit qualification that credentials, authorization, participating locations, equipment and individual registrations remain unverified. No certification badges or unrelated third-party images are used. The section renders as server HTML, uses the existing section entrance animation and reduced-motion handling, and needs no new dependencies or media downloads.
+
+## Reported brand milestones
+
+The homepage and Our Story page share a server-rendered milestones section. A plum founding-year panel sits beside six concise narrative entries; mobile uses one column. Only the reported 2023 founding is dated. The supplied branch expansion, aligner focus, digital planning, historical rating snapshots, community activities and local ARAL identity retain their verification qualifications. No ownership relationship, current event date, chain-wide provider certification or live review score is inferred. Existing section entrance and reduced-motion behavior apply without additional dependencies or media.
