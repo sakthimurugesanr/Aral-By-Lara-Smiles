@@ -130,3 +130,7 @@ The booking form filters treatment choices by clinic and resets an unsupported c
 ## Treatment categories
 
 The treatment catalog uses the 11 supplied clinical categories from `src/lib/treatment-categories.ts`. All 40 entries have a typed category, and the directory groups text cards under matching headings. Search, category and branch filters intersect; mobile category controls wrap into two columns. Related treatment suggestions use the same category names. Newly supplied iTero scans and implant consultations remain network catalog enquiries with no inferred branch assignment. Digital smile planning and pediatric cavity care are mapped to branches where the supplied descriptions include them. No pain-free treatment guarantee is made.
+
+## Clinical credentials and technology
+
+The homepage includes a concise four-card section after clear aligner care, covering reported Invisalign systems, iTero scanning, the reported Precisalign partnership and practitioner licensing. Copy comes from supplied material, with explicit qualification that credentials, authorization, participating locations, equipment and individual registrations remain unverified. No certification badges or unrelated third-party images are used. The section renders as server HTML, uses the existing section entrance animation and reduced-motion handling, and needs no new dependencies or media downloads.
