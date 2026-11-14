@@ -164,3 +164,9 @@ The Mission & Vision section is newly drafted editorial copy based on the siteâ€
 The separate social journal section is hidden from the homepage; its source assets remain available for later reuse. Moments of Care now combines the three existing clinic films with all five videos from the user-specified `src/Assets/tratment` folder. Run `node scripts/prepare-treatment-videos.mjs` to regenerate silent H.264 fast-start exports and lazy posters.
 
 The shared infinite rail supports hover-to-play on fine-pointer desktop devices, tap-to-play on mobile, manual dragging, touch swipes, keyboard navigation and pause/resume. Reduced-motion mode disables automatic movement and hover previews. Native video controls are excluded from drag capture, so seeking remains usable. Repeated visual copies have no focusable controls and are hidden from accessibility APIs, while the original group exposes all players. Videos pause offscreen or when the tab is hidden; only one plays at a time. MP4 sources are mounted only after hover or explicit Play.
+
+## Premium pink theme
+
+The Lara Rose palette is centralized in `src/lib/brand-theme.ts`. The same values generate server-rendered CSS variables and configure the MUI booking form. More than 600 legacy CSS color literals now reference shared semantic roles. `src/app/brand-theme.css` connects those roles across page surfaces, navigation, cards, footer, buttons, overlays, filters and shared illustration accents. See `THEME.md` for future changes. The logo and photographs preserve their supplied colors.
+
+Browser QA covered the desktop hero and booking drawer, mobile Our Story and treatment filters, and the tablet branch directory. No horizontal overflow was observed at the checked 390px, 820px and 1280px widths. Core text/button pairs, input boundaries and focus indicators passed the documented contrast checks. The theme uses existing fonts and adds no global client provider or new dependency.

@@ -1,4 +1,5 @@
 'use client';
+import { brandTheme } from '@/lib/brand-theme';
 import Link from 'next/link';
 import { useEffect, useId, useState } from 'react';
 import { Controller, useForm, useWatch } from 'react-hook-form';
@@ -13,7 +14,7 @@ import { appointmentSchema, type AppointmentValues } from '@/lib/appointment';
 import { branches, treatmentsForBranch, site } from '@/lib/content';
 import { Button } from './ui/button';
 
-const formTheme=createTheme({palette:{primary:{main:'#974362'},error:{main:'#a84452'},text:{primary:'#412e37',secondary:'#79636d'}},typography:{fontFamily:'Nunito, Arial, sans-serif',fontSize:14},shape:{borderRadius:12},components:{MuiTextField:{defaultProps:{variant:'outlined',size:'small',fullWidth:true}},MuiOutlinedInput:{styleOverrides:{root:{background:'#fff',fontSize:14,'& .MuiOutlinedInput-notchedOutline':{borderColor:'#e3d8de'},'&:hover .MuiOutlinedInput-notchedOutline':{borderColor:'#bd8ea5'}},input:{padding:'12px 14px'}}},MuiInputLabel:{styleOverrides:{root:{fontSize:14}}},MuiFormHelperText:{styleOverrides:{root:{marginLeft:2,fontSize:11}}},MuiMenuItem:{styleOverrides:{root:{fontSize:14,minHeight:42}}}}});
+const formTheme=createTheme({palette:{primary:{main:brandTheme.colors.primary},error:{main:brandTheme.colors.danger},text:{primary:brandTheme.colors.ink,secondary:brandTheme.colors.muted}},typography:{fontFamily:brandTheme.fonts.body,fontSize:14},shape:{borderRadius:brandTheme.shape.control},components:{MuiTextField:{defaultProps:{variant:'outlined',size:'small',fullWidth:true}},MuiOutlinedInput:{styleOverrides:{root:{background:brandTheme.colors.surface,fontSize:14,'& .MuiOutlinedInput-notchedOutline':{borderColor:brandTheme.colors.controlBorder},'&:hover .MuiOutlinedInput-notchedOutline':{borderColor:brandTheme.colors.primary}},input:{padding:'12px 14px'}}},MuiInputLabel:{styleOverrides:{root:{fontSize:14}}},MuiFormHelperText:{styleOverrides:{root:{marginLeft:2,fontSize:11}}},MuiMenuItem:{styleOverrides:{root:{fontSize:14,minHeight:42}}}}});
 
 export function AppointmentForm({branch='',compact=false}:{branch?:string;compact?:boolean}){
  const id=useId();const [status,setStatus]=useState<'idle'|'success'|'error'>('idle');

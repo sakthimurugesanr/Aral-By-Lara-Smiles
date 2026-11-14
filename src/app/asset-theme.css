@@ -1,16 +1,16 @@
-.hero-background{position:relative;isolation:isolate;overflow:hidden;background:#e5edf1}
+.hero-background{position:relative;isolation:isolate;overflow:hidden;background:var(--theme-sky)}
 .hero-dental-backdrop{position:absolute;inset:0;z-index:-2}
 .hero-dental-backdrop img{object-fit:cover;object-position:center 43%}
-.hero-dental-overlay{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#fff9fbfa 0%,#fff9fbf5 25%,#fff9fbe0 40%,#fff9fb73 57%,#fff9fb0d 80%)}
+.hero-dental-overlay{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,color-mix(in srgb, var(--theme-page) 98.04%, transparent) 0%,color-mix(in srgb, var(--theme-page) 96.08%, transparent) 25%,color-mix(in srgb, var(--theme-page) 87.84%, transparent) 40%,color-mix(in srgb, var(--theme-page) 45.1%, transparent) 57%,color-mix(in srgb, var(--theme-page) 5.1%, transparent) 80%)}
 .hero-background .hero-grid{display:block;min-height:655px;padding-top:0}
 .hero-background .hero-copy{max-width:570px;padding-top:65px;padding-bottom:30px}
 .hero-background h1{font-size:clamp(50px,5.3vw,75px);line-height:1.18}
-.hero-background .hero-description{max-width:410px;font-size:14px;color:#5f5360}
+.hero-background .hero-description{max-width:410px;font-size:14px;color:var(--theme-muted)}
 .hero-background .hero-assurance{max-width:390px}
-.hero-background .hero-assurance strong{color:#553248}
-.hero-background .hero-bottom{height:65px;color:#594954}
-.hero-background .hero-bottom>span:nth-child(2){background:#fff9fbd4;padding:6px 12px;border-radius:20px}
-.hero-background .hero-location{background:#fff9fbdf;padding:6px 12px;border-radius:20px}
+.hero-background .hero-assurance strong{color:var(--theme-heading)}
+.hero-background .hero-bottom{height:65px;color:var(--theme-heading)}
+.hero-background .hero-bottom>span:nth-child(2){background:color-mix(in srgb, var(--theme-page) 83.14%, transparent);padding:6px 12px;border-radius:20px}
+.hero-background .hero-location{background:color-mix(in srgb, var(--theme-page) 87.45%, transparent);padding:6px 12px;border-radius:20px}
 .service-photo{object-fit:cover;aspect-ratio:8/5;border-radius:16px}
 .treatment-art-frame{padding:10px 10px 0}.treatment-card .service-photo{transition:transform .85s cubic-bezier(.22,1,.36,1),filter .6s}
 .treatment-card:hover .service-photo{transform:scale(1.04)}
@@ -21,7 +21,7 @@
 .infinite-window::-webkit-scrollbar{display:none}
 .infinite-rail .services-track,.infinite-rail .review-track{animation:none!important;transform:none!important;will-change:auto}
 .rail-pause{position:absolute;left:12px;top:10px;z-index:3;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
-.rail-pause:focus-visible{width:auto;height:auto;clip-path:none;padding:10px 16px;border-radius:10px;background:#fff;border:1px solid #aac4b7;color:#315f4d;box-shadow:0 4px 15px #18352a15}
+.rail-pause:focus-visible{width:auto;height:auto;clip-path:none;padding:10px 16px;border-radius:10px;background:var(--theme-surface);border:1px solid var(--theme-rose-strong);color:var(--theme-heading);box-shadow:0 4px 15px color-mix(in srgb, var(--theme-deep) 8.24%, transparent)}
 .services-track{display:flex;width:max-content;animation:service-drift 190s linear infinite;will-change:transform}
 .service-group{display:flex;gap:22px;padding-right:22px}
 .service-group>.treatment-card{flex:0 0 320px;width:320px;min-height:420px}
@@ -29,18 +29,18 @@
 .service-group .card-learn{padding:22px 23px 25px}
 @keyframes service-drift{to{transform:translateX(-50%)}}
 .infinite-rail:hover .services-track,.infinite-rail:focus-within .services-track,.infinite-rail.is-paused .services-track,.infinite-rail.is-offscreen .services-track,.infinite-rail:hover .review-track,.infinite-rail:focus-within .review-track,.infinite-rail.is-paused .review-track,.infinite-rail.is-offscreen .review-track{animation-play-state:paused}
-.review-grid .google-review-card,.review-track .google-review-card{background:#fff;border:1px solid #e4e7e5;border-radius:16px;box-shadow:0 3px 14px #1b322b08;padding:26px;min-height:325px}
+.review-grid .google-review-card,.review-track .google-review-card{background:var(--theme-surface);border:1px solid var(--theme-border);border-radius:16px;box-shadow:0 3px 14px color-mix(in srgb, var(--theme-deep) 3.14%, transparent);padding:26px;min-height:325px}
 .google-review-card figcaption.google-review-header{display:flex;align-items:center;gap:11px;margin:0 0 24px;padding:0;font-family:var(--body-font)}
-.google-review-avatar{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:#edf3f8;color:#547083;font-size:13px;font-weight:700;flex-shrink:0}
-.review-card:nth-child(3n+2) .google-review-avatar{background:#f2e9ef;color:#9c5b79}.review-card:nth-child(3n) .google-review-avatar{background:#e6f1e9;color:#5b7e65}
+.google-review-avatar{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:var(--theme-sky);color:var(--theme-blue-ink);font-size:13px;font-weight:700;flex-shrink:0}
+.review-card:nth-child(3n+2) .google-review-avatar{background:var(--theme-rose);color:var(--theme-primary)}.review-card:nth-child(3n) .google-review-avatar{background:var(--theme-mint);color:var(--theme-forest)}
 .google-review-author{display:flex;flex-direction:column;gap:2px;min-width:0}
-.google-review-author strong{font-family:var(--body-font);font-size:14px;font-weight:750;color:#343937;letter-spacing:0;line-height:1.4;overflow-wrap:anywhere}
-.google-review-author>span{font-size:11px;color:#7d827f;font-family:var(--body-font);font-weight:400}
+.google-review-author strong{font-family:var(--body-font);font-size:14px;font-weight:750;color:var(--theme-heading);letter-spacing:0;line-height:1.4;overflow-wrap:anywhere}
+.google-review-author>span{font-size:11px;color:var(--theme-muted);font-family:var(--body-font);font-weight:400}
 .google-letter{margin-left:auto;flex-shrink:0;font-family:Arial,sans-serif;font-size:24px;line-height:1;font-weight:700;background:conic-gradient(#4285f4 0deg 90deg,#34a853 90deg 175deg,#fbbc05 175deg 235deg,#ea4335 235deg 285deg,#4285f4 285deg);background-clip:text;-webkit-background-clip:text;color:transparent}
-.google-review-card blockquote{color:#4f5652;font-size:13px;line-height:1.95}
-.google-review-footer{margin-top:auto;padding-top:24px;font-size:10px;line-height:1.6;color:#8a8f8c}
-@media(max-width:1100px){.hero-background .hero-copy{max-width:510px}.hero-background .hero-grid{min-height:630px}.hero-dental-overlay{background:linear-gradient(90deg,#fff9fbfa 0%,#fff9fbf0 35%,#fff9fb7d 65%,#fff9fb15 100%)}}
+.google-review-card blockquote{color:var(--theme-heading);font-size:13px;line-height:1.95}
+.google-review-footer{margin-top:auto;padding-top:24px;font-size:10px;line-height:1.6;color:var(--theme-muted)}
+@media(max-width:1100px){.hero-background .hero-copy{max-width:510px}.hero-background .hero-grid{min-height:630px}.hero-dental-overlay{background:linear-gradient(90deg,color-mix(in srgb, var(--theme-page) 98.04%, transparent) 0%,color-mix(in srgb, var(--theme-page) 94.12%, transparent) 35%,color-mix(in srgb, var(--theme-page) 49.02%, transparent) 65%,color-mix(in srgb, var(--theme-page) 8.24%, transparent) 100%)}}
 @media(max-width:900px){.hero-background .hero-copy{max-width:470px;padding-top:55px}.hero-background .hero-grid{min-height:600px}.hero-background h1{font-size:57px}.hero-background .hero-description{font-size:13px;max-width:350px}.service-group>.treatment-card{flex-basis:300px;width:300px}}
-@media(max-width:760px){.hero-background .hero-grid{min-height:590px}.hero-background .hero-copy{padding:43px 0 25px;max-width:100%}.hero-background h1{font-size:clamp(36px,10.6vw,51px);line-height:1.22}.hero-background .hero-description{font-size:13px;max-width:320px;line-height:1.95}.hero-background .hero-bottom{height:65px;gap:9px;align-items:center}.hero-background .hero-location{font-size:8px;gap:4px;padding:5px 8px}.hero-background .hero-assurance{margin-top:32px}.hero-dental-backdrop img{object-position:59% center}.hero-dental-overlay{background:linear-gradient(90deg,#fff9fbf7,#fff9fbe8 42%,#fff9fbb8),linear-gradient(0deg,#fff9fbef,transparent 60%)}.service-group{gap:16px;padding-right:16px}.service-group>.treatment-card{flex-basis:280px;width:280px;min-height:410px}.services-track{animation-duration:210s}.service-group .treatment-card-content{padding:20px 21px 0}.service-group .treatment-card h3{font-size:19px}.service-group .card-learn{padding:22px 21px;font-size:11px}.review-track .google-review-card{padding:23px;min-height:355px}.google-review-author strong{font-size:13px}.google-review-avatar{width:34px;height:34px;font-size:12px}.google-review-card figcaption.google-review-header{gap:9px;margin-bottom:20px}.google-letter{font-size:22px}}
+@media(max-width:760px){.hero-background .hero-grid{min-height:590px}.hero-background .hero-copy{padding:43px 0 25px;max-width:100%}.hero-background h1{font-size:clamp(36px,10.6vw,51px);line-height:1.22}.hero-background .hero-description{font-size:13px;max-width:320px;line-height:1.95}.hero-background .hero-bottom{height:65px;gap:9px;align-items:center}.hero-background .hero-location{font-size:8px;gap:4px;padding:5px 8px}.hero-background .hero-assurance{margin-top:32px}.hero-dental-backdrop img{object-position:59% center}.hero-dental-overlay{background:linear-gradient(90deg,color-mix(in srgb, var(--theme-page) 96.86%, transparent),color-mix(in srgb, var(--theme-page) 90.98%, transparent) 42%,color-mix(in srgb, var(--theme-page) 72.16%, transparent)),linear-gradient(0deg,color-mix(in srgb, var(--theme-page) 93.73%, transparent),transparent 60%)}.service-group{gap:16px;padding-right:16px}.service-group>.treatment-card{flex-basis:280px;width:280px;min-height:410px}.services-track{animation-duration:210s}.service-group .treatment-card-content{padding:20px 21px 0}.service-group .treatment-card h3{font-size:19px}.service-group .card-learn{padding:22px 21px;font-size:11px}.review-track .google-review-card{padding:23px;min-height:355px}.google-review-author strong{font-size:13px}.google-review-avatar{width:34px;height:34px;font-size:12px}.google-review-card figcaption.google-review-header{gap:9px;margin-bottom:20px}.google-letter{font-size:22px}}
 @media(max-width:360px){.hero-background h1{font-size:35px}.hero-background .hero-grid{min-height:590px}.hero-background .hero-actions{gap:12px}.hero-background .hero-actions .button{font-size:10px;padding:15px 13px}}
 @media(prefers-reduced-motion:reduce){.services-track,.review-track{animation:none!important;transform:none!important}.service-group[aria-hidden],.review-group[aria-hidden]{display:none}}

@@ -1,36 +1,36 @@
 .tooth-journey{--care-progress:0;position:relative;background:transparent!important;border:0!important;scroll-margin-top:115px}
-.tooth-journey-panel{position:relative;width:100%;min-height:530px;background:#edf4f8;border:1px solid #d9e5e8;border-radius:31px;padding:29px 38px 24px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;overflow:hidden}
+.tooth-journey-panel{position:relative;width:100%;min-height:530px;background:var(--theme-sky);border:1px solid var(--theme-border);border-radius:31px;padding:29px 38px 24px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;overflow:hidden}
 .tooth-journey-heading{display:flex;justify-content:space-between;align-items:start;gap:35px}
-.tooth-journey-heading .eyebrow{font-size:11px;margin-bottom:10px;color:#66847c}
-.tooth-journey-heading h2{font-size:clamp(27px,2.7vw,38px);line-height:1.3;letter-spacing:-.045em;max-width:700px;color:#365b58}
-.tooth-journey-heading h2 em{color:#7a9b89}
+.tooth-journey-heading .eyebrow{font-size:11px;margin-bottom:10px;color:var(--theme-forest)}
+.tooth-journey-heading h2{font-size:clamp(27px,2.7vw,38px);line-height:1.3;letter-spacing:-.045em;max-width:700px;color:var(--theme-heading)}
+.tooth-journey-heading h2 em{color:var(--theme-forest)}
 .tooth-journey-instructions{max-width:270px;padding-top:4px;flex:0 0 270px}
-.tooth-journey-instructions p{font-size:12px;line-height:1.8;color:#6c827c}
-.tooth-journey-instructions a{font-size:10px;font-weight:650;color:#7a8e87;display:inline-block;margin-top:6px;padding:3px 0}
+.tooth-journey-instructions p{font-size:12px;line-height:1.8;color:var(--theme-muted)}
+.tooth-journey-instructions a{font-size:10px;font-weight:650;color:var(--theme-muted);display:inline-block;margin-top:6px;padding:3px 0}
 .tooth-journey-art{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px;isolation:isolate}
-.journey-tooth{position:relative;margin:0;text-align:center;padding:10px 15px 15px;background:#ffffffb8;border:1px solid #dce8e3;border-radius:20px;overflow:hidden}
+.journey-tooth{position:relative;margin:0;text-align:center;padding:10px 15px 15px;background:color-mix(in srgb, var(--theme-surface) 72.16%, transparent);border:1px solid var(--theme-border);border-radius:20px;overflow:hidden}
 .care-tooth-svg{display:block;width:100%;height:178px;overflow:visible}
-.tooth-body-art{filter:drop-shadow(0 9px 9px #53695b0c)}
+.tooth-body-art{filter:drop-shadow(0 9px 9px color-mix(in srgb, var(--theme-deep) 4.71%, transparent))}
 .tooth-healthy-enamel{opacity:var(--care-progress)}
 .tooth-concern-layer{opacity:calc(1 - var(--care-progress));transform:scale(calc(1 - var(--care-progress) * .15));transform-box:fill-box;transform-origin:center}
 .tooth-restoration-seam{opacity:calc(var(--care-progress) * .7)}
 .tooth-glint{opacity:0}.journey-tooth figcaption{display:flex;flex-direction:column;gap:3px;line-height:1.6}
-.journey-tooth figcaption strong{font-family:var(--heading-font);font-size:14px;font-weight:550;color:#42695d;letter-spacing:-.02em}
-.journey-tooth figcaption span{font-family:var(--body-font);font-size:10px;color:#8b8175}
-.tooth-journey[data-stage='2'] .journey-tooth figcaption span{color:#719582}
-.care-scan{position:absolute;z-index:2;left:0;right:0;top:0;height:45px;pointer-events:none;opacity:0;background:linear-gradient(0deg,transparent,#b0d8c73b,transparent);border-bottom:1px solid #8cbca569;will-change:transform}
+.journey-tooth figcaption strong{font-family:var(--heading-font);font-size:14px;font-weight:550;color:var(--theme-forest);letter-spacing:-.02em}
+.journey-tooth figcaption span{font-family:var(--body-font);font-size:10px;color:var(--theme-muted)}
+.tooth-journey[data-stage='2'] .journey-tooth figcaption span{color:var(--theme-forest)}
+.care-scan{position:absolute;z-index:2;left:0;right:0;top:0;height:45px;pointer-events:none;opacity:0;background:linear-gradient(0deg,transparent,color-mix(in srgb, var(--theme-mint-border) 23.14%, transparent),transparent);border-bottom:1px solid color-mix(in srgb, var(--theme-rose-strong) 41.18%, transparent);will-change:transform}
 .tooth-journey-footer{padding-top:0}
-.tooth-journey-stages{display:flex;align-items:center;justify-content:space-between;gap:15px;font-size:11px;color:#8a9d93}
+.tooth-journey-stages{display:flex;align-items:center;justify-content:space-between;gap:15px;font-size:11px;color:var(--theme-muted)}
 .tooth-journey-stages button{padding:5px 11px;border:1px solid transparent;border-radius:20px;transition:color .3s,background .3s,border-color .3s;line-height:1.5}
-.tooth-journey-stages .active{background:#ffffffb8;border-color:#d3e4d9;color:#517661;font-weight:650}
-.care-progress-track{height:2px;background:#dce7e2;border-radius:4px;overflow:hidden;margin:12px 0}
-.care-progress-fill{display:block;width:100%;height:100%;background:#8caf9b;transform:scaleX(0);transform-origin:left}
-.tooth-stage-caption{font-size:12px;color:#5f7c6b;line-height:1.7}
-.tooth-journey-note{font-size:10px;color:#85928b;line-height:1.8;margin-top:10px;max-width:1020px}
-.tooth-journey-note a{color:#64846e;font-weight:700}
+.tooth-journey-stages .active{background:color-mix(in srgb, var(--theme-surface) 72.16%, transparent);border-color:var(--theme-border);color:var(--theme-forest);font-weight:650}
+.care-progress-track{height:2px;background:var(--theme-mint);border-radius:4px;overflow:hidden;margin:12px 0}
+.care-progress-fill{display:block;width:100%;height:100%;background:var(--theme-primary);transform:scaleX(0);transform-origin:left}
+.tooth-stage-caption{font-size:12px;color:var(--theme-forest);line-height:1.7}
+.tooth-journey-note{font-size:10px;color:var(--theme-muted);line-height:1.8;margin-top:10px;max-width:1020px}
+.tooth-journey-note a{color:var(--theme-forest);font-weight:700}
 .journey-manual-controls{display:none;gap:10px;flex-wrap:wrap;margin:14px 0}
-.journey-manual-controls button{border:1px solid #bfd3c6;border-radius:10px;background:#fff;padding:9px 15px;font-size:12px;color:#4e725a;cursor:pointer}
-.journey-manual-controls button[aria-pressed=true]{background:#527c66;color:white;border-color:#527c66}
+.journey-manual-controls button{border:1px solid var(--theme-border);border-radius:10px;background:var(--theme-surface);padding:9px 15px;font-size:12px;color:var(--theme-forest);cursor:pointer}
+.journey-manual-controls button[aria-pressed=true]{background:var(--theme-deep);color:var(--theme-white);border-color:var(--theme-primary)}
 .tooth-journey[data-scroll-mode=manual] .journey-manual-controls{display:flex}
 .tooth-journey[data-scroll-mode=manual] .tooth-glint{opacity:var(--care-progress)}
 @media(min-width:1500px){.tooth-journey-panel{padding:34px 50px 28px;min-height:580px}.care-tooth-svg{height:205px}}
@@ -41,15 +41,15 @@
 
 
 /* Refinements for the reversible care scene. */
-.tooth-journey-panel{background:#fff0f5;border-color:#efd6e1;gap:18px}
-.tooth-journey-heading h2{color:#663a50}.tooth-journey-heading h2 em{color:#a45c7d}
-.tooth-journey-heading .eyebrow,.tooth-journey-instructions p{color:#815e70}.tooth-journey-instructions a{color:#874463}
-.journey-tooth{background:#fffafc;border-color:#eedce5}
-.tooth-journey-stages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:13px;color:#845d70;font-size:12px;font-weight:650}
-.tooth-journey-stages button{display:flex;justify-content:center;align-items:center;text-align:center;padding:10px 12px;border:1px solid #e7cbd8;background:#fff8fb;border-radius:12px;max-width:none}
-.tooth-journey-stages .active{background:#944661;color:#fff;border-color:#944661;box-shadow:0 3px 12px #94466118}
-.tooth-stage-caption{color:#765267}.tooth-journey-note{color:#806975}.tooth-journey-note a{color:#843e5b}
-.tooth-journey[data-stage='2'] .journey-tooth figcaption span{color:#587666}.journey-tooth figcaption strong{color:#72475e}
+.tooth-journey-panel{background:var(--theme-page);border-color:var(--theme-border);gap:18px}
+.tooth-journey-heading h2{color:var(--theme-heading)}.tooth-journey-heading h2 em{color:var(--theme-primary)}
+.tooth-journey-heading .eyebrow,.tooth-journey-instructions p{color:var(--theme-muted)}.tooth-journey-instructions a{color:var(--theme-primary)}
+.journey-tooth{background:var(--theme-page);border-color:var(--theme-border)}
+.tooth-journey-stages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:13px;color:var(--theme-muted);font-size:12px;font-weight:650}
+.tooth-journey-stages button{display:flex;justify-content:center;align-items:center;text-align:center;padding:10px 12px;border:1px solid var(--theme-border);background:var(--theme-page);border-radius:12px;max-width:none}
+.tooth-journey-stages .active{background:var(--theme-primary);color:var(--theme-surface);border-color:var(--theme-primary);box-shadow:0 3px 12px color-mix(in srgb, var(--theme-deep) 9.41%, transparent)}
+.tooth-stage-caption{color:var(--theme-muted)}.tooth-journey-note{color:var(--theme-muted)}.tooth-journey-note a{color:var(--theme-primary)}
+.tooth-journey[data-stage='2'] .journey-tooth figcaption span{color:var(--theme-forest)}.journey-tooth figcaption strong{color:var(--theme-primary)}
 @media(max-width:760px){
 .tooth-journey-panel{padding:19px 16px 17px;gap:13px;border-radius:23px;min-height:0}
 .tooth-journey-heading{gap:7px}.tooth-journey-heading .eyebrow{margin-bottom:6px;font-size:10px}.tooth-journey-heading h2{font-size:23px;line-height:1.25;max-width:100%}
@@ -59,5 +59,5 @@
 .tooth-stage-caption{font-size:10px;line-height:1.5}.tooth-journey-note{font-size:9px;line-height:1.6;margin-top:7px}
 }
 
-.tooth-journey-stages button{font:inherit;cursor:pointer;min-height:44px;transition:background .3s,color .3s,border-color .3s,box-shadow .3s}.tooth-journey-stages button:focus-visible{outline:3px solid #b67b97;outline-offset:3px}.tooth-journey-stages button:hover{border-color:#b87c98}.tooth-stage-caption{min-height:2.9em}.tooth-journey[data-scroll-mode=manual] .tooth-glint{opacity:var(--care-progress)}
+.tooth-journey-stages button{font:inherit;cursor:pointer;min-height:44px;transition:background .3s,color .3s,border-color .3s,box-shadow .3s}.tooth-journey-stages button:focus-visible{outline:3px solid var(--theme-rose-strong);outline-offset:3px}.tooth-journey-stages button:hover{border-color:var(--theme-rose-strong)}.tooth-stage-caption{min-height:2.9em}.tooth-journey[data-scroll-mode=manual] .tooth-glint{opacity:var(--care-progress)}
 @media(max-width:760px){.tooth-journey-stages button{font-size:10px;line-height:1.5;padding:7px 5px}.tooth-stage-caption{min-height:3em}.tooth-journey-heading h2{font-size:24px}.tooth-journey-instructions p{font-size:11px}}

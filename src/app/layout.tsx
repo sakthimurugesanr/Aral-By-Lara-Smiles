@@ -1,3 +1,4 @@
+import { brandTheme, brandThemeVariables } from '@/lib/brand-theme';
 import type { Metadata } from 'next';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
@@ -22,6 +23,7 @@ import './doctor-team.css';
 import './community-media.css';
 import './story-purpose.css';
 import './treatment-films.css';
+import './brand-theme.css';
 export const metadata: Metadata = {
  icons: { icon: '/images/lara-smiles-logo.png', apple: '/images/lara-smiles-logo.png' },
  metadataBase: new URL(site.url), title: { default:'ARAL by LARA SMILES | Thoughtful Dental Care in Tiruppur', template:'%s | ARAL by LARA SMILES' }, description:'Discover personalised dental care, clear aligners, restorative and cosmetic dentistry at ARAL by LARA SMILES in Tiruppur. Enquire about your first visit.',
@@ -29,5 +31,5 @@ export const metadata: Metadata = {
  robots:site.approved?{index:true,follow:true}:{index:false,follow:false},
 };
 export default function RootLayout({children}:{children:React.ReactNode}) {
- return <html lang="en"><head><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" /><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet" /></head><body><a href="#main" className="skip-link">Skip to content</a><Header /><SectionMotion /><main id="main">{children}</main><Footer /><BookingDrawer /></body></html>;
+ return <html lang="en" style={brandThemeVariables} data-brand-theme={brandTheme.name}><head><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" /><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet" /></head><body><a href="#main" className="skip-link">Skip to content</a><Header /><SectionMotion /><main id="main">{children}</main><Footer /><BookingDrawer /></body></html>;
 }
