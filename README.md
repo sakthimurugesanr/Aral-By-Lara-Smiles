@@ -133,7 +133,7 @@ The treatment catalog uses the 11 supplied clinical categories from `src/lib/tre
 
 ## Clinical credentials and technology
 
-The homepage includes a concise four-card section after clear aligner care, covering reported Invisalign systems, iTero scanning, the reported Precisalign partnership and practitioner licensing. Copy comes from supplied material, with explicit qualification that credentials, authorization, participating locations, equipment and individual registrations remain unverified. No certification badges or unrelated third-party images are used. The section renders as server HTML, uses the existing section entrance animation and reduced-motion handling, and needs no new dependencies or media downloads.
+The homepage includes three wide media rows after clear aligner care, covering reported Invisalign systems, digital scanning and the reported Precisalign partnership. The licensing card has been removed as requested. Copy comes from supplied material, with explicit qualification that credentials, authorization, participating locations, equipment and individual registrations remain unverified. No certification badges or unrelated third-party images are used. The section renders as server HTML, uses the existing section entrance animation and reduced-motion handling, and needs no new dependencies or media downloads.
 
 ## Reported brand milestones
 
@@ -170,3 +170,9 @@ The shared infinite rail supports hover-to-play on fine-pointer desktop devices,
 The Lara Rose palette is centralized in `src/lib/brand-theme.ts`. The same values generate server-rendered CSS variables and configure the MUI booking form. More than 600 legacy CSS color literals now reference shared semantic roles. `src/app/brand-theme.css` connects those roles across page surfaces, navigation, cards, footer, buttons, overlays, filters and shared illustration accents. See `THEME.md` for future changes. The logo and photographs preserve their supplied colors.
 
 Browser QA covered the desktop hero and booking drawer, mobile Our Story and treatment filters, and the tablet branch directory. No horizontal overflow was observed at the checked 390px, 820px and 1280px widths. Core text/button pairs, input boundaries and focus indicators passed the documented contrast checks. The theme uses existing fonts and adds no global client provider or new dependency.
+
+## Faded technology media and footer contacts
+
+The three technology rows use text on the left and hero-style faded media on the right. The supplied Invisalign educational video is compressed to a silent 640px MP4 and plays automatically only when visible. It has no native player chrome; a keyboard-focus-only pause control remains available. Reduced-motion visitors see its poster. A code-native digital-scanning illustration and a supplied clear-aligner photo illustrate the other rows without claiming actual branch equipment or a verified partnership. On mobile, the media sits above the text with a bottom fade.
+
+Run `node scripts/prepare-technology-media.mjs` to regenerate the prepared media from the local Assets copy, or pass an input path as its first argument. Footer contacts now list all eight locations and all 11 supplied branch phone numbers, with native tel links. The clear-aligner feature uses a light blush gradient and dark text, controlled by the existing shared theme. Browser checks confirmed muted playback without controls, offscreen pause, mobile card layout and contact links without horizontal overflow.

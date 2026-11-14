@@ -48,3 +48,7 @@ All 10 images in `src/Assets/team` are reproduced as optimized WebP files under 
 ## Additional treatment films
 
 Five files from the supplied `src/Assets/tratment` directory are exported to `public/videos/treatments` as compressed 480px/24fps H.264 MP4s with audio tracks and metadata removed. WebP posters load lazily. They appear in Moments of Care alongside the existing clinic films, with a visible note that the section includes treatment footage. Generic descriptive titles do not assert a specific diagnosis, outcome or patient identity.
+
+## Technology row media
+
+The user provided `How Does Invisalign Work_ _ The Dental House_720p.mp4` in Downloads and Assets and explicitly requested its use. Its complete video stream is compressed to `public/videos/technology/invisalign-explained.mp4` with audio and metadata removed; the poster is generated from that file. The original third-party film is presented as illustrative media, without claiming it depicts an ARAL clinic. `public/images/technology/clear-aligner.webp` comes from the supplied `Invisalign-clear-aligners.jpg`. The digital-scanning visual is an original code-native illustration, rather than a photograph of branch equipment.
