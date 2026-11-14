@@ -203,3 +203,9 @@ Production JavaScript across all generated chunks decreased from 1,486,290 to 1,
 The homepage neighbourhood section now uses a city filter and a selected-clinic panel instead of repeating full address cards. All eight supplied branches remain available, with their phone numbers, map-search/directions links and branch-filtered treatment links. Booking opens the existing drawer with the selected clinic prefilled. Bengaluru retains the exact-address confirmation note. The Contact page and full branch directory retain their existing layouts.
 
 The selector uses a two-column clinic grid and detail panel on larger screens, and swipeable city/clinic choices above the details on mobile. Buttons expose their selected state, focus styles and 44px targets; reduced-motion preferences disable decorative transitions. No map embed, geolocation, media download or additional library was introduced. Browser checks covered 320px, 390px, 820px and desktop widths, city filtering, phone details, treatment URLs and Gandhi Nagar booking preselection.
+
+## Custom illustrated milestones
+
+The homepage and Our Story milestone section share a redesigned founding feature and six editorial cards, with seven original inline SVG illustrations for the beginning, network, aligners, digital scanning, patient feedback, community and local identity. A plum feature, rose/blue/mint accents and three/two/one-column layouts replace the sticky sidebar list. Mobile cards align icons beside text, stacking at narrow widths. No client component, external icon asset or animation dependency was added. Existing reported/unverified credential, historical-rating and chronology qualifications remain visible.
+
+Browser checks covered 1440px, 820px, 390px and 320px layouts; all seven illustrations and six cards rendered, with no persistent horizontal overflow or clipped card text. The branch-directory link remains available.
