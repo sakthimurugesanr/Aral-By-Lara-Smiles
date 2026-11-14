@@ -6,7 +6,7 @@ const principles=[
  {title:'People before procedures',text:'A space to share your concerns, ask questions, and feel heard.'},
  {title:'A thoughtful way forward',text:'Explore modern treatment options, with advice grounded in your needs.'},
  {title:'Clarity at every step',text:'Understand your options, your care plan, and what comes next.'},
- {title:'Closer to your everyday',text:'Four neighbourhood locations across the Lara Smiles network in Tiruppur.'},
+ {title:'Closer to your everyday',text:'Eight listed Lara Smiles locations across Tamil Nadu and Karnataka.'},
 ];
 
 export function ApproachJourney(){

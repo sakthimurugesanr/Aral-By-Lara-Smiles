@@ -67,9 +67,9 @@ General treatment copy was checked against https://www.nhs.uk/live-well/healthy-
 
 ## Enhanced visual system
 
-Sky blue `#EAF4FB` and mint `#EDF5EF` complement the rose brand. The footer and top bar share plum `#6D3450` with light, readable text. All 12 services have optimised user-supplied photographs, configured in `src/lib/service-images.ts`, and individual process pages in `src/lib/treatment-details.ts`. Run `node scripts/prepare-clinic-assets.mjs` after replacing source files in `src/Assets`. The smile journey directory filters real care pathways rather than showing fabricated before/after results. Image sources and licensing are recorded in `ASSETS.md`.
+Sky blue `#EAF4FB` and mint `#EDF5EF` complement the rose brand. The footer and top bar share plum `#6D3450` with light, readable text. The original service photographs remain configured in `src/lib/service-images.ts` for later reuse; current treatment lists and detail pages use text. Treatment process copy is in `src/lib/treatment-details.ts`. Run `node scripts/prepare-clinic-assets.mjs` after replacing source files in `src/Assets`. The smile journey directory filters real care pathways rather than showing fabricated before/after results. Image sources and licensing are recorded in `ASSETS.md`.
 
-The homepage services loop horizontally at a gentle 22 pixels per second; all twelve treatments are included. The treatment directory retains a filterable grid. Google-style review cards scroll at 15 pixels per second. Both rails pause on hover, keyboard focus, touch interaction, an accessibility pause button, reduced-motion settings, off-screen visibility or a background tab. The accessibility button is hidden until focused, so there is no visible review toolbar. Duplicated cards are hidden from accessibility APIs. Every section has a once-only 1-second entrance; desktop smile photographs have bounded parallax, disabled on mobile and for reduced motion. The hero uses the supplied dental consultation image as a full-width background behind the text, with a responsive contrast overlay and no separate right-hand image panel.
+The homepage services loop horizontally at a gentle 22 pixels per second; all 35 treatment entries are included. The treatment directory retains a filterable grid. Google-style review cards scroll at 15 pixels per second. Both rails pause on hover, keyboard focus, touch interaction, an accessibility pause button, reduced-motion settings, off-screen visibility or a background tab. The accessibility button is hidden until focused, so there is no visible review toolbar. Duplicated cards are hidden from accessibility APIs. Every section has a once-only 1-second entrance; desktop smile photographs have bounded parallax, disabled on mobile and for reduced motion. The hero uses the supplied dental consultation image as a full-width background behind the text, with a responsive contrast overlay and no separate right-hand image panel.
 
 The infinite rails use native scroll positions, so service links remain clickable and keyboard scrolling works normally. Motion pauses while off screen, when the tab is hidden, on hover/focus, on interaction or when reduced motion is requested.
 
@@ -81,7 +81,7 @@ The desktop/tablet right-side booking tab opens a shadcn-style Radix Sheet with 
 
 Local shadcn-style component sources live in `src/components/ui` and follow the MIT-licensed Radix composition from shadcn/ui. MUI dropdown menus stay within the drawer to preserve focus handling. Clinic selection can open the same form with a branch preselected.
 
-The treatment search supports titles, categories and common terms including kids, RCT, invisible aligners and dental caps. Search results use a stable grid; clearing the query restores the twelve-service loop. The clinics directory presents selectable locations, a contextual map search, direct phone links and branch-specific booking. Homepage review previews are compact; full review wording remains on the reviews page.
+The treatment search supports titles, categories and common terms including kids, RCT, invisible aligners and dental caps. Search results use a stable grid; clearing the query restores the full service loop. The clinics directory presents selectable locations, a contextual map search, direct phone links and branch-specific booking. Homepage review previews are compact; full review wording remains on the reviews page.
 
 ## Reversible tooth-care scene
 
@@ -101,7 +101,7 @@ Headings use Manrope, with Nunito for body text. The comparison section sits dir
 
 The hero cycles through eight supplied headlines with blur/fade transitions, synchronized to a three-photo background sequence every seven seconds. Backgrounds crossfade over 1.5 seconds. Secondary photos load after initial rendering. A shared pause button controls both text and imagery; rotation stops offscreen, when the tab is hidden, or for reduced-motion preferences. The headline reserves vertical space to keep actions stable between quotes.
 
-The Welcome section now follows the services rail and uses the supplied infrastructure photograph. Service card photos use a taller 1.65 aspect ratio; homepage team image panels are 235px on desktop and 165px on mobile. Desktop film frames are 430px high, while the compact mobile film row remains unchanged. FAQ background is light blue.
+The Welcome section now follows the services rail and uses the supplied infrastructure photograph. homepage team image panels are 235px on desktop and 165px on mobile. Desktop film frames are 430px high, while the compact mobile film row remains unchanged. FAQ background is light blue.
 
 ## Connected ARAL approach
 
@@ -120,3 +120,9 @@ The privacy page heading and body share the same left edge. The comparison secti
 The treatment rail supports mouse/pen dragging, native touch swiping and keyboard Arrow/Home/End controls. Manual interaction pauses automatic movement; a visible control can resume it. Crossing the mouse drag threshold captures the pointer and suppresses the resulting click, while ordinary treatment clicks still navigate normally. Mouse dragging wraps across the duplicated service groups. The reviews rail keeps its existing behaviour.
 
 Mobile hides the header booking CTA and right-edge booking/contact tabs; bottom contact actions stay available. Desktop and tablet show a separate circular telephone link above WhatsApp. The Welcome photo has no logo/tag overlay and is the only image with square corners. It uses a responsive left-to-right entrance, with a static reduced-motion presentation. Its previous vertical image transform is removed.
+
+## Branch data and service availability
+
+Eight branch records in `src/lib/branches.ts` use the business information supplied for this update. Addresses, telephone links, team notes, source links and branch-specific treatment IDs share one data model. Ratings are labelled supplied snapshots; unconfirmed teams and the incomplete Bengaluru street address remain explicit. The directory changes its service list on branch selection; the treatment directory supports `?branch=slug`, search and category filters. All 35 treatment entries use text without photographs. Existing optimised image assets are retained for future use.
+
+The booking form filters treatment choices by clinic and resets an unsupported choice to consultation when the clinic changes. The shared Zod schema rejects unsupported branch/treatment combinations. All branches allow a general consultation. Supplied treatment lists are not real-time availability; visitors are asked to confirm with the clinic. Maps load only after an explicit request. Brand history is marked reported where supplied and has not been independently verified.

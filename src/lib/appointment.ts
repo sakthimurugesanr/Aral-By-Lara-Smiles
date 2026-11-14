@@ -11,5 +11,5 @@ export const appointmentSchema = z.object({
  message: z.string().trim().max(1000, 'Please keep your message under 1,000 characters.'),
  consent: z.boolean().refine(v=>v, 'Please consent so we can contact you.'),
  website: z.string().max(0),
-});
+}).refine(values=>values.treatment==='consultation'||!!branches.find(branch=>branch.slug===values.branch)?.treatments.includes(values.treatment),{path:['treatment'],message:'Choose a treatment listed at your selected clinic.'});
 export type AppointmentValues = z.infer<typeof appointmentSchema>;

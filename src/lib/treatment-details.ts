@@ -61,3 +61,5 @@ export const treatmentProcesses: Record<string, TreatmentStep[]> = {
   {title:'Provide appropriate initial care',text:'Treatment depends on the cause. Options and consent are discussed; an urgent visit may address the immediate problem rather than complete all treatment.'},
   {title:'Arrange follow-up care',text:'Your dentist explains what to watch for and whether further restorative treatment, monitoring or referral is needed.'}],
 };
+
+export const genericTreatmentProcess:TreatmentStep[]=[{title:"Discuss your concerns",text:"Share your goals and relevant dental history with the consulting team."},{title:"Understand your options",text:"Your dentist assesses suitability and explains the proposed care, alternatives, risks, timing and costs."},{title:"Plan care and follow-up",text:"Agree on the next steps and follow-up after discussing an individual plan with your dentist."}];
