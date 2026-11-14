@@ -138,3 +138,9 @@ The homepage includes a concise four-card section after clear aligner care, cove
 ## Reported brand milestones
 
 The homepage and Our Story page share a server-rendered milestones section. A plum founding-year panel sits beside six concise narrative entries; mobile uses one column. Only the reported 2023 founding is dated. The supplied branch expansion, aligner focus, digital planning, historical rating snapshots, community activities and local ARAL identity retain their verification qualifications. No ownership relationship, current event date, chain-wide provider certification or live review score is inferred. Existing section entrance and reduced-motion behavior apply without additional dependencies or media.
+
+## Branch-level doctors
+
+The homepage and Our Story page share the branch doctor section. `src/lib/doctors.ts` maps Dr. Abhishikth Suresh and Dr. Sendoor to Gandhi Nagar and Dr. Roshini to ARAL–Rakkiyapalayam, based on supplied public mentions. The other six locations display names not confirmed. Each named card links to branch details and a branch-preselected appointment enquiry. No unsupported qualifications or specialist titles are inferred.
+
+Portraits were unavailable and the user requested adding them later. Set each doctor’s `portrait` to a clinic-supplied public image path when ready; the image loads lazily with responsive sizes. Until then, explicit portrait placeholders show initials, without generic stock photographs or fabricated doctor images.

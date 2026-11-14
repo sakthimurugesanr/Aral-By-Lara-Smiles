@@ -53,7 +53,7 @@ export const treatments: Treatment[] = [
  {"slug":"pediatric-cavity-care","name":"Pediatric cavity care","category":"Pediatric dentistry","description":"Discuss your child’s dental concerns and the care options available after assessment.","detail":"Discuss your child’s dental concerns and the care options available after assessment. Your dentist will explain suitability, options, costs and follow-up after an individual assessment.","benefits":["An individual assessment","Options and alternatives explained","Care and follow-up planning"]}
 ];
 export function treatmentsForBranch(slug?:string){const branch=branches.find(item=>item.slug===slug);return branch?treatments.filter(item=>branch.treatments.includes(item.slug)):treatments}
-export const doctors = [{ name: 'Dr. Senthamil Selvi', initials: 'SS' }, { name: 'Dr. Roshini', initials: 'R' }];
+export { doctors } from './doctors';
 export const faqs = [
  { q: 'What is Invisalign?', a: 'Invisalign is a brand of clear aligners: removable trays that gradually move teeth under professional supervision. Your dentist can assess your suitability and explain available systems.' },
  { q: 'How long does clear aligner treatment take?', a: 'Timing varies with your bite, the movement needed and how consistently aligners are worn. Your dentist will discuss an estimated duration after assessment; individual results and timelines vary.' },
