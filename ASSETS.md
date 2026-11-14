@@ -32,3 +32,7 @@ The hero uses the supplied `src/Assets/bg-image.jpg`, cropped to a 1800×1150 We
 The Welcome image is the supplied `src/Assets/infrasstructure.jpg`, optimized to `public/images/infrastructure.webp`. The additional hero photograph is `src/Assets/bg-image-2.jpg`, identical to the attached clipboard photograph, optimized to `public/images/hero-care.webp`. These photographs retain the source rights of the supplied material.
 
 The three-tooth aligner illustration, including its smiling centre tooth, is original SVG artwork in `src/components/treatment-art.tsx` and is included in that file’s CC0 dedication. It uses no raster images or external requests.
+
+## Lara Smiles logo update
+
+`public/images/lara-smiles-logo.png` is the exact, unmodified 150 × 150 PNG supplied by the user for the header, footer and site icon. The CSS frame hides excess outer black space while preserving all visible lettering. No generated artwork or third-party logo is used.

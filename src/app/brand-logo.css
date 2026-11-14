@@ -1,0 +1,8 @@
+/* Preserve the supplied artwork; frame its unused outer black space in layout. */
+.brand-logo-frame{position:relative;display:block;flex:none;width:180px;height:58px;overflow:hidden;background:#090908;border-radius:8px}
+.brand .brand-logo-frame>.brand-logo{position:absolute;left:50%;top:50%;width:210px;height:210px;max-width:none;object-fit:contain;transform:translate(-52.3%,-52%);mix-blend-mode:normal;filter:none}
+.footer-brand{width:200px}
+.footer-brand .brand-logo-frame{width:200px;height:64px}
+.footer-brand .brand-logo-frame>.brand-logo{width:235px;height:235px}
+@media(max-width:1100px){.header .brand-logo-frame{width:160px;height:54px}.header .brand-logo-frame>.brand-logo{width:187px;height:187px}}
+@media(max-width:760px){.header .brand-logo-frame{width:150px;height:50px}.header .brand-logo-frame>.brand-logo{width:175px;height:175px}.footer-brand{width:180px}.footer-brand .brand-logo-frame{width:180px;height:58px}.footer-brand .brand-logo-frame>.brand-logo{width:210px;height:210px}}
