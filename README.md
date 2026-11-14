@@ -209,3 +209,9 @@ The selector uses a two-column clinic grid and detail panel on larger screens, a
 The homepage and Our Story milestone section share a redesigned founding feature and six editorial cards, with seven original inline SVG illustrations for the beginning, network, aligners, digital scanning, patient feedback, community and local identity. A plum feature, rose/blue/mint accents and three/two/one-column layouts replace the sticky sidebar list. Mobile cards align icons beside text, stacking at narrow widths. No client component, external icon asset or animation dependency was added. Existing reported/unverified credential, historical-rating and chronology qualifications remain visible.
 
 Browser checks covered 1440px, 820px, 390px and 320px layouts; all seven illustrations and six cards rendered, with no persistent horizontal overflow or clipped card text. The branch-directory link remains available.
+
+## Open milestones and Team & Awards mosaic
+
+Our Story now displays all ten unique supplied team/award images in a custom, lazy-loaded grid. Two larger lead photographs sit above the supporting images, with captions outside the frames; tablets use two columns, and mobile keeps lead images full-width above paired supporting photos. Images use contain fitting to preserve portraits and award details. The duplicated animated team rail has been removed.
+
+The shared milestone section now uses an open two-column, three-row icon-and-text layout without individual backgrounds, borders or card enclosures. The founding introduction is also unboxed. Tablet retains two columns and mobile stacks the six items. All reported-brand qualifications remain. Desktop, 820px, 390px and 320px browser checks confirmed the expected grid columns, ten unique photos, no clipped text or broken loaded images, and no persistent page overflow. Both changes render on the server without adding client JavaScript.
