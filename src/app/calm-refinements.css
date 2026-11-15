@@ -7,17 +7,22 @@
 .branch-doctor-card:nth-child(2) .branch-doctor-portrait{background:var(--theme-sky)}
 .branch-doctor-card:nth-child(3) .branch-doctor-portrait{background:var(--theme-mint)}
 .alternating-reviews{background:linear-gradient(130deg,var(--theme-rose),var(--theme-sky) 55%,var(--theme-mint))}
-#clear-aligner-care{background:var(--theme-rose)}
+#clear-aligner-care{background:var(--theme-mint)}
 #care .welcome-photo{border-radius:24px!important;overflow:hidden;isolation:isolate}
 #care .welcome-photo img{border-radius:inherit}
-.header,.topbar,.header .mobile-menu{background:var(--theme-deep);color:var(--theme-white)}
+.header,.header .mobile-menu{background:var(--theme-deep);color:var(--theme-white)}
+.topbar{background:var(--theme-surface);color:#171717;border-bottom:1px solid var(--theme-border)}
+.topbar :is(span,a){color:#171717}
 .header{backdrop-filter:none;border-bottom-color:var(--theme-deep)}
-.header :is(a,button),.header .desktop-nav a:is(:hover,[aria-current=page]),.topbar :is(span,a),.header .menu-toggle{color:var(--theme-white)}
+.header :is(a,button),.header .desktop-nav a:is(:hover,[aria-current=page]),.header .menu-toggle{color:var(--theme-white)}
 .header .mobile-menu a{color:var(--theme-white);border-color:var(--theme-on-dark-muted)}
 .header .header-book{border-color:var(--theme-on-dark-muted)}
 .aligner-visual .paired-tooth-visual{max-width:400px}
 .paired-tooth-visual .tooth-glow-star{filter:drop-shadow(0 0 7px var(--theme-focus));transform-box:fill-box;transform-origin:center}
 #success-stories,#moments-of-care{background:var(--theme-sky);padding-block:22px}
+#moments-of-care{border:2px solid var(--theme-white);border-radius:var(--section-radius);box-shadow:0 0 0 1px var(--theme-sky-border)}
+#moments-of-care .clinic-video-card{border:3px solid var(--theme-white);border-radius:18px;background:var(--theme-surface);overflow:hidden}
+#moments-of-care .clinic-video-frame{border-radius:14px 14px 0 0;overflow:hidden}
 #success-stories .success-scroll-photo{width:240px;height:300px;padding:0;border:0;border-radius:14px;background:transparent}
 #success-stories .community-section-heading{margin-bottom:18px}
 #brand-milestones .milestone-origin{grid-template-columns:160px minmax(0,1fr);align-items:start;gap:32px;background:none;padding:0 0 4px}
