@@ -14,3 +14,4 @@
 #care .welcome-consultation-grid p:not(.eyebrow){font-size:13px;line-height:1.7;margin-block:10px}
 #care .welcome-values{gap:8px;margin-block:16px}
 @media(max-width:760px){#care .welcome-consultation-grid{gap:22px}#care .welcome-consultation-grid h2{font-size:28px}#care .welcome-values{flex-wrap:wrap}}
+.scroll-success-section[data-gallery-mode=manual] .success-scroll-window{scroll-snap-type:x proximity;touch-action:pan-x pan-y}.success-scroll-photo{scroll-snap-align:start}.scroll-success-section[data-gallery-mode=manual] .success-gallery-continue,.scroll-success-section[data-gallery-mode=manual] .success-scroll-hint{display:none}

@@ -225,3 +225,9 @@ Search and branch controls use MUI TextFields with the shared brand palette, acc
 Connected by care now uses a founder portrait, clear founding/head-office/contact details and network reach in an editorial layout. It participates in the existing reduced-motion-aware native section entrance animation. The mobile right-side booking tab opens the existing drawer with a 44px hit area. Desktop WhatsApp is a round, green phone-bubble button; its colors are configurable as whatsapp and whatsappHover in the shared theme. Mobile bottom contact navigation remains available.
 
 Browser verification covered search and MUI branch selection, a photo detail page and digital illustration detail page, the mobile booking drawer, the green 56px round WhatsApp button, and 320px/390px/820px/desktop widths without persistent overflow. No new package or remote image dependency was added.
+
+## Desktop-only scroll-driven success stories
+
+The success gallery now enables GSAP pinning only at 1100 CSS pixels and above with hover and fine-pointer input, and only when the complete section fits the viewport. Phones, tablets, touch-first devices and reduced-motion visitors use the normal horizontal slider with touch/drag, keyboard and Previous/Next controls. Native proximity snapping is enabled in manual mode; the desktop scroll hint and Continue page control are hidden there.
+
+The gallery defers GSAP loading until an eligible desktop layout approaches the section. Media-query listeners start the scene when entering desktop mode and remove pinning when leaving it. Layout-effect cleanup is retained for safe client navigation. Browser checks verified manual mode at 390px and tablet width, desktop pinning at 1231px, pin removal when resizing to tablet, and tablet slider movement without changing the page scroll position. This shared component updates Home and Our Story.
