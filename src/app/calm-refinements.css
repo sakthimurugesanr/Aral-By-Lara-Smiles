@@ -1,5 +1,6 @@
 /* Calm surfaces, with the soft multicolour treatment reserved for reviews. */
-#neighbourhood,.directory-intro,.page-intro{background:var(--theme-surface)}
+#neighbourhood,.directory-intro{background:var(--theme-surface)}
+.page-intro{background:var(--theme-rose)}
 #neighbourhood .neighbourhood-detail,#neighbourhood .neighbourhood-option{background:var(--theme-surface);border-color:var(--theme-border)}
 #neighbourhood .neighbourhood-option[aria-pressed=true]{background:var(--theme-rose);border-color:var(--theme-primary)}
 .directory-reach{background:var(--theme-sky)}
