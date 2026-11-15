@@ -1,0 +1,51 @@
+/* Calm surfaces, with the soft multicolour treatment reserved for reviews. */
+#neighbourhood,.directory-intro,.page-intro{background:var(--theme-surface)}
+#neighbourhood .neighbourhood-detail,#neighbourhood .neighbourhood-option{background:var(--theme-surface);border-color:var(--theme-border)}
+#neighbourhood .neighbourhood-option[aria-pressed=true]{background:var(--theme-rose);border-color:var(--theme-primary)}
+.directory-reach{background:var(--theme-sky)}
+.branch-doctor-portrait{background:var(--theme-rose)}
+.branch-doctor-card:nth-child(2) .branch-doctor-portrait{background:var(--theme-sky)}
+.branch-doctor-card:nth-child(3) .branch-doctor-portrait{background:var(--theme-mint)}
+.alternating-reviews{background:linear-gradient(130deg,var(--theme-rose),var(--theme-sky) 55%,var(--theme-mint))}
+#clear-aligner-care{background:var(--theme-rose)}
+#care .welcome-photo{border-radius:24px!important;overflow:hidden;isolation:isolate}
+#care .welcome-photo img{border-radius:inherit}
+.header,.topbar,.header .mobile-menu{background:var(--theme-deep);color:var(--theme-white)}
+.header{backdrop-filter:none;border-bottom-color:var(--theme-deep)}
+.header :is(a,button),.header .desktop-nav a:is(:hover,[aria-current=page]),.topbar :is(span,a),.header .menu-toggle{color:var(--theme-white)}
+.header .mobile-menu a{color:var(--theme-white);border-color:var(--theme-on-dark-muted)}
+.header .header-book{border-color:var(--theme-on-dark-muted)}
+.aligner-visual .paired-tooth-visual{max-width:400px}
+.paired-tooth-visual .tooth-glow-star{filter:drop-shadow(0 0 7px var(--theme-focus));transform-box:fill-box;transform-origin:center}
+#success-stories,#moments-of-care{background:var(--theme-sky);padding-block:22px}
+#success-stories .success-scroll-photo{width:240px;height:300px;padding:0;border:0;border-radius:14px;background:transparent}
+#success-stories .community-section-heading{margin-bottom:18px}
+#brand-milestones .milestone-origin{grid-template-columns:160px minmax(0,1fr);align-items:start;gap:32px;background:none;padding:0 0 4px}
+#brand-milestones .milestone-origin-date{align-items:start}
+#brand-milestones .milestone-year{margin:10px 0 0;font-size:62px;line-height:1}
+#brand-milestones .milestone-year time{background:none;color:var(--theme-primary)}
+#brand-milestones .milestone-origin-label{color:var(--theme-muted);line-height:1.7}
+#brand-milestones .milestone-origin h3{font-size:26px;line-height:1.35;margin:0 0 7px;color:var(--theme-heading)}
+#brand-milestones .milestone-origin-copy>.milestone-origin-subtitle{font-size:14px;font-weight:700;line-height:1.8;color:var(--theme-primary);margin:0 0 12px}
+#brand-milestones .milestone-origin-copy>.milestone-origin-description{font-size:12px;line-height:1.9;max-width:570px;color:var(--theme-ink);margin:0}
+.clinic-map-heading{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:24px;margin-bottom:10px}
+.clinic-map-heading h3{font-size:18px;line-height:1.5;margin:0}
+.clinic-map-heading .clinic-map-toggle{margin:0;min-height:44px;font-size:11px}
+.modern-clinics-page .clinic-map{height:250px;min-height:0;border-radius:15px;overflow:hidden;margin:0}
+.modern-clinics-page .clinic-map iframe{height:100%;min-height:0;width:100%;border:0;display:block}
+@media(max-width:1099px){#success-stories .success-scroll-photo{width:230px;height:280px}}
+@media(max-width:760px){
+ #care .welcome-photo{border-radius:20px!important}
+ .aligner-visual .paired-tooth-visual{max-width:270px}
+ #success-stories,#moments-of-care{padding-block:20px}
+ #success-stories .success-scroll-photo{width:min(68vw,250px);height:250px}
+ #brand-milestones .milestone-origin{grid-template-columns:minmax(0,1fr);gap:18px;padding:0}
+ #brand-milestones .milestone-origin-date{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:18px}
+ #brand-milestones .milestone-year{grid-column:1;grid-row:1;font-size:48px;margin:0}
+ #brand-milestones .milestone-origin-label{grid-column:2;grid-row:1;font-size:10px;max-width:110px}
+ #brand-milestones .milestone-origin h3{font-size:23px}
+ #brand-milestones .milestone-origin-copy>.milestone-origin-subtitle{font-size:13px;margin-bottom:10px}
+ .modern-clinics-page .clinic-map{height:230px}
+ .clinic-map-heading h3{font-size:16px}
+ .directory-reach{background:none}
+}

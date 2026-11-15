@@ -16,7 +16,7 @@ Open **`src/lib/brand-theme.ts`** to change the theme. This is the shared config
 | `surface` | `#FFFFFF` | Cards and form surfaces |
 | `ink`, `muted` | See configuration | Main and supporting text |
 | `sky`, `mint` | See configuration | Supporting blue and green surfaces |
-| `gradientRose`, `gradientSky`, `gradientMint` | See configuration | Stronger multi-color section gradients |
+| `gradientRose`, `gradientSky`, `gradientMint` | See configuration | Optional stronger accents; current reviews use the lighter rose/sky/mint tokens |
 | `controlBorder`, `focus` | See configuration | Input boundaries and keyboard focus |
 
 1. Edit the existing color values using six-digit hex colors. Keep the property names.
@@ -34,3 +34,5 @@ Core text/button color pairs were checked at a minimum of 4.5:1. Keyboard focus 
 
 Section labels use Comfortaa through `brandTheme.fonts.label` / `--theme-font-label`. Main headings use brandTheme.fonts.heading (Manrope); supporting text uses brandTheme.fonts.body (Comfortaa). Update the Google Fonts URL in `src/app/layout.tsx` alongside any new font-family choice.
 
+
+Current surface overrides live in src/app/calm-refinements.css. Multicolour backgrounds are limited to light reviews. Neighbourhood and network intros are white; success stories and video moments share sky. The header uses deep like the footer, with white text scoped to the header. Photo fade masks are retained.

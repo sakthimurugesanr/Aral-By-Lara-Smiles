@@ -10,13 +10,13 @@ const cities=['All cities',...new Set(branches.map(branch=>branch.city))];
 export function ClinicDirectory(){
  const [selected,setSelected]=useState(branches[0].slug);
  const [city,setCity]=useState('All cities');
- const [showMap,setShowMap]=useState(false);
+ const [showMap,setShowMap]=useState(true);
  const detail=useRef<HTMLDivElement>(null);
- useEffect(()=>{const sync=()=>{const slug=window.location.hash.slice(1);if(branches.some(b=>b.slug===slug)){setSelected(slug);setCity('All cities');setShowMap(false)}};sync();window.addEventListener('hashchange',sync);return()=>window.removeEventListener('hashchange',sync)},[]);
+ useEffect(()=>{const sync=()=>{const slug=window.location.hash.slice(1);if(branches.some(b=>b.slug===slug)){setSelected(slug);setCity('All cities');setShowMap(true)}};sync();window.addEventListener('hashchange',sync);return()=>window.removeEventListener('hashchange',sync)},[]);
  const branch=branches.find(b=>b.slug===selected)!;
  const services=treatmentsForBranch(branch.slug);
  const visible=branches.filter(b=>city==='All cities'||b.city===city);
- const choose=(slug:string,move=false)=>{setSelected(slug);setShowMap(false);window.history.replaceState(window.history.state,'',`#${slug}`);if(move&&matchMedia('(max-width:760px)').matches)requestAnimationFrame(()=>detail.current?.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'instant':'smooth'}))};
+ const choose=(slug:string,move=false)=>{setSelected(slug);setShowMap(true);window.history.replaceState(window.history.state,'',`#${slug}`);if(move&&matchMedia('(max-width:760px)').matches)requestAnimationFrame(()=>detail.current?.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'instant':'smooth'}))};
  const chooseCity=(value:string)=>{setCity(value);if(value!=='All cities'&&branch.city!==value)choose(branches.find(b=>b.city===value)!.slug)};
  const book=()=>window.dispatchEvent(new CustomEvent('aral:book',{detail:{branch:branch.slug}}));
  return <div className="clinic-directory network-directory">
@@ -33,12 +33,12 @@ export function ClinicDirectory(){
     <p className="clinic-full-address">{branch.address}</p>{branch.addressNote&&<p className="clinic-address-note">{branch.addressNote}</p>}
     <div className="clinic-phone-list">{[branch.phone,...(branch.otherPhones||[])].map(phone=><a key={phone} href={'tel:'+phone.replace(/\s/g,'')} className="clinic-direct-phone" aria-label={`Call ${branch.name} on ${phone}`}><Phone size={17}/>{phone}</a>)}</div>
     <div className="clinic-detail-actions"><Button onClick={book}>Request an appointment</Button><Button variant="outline" asChild><a href={mapUrl(branch)} target="_blank" rel="noopener noreferrer">{branch.incompleteAddress?'Search clinic area':'Get directions'}</a></Button></div>
+    <div className="clinic-map-heading"><h3>Find us in {branch.city}</h3><button type="button" className="clinic-map-toggle" onClick={()=>setShowMap(value=>!value)} aria-expanded={showMap} aria-controls="branch-map">{showMap?'Hide map search':'Show map search'}</button></div>
+   {showMap&&<div className="clinic-map" id="branch-map"><iframe key={branch.slug} title={`Map search for ${branch.brand}, ${branch.name}, ${branch.city}`} src={`https://maps.google.com/maps?q=${encodeURIComponent(branchMapQuery(branch))}&output=embed`} loading="lazy" referrerPolicy="no-referrer-when-downgrade"/></div>}
     <section className="clinic-branch-services" aria-labelledby="branch-services-title" key={branch.slug}><div className="branch-services-heading"><h3 id="branch-services-title">Care at this clinic</h3><span>{services.length} listed services</span></div><p>Your dentist will confirm current availability and suitability at consultation.</p><ul>{services.map(t=><li key={t.slug}><Link prefetch={false} href={`/treatments/${t.slug}?branch=${branch.slug}`}>{branch.serviceLabels?.[t.slug]||t.name}</Link></li>)}</ul><Link className="clinic-service-directory" href={`/treatments?branch=${branch.slug}`}>Explore this branch’s treatment directory</Link></section>
     <div className="clinic-meta-grid"><div className="clinic-team-note"><h3>Your dental team</h3><p>{branch.teamNote}</p></div>{branch.rating&&<div className="clinic-rating"><strong>{branch.rating.score.toFixed(1)} / 5</strong><span>{branch.rating.count} Google ratings</span><small>Supplied rating snapshot; not a live feed.</small></div>}</div>
     <nav className="clinic-source-links" aria-label="Supplied branch sources">{branch.sources.map(source=><a href={source.url} key={source.url} target="_blank" rel="noopener noreferrer">{source.label}</a>)}</nav>
-    <button type="button" className="clinic-map-toggle" onClick={()=>setShowMap(value=>!value)} aria-expanded={showMap} aria-controls="branch-map">{showMap?'Hide map search':'Show map search'}</button>
    </div>
-   {showMap&&<div className="clinic-map" id="branch-map"><iframe key={branch.slug} title={`Map search for ${branch.brand}, ${branch.name}, ${branch.city}`} src={`https://maps.google.com/maps?q=${encodeURIComponent(branchMapQuery(branch))}&output=embed`} loading="lazy" referrerPolicy="no-referrer-when-downgrade"/></div>}
    <p className="clinic-visit-note">Branch details and service lists are based on the information supplied for this website. Call before travelling to confirm the location, opening hours and consulting team.</p>
   </div>
  </div>;

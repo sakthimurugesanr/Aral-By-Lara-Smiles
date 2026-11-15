@@ -11,11 +11,11 @@ export function TreatmentArt({ slug, className = '' }: Props) {
 
 export function ToothLineArt() {
  const outline = 'M90 48C65 28 28 33 25 68C20 98 42 126 48 161C54 197 60 223 72 223C84 223 80 170 90 151C100 170 96 223 108 223C120 223 126 197 132 161C138 126 160 98 155 68C152 33 115 28 90 48Z';
- return <div className="tooth-line-visual single-tooth-visual">
-  <svg viewBox="0 0 560 360" fill="none" role="img" aria-label="Single dental tooth outline with slight left tilt">
-   <g data-aligner-tooth data-angle="-12" transform="translate(280 180) rotate(-12) scale(1.6) translate(-90 -128)">
-    <path className="single-tooth-outline" d={outline} fill="none" stroke="var(--theme-primary)" strokeWidth="2.5" vectorEffect="non-scaling-stroke" strokeLinecap="round" strokeLinejoin="round"/>
-   </g>
+ return <div className="tooth-line-visual single-tooth-visual paired-tooth-visual">
+  <svg viewBox="0 0 560 360" fill="none" role="img" aria-label="Two outlined teeth with a smiling front tooth and a glowing star above">
+   <g data-aligner-tooth data-angle="-15" transform="translate(190 180) rotate(-15) scale(1.12) translate(-90 -128)"><path className="single-tooth-outline" d={outline} stroke="var(--theme-primary)" opacity=".5" strokeWidth="2.5" vectorEffect="non-scaling-stroke" strokeLinecap="round" strokeLinejoin="round"/></g>
+   <g data-aligner-tooth data-angle="7" transform="translate(325 178) rotate(7) scale(1.3) translate(-90 -128)"><path className="single-tooth-outline" d={outline} fill="var(--theme-surface)" stroke="var(--theme-primary)" strokeWidth="2.5" vectorEffect="non-scaling-stroke" strokeLinecap="round" strokeLinejoin="round"/><g stroke="var(--theme-primary)" strokeWidth="2.5" strokeLinecap="round"><path d="M61 90q6-8 12 0M107 90q6-8 12 0M72 106q18 22 36 0"/></g></g>
+   <path className="tooth-glow-star" d="M398 13L402 26L415 30L402 34L398 47L394 34L381 30L394 26Z" fill="var(--theme-primary)"/>
   </svg>
   <p>A healthy foundation.<strong>A smile that’s yours.</strong></p>
  </div>;
