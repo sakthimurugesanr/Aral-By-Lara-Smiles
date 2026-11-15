@@ -30,3 +30,5 @@ For a future full palette change, update the primary, hover, heading, deep, page
 Logo artwork and photographs retain their supplied image colors. The Google letter mark retains its brand colors; the WhatsApp contact button follows the shared primary color. The current Manrope and Nunito font assets remain in use; loading different font families requires updating the corresponding font assets or font links as well.
 
 Core text/button color pairs were checked at a minimum of 4.5:1. Keyboard focus and input boundaries were checked at a minimum of 3:1. Recheck contrast when choosing a new palette.
+
+Section labels use Comfortaa through `brandTheme.fonts.label` / `--theme-font-label`. Main headings and body retain their existing font roles. Update the Google Fonts URL in `src/app/layout.tsx` alongside any new font-family choice.

@@ -32,7 +32,7 @@ export const brandTheme = {
   whatsappHover: '#0B753C',
  },
  shape: { section: 28, card: 18, control: 12 },
- fonts: { heading: "'Manrope', Arial, sans-serif", body: "'Nunito', Arial, sans-serif" },
+ fonts: { heading: "'Manrope', Arial, sans-serif", body: "'Nunito', Arial, sans-serif", label: "'Comfortaa', 'Nunito', sans-serif" },
 } as const;
 
 // Server-rendered variables prevent a theme flash and require no client provider.
@@ -45,4 +45,5 @@ export const brandThemeVariables = {
  '--theme-radius-control': `${brandTheme.shape.control}px`,
  '--theme-font-heading': brandTheme.fonts.heading,
  '--theme-font-body': brandTheme.fonts.body,
+ '--theme-font-label': brandTheme.fonts.label,
 } as CSSProperties;

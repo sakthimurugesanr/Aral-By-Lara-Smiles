@@ -83,9 +83,10 @@ export function SuccessStories() {
    onPointerUp={()=>{gesture.current=null}} onPointerCancel={()=>{gesture.current=null}} onDragStart={event=>event.preventDefault()}
    onWheel={event=>{if(Math.abs(event.deltaX)>Math.abs(event.deltaY))manual.current=true}}
    onKeyDown={event=>{if(event.target===event.currentTarget&&['ArrowLeft','ArrowRight','Home','End'].includes(event.key)){event.preventDefault();if(event.key==='ArrowLeft'||event.key==='ArrowRight')move(event.key==='ArrowLeft'?-1:1);else{manual.current=true;event.currentTarget.scrollTo({left:event.key==='Home'?0:distance(),behavior:'auto'})}}}}>
-   <div className="success-scroll-track">{stories.map(story=><figure className="success-scroll-photo" key={story.slug}><Image src={story.src} alt={story.alt} width={story.width} height={story.height} sizes="(max-width:760px) 78vw, 380px" loading="lazy" decoding="async" draggable={false}/></figure>)}</div>
+   <div className="success-scroll-track">{stories.map(story=><figure className="success-scroll-photo" key={story.slug}><Image src={story.src} alt={story.alt} width={story.width} height={story.height} sizes="(max-width:760px) 72vw, (max-width:1099px) 290px, 310px" loading="lazy" decoding="async" draggable={false}/></figure>)}</div>
   </div>
   <div className="success-gallery-controls"><span><span className="success-scroll-hint">Scroll to explore · </span>Swipe to browse</span><div><button type="button" onClick={()=>move(-1)} aria-label="Previous success photograph">Previous</button><button type="button" onClick={()=>move(1)} aria-label="Next success photograph">Next</button><button type="button" className="success-gallery-continue" onClick={()=>{const section=root.current;if(!section)return;const t=trigger.current;window.scrollTo({top:t?t.end+section.offsetHeight:section.getBoundingClientRect().bottom+scrollY,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'})}}>Continue page</button></div></div>
   <p className="community-media-note">Clinic-supplied photographs. Individual treatment outcomes vary.</p>
  </div></section>;
 }
+

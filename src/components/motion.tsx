@@ -20,11 +20,16 @@ export function SectionMotion() {
    if(preference.matches)return;
    observer=new IntersectionObserver(entries=>{for(const entry of entries){if(!entry.isIntersecting)continue;
     const content=entry.target.querySelector(':scope > .container')||entry.target;
-    if(typeof content.animate==='function'){
-     const distance=entry.target.id==='care'?0:innerWidth<=760?12:16;
-     const animation=content.animate([{opacity:.86,transform:`translateY(${distance}px)`},{opacity:1,transform:'translateY(0)'}],{duration:innerWidth<=760?700:850,easing:'cubic-bezier(.22,1,.36,1)',fill:'none'});
+    const heading=content.querySelector(':scope > .section-top, :scope > .community-section-heading, :scope > .branch-doctor-heading, :scope > .clinical-technology-heading, :scope > .brand-milestones-heading');
+    const grid=content.querySelector('.branch-doctor-grid, .clinical-technology-grid, .brand-milestone-list, .team-mosaic-lead, .mission-vision-grid, .neighbourhood-options');
+    const cards=grid?Array.from(grid.children).slice(0,6):[];
+    const targets=heading&&cards.length?[heading,...cards]:[content];
+    targets.forEach((target,index)=>{
+     if(typeof target.animate!=='function')return;
+     const distance=entry.target.id==='care'?0:innerWidth<=760?10:16;
+     const animation=target.animate([{opacity:.82,transform:`translateY(${distance}px)`},{opacity:1,transform:'translateY(0)'}],{duration:innerWidth<=760?650:800,delay:Math.min(index*55,220),easing:'cubic-bezier(.22,1,.36,1)',fill:'none'});
      animations.add(animation);animation.onfinish=()=>animations.delete(animation);animation.oncancel=()=>animations.delete(animation);
-    }
+    });
     observer?.unobserve(entry.target);
    }},{threshold:0,rootMargin:'0px 0px -36px 0px'});
    document.querySelectorAll('main>section:not(.hero):not([data-scroll-scene]), main>.care-strip, main [data-section-motion]').forEach(section=>observer!.observe(section));
