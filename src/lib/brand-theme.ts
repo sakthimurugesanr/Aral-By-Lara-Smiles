@@ -30,9 +30,12 @@ export const brandTheme = {
   danger: '#A33E54',
   whatsapp: '#128C4A',
   whatsappHover: '#0B753C',
+  gradientRose: '#F3C0DB',
+  gradientSky: '#CEE3F9',
+  gradientMint: '#C7E8D6',
  },
  shape: { section: 28, card: 18, control: 12 },
- fonts: { heading: "'Manrope', Arial, sans-serif", body: "'Nunito', Arial, sans-serif", label: "'Comfortaa', 'Nunito', sans-serif" },
+ fonts: { heading: "'Manrope', Arial, sans-serif", body: "'Comfortaa', Arial, sans-serif", label: "'Comfortaa', Arial, sans-serif" },
 } as const;
 
 // Server-rendered variables prevent a theme flash and require no client provider.

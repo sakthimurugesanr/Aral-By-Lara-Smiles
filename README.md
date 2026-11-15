@@ -242,3 +242,11 @@ Team & Awards uses two lead images followed by a natural-height masonry grid. Al
 
 SectionMotion now provides bounded native entrance staggering for headings and up to six items, with reduced-motion cancellation and GSAP scenes excluded. Home now flows from welcome and treatments to expertise, people, results, reviews, locations, FAQs and the final conversation CTA. Our Story places brand milestones before the team and photo galleries. No new package or analytics integration was added. Browser verification covered desktop, tablet, 390px and 320px layouts.
 
+
+## Hero font pairing and location outlines
+
+The hero pairing now applies throughout the site: Comfortaa for body/supporting text, section labels, navigation, controls and footer text, with Manrope headings. The obsolete Nunito Google Fonts request was removed. MUI forms and filters read the same shared font role. The founding heading now includes a proper text-space between its phrases; the founder’s name is emphasized without changing the reported founding claim.
+
+The neighbourhood section replaces the large generic pin/concentric circles and selection dots with original outline markers, including a tooth within the main clinic marker. Directions use the matching compact outline. Richer pink, blue and mint gradients use three new shared theme colors. Supporting text is darkened on these surfaces; ink/primary-hover text against each gradient color passed 4.5:1, with the lowest checked ratio 5.55:1. Reviews and the directory introduction share the richer gradient accents.
+
+Browser checks verified the computed font roles in the hero, header, footer and form; eight clinic choices; 320px, 390px, tablet and desktop layouts; the unbroken mobile clinic name; wrapped action text; the compact booking label and drawer; and the corrected founding heading without clipping. No external icon asset, extra font family beyond the selected pair, or new JavaScript dependency was added.
